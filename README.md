@@ -8,7 +8,7 @@ This module is part of the larger Python programming course offered by St. Ignat
 
 [Course Repository: Comprehensive Python Course](https://github.com/YuriODev/St-Ignatius-Python-Course)
 
-➡️ [Previous Topic: Conditional Statements](https://github.com/YuriODev/python-st-ignatius-02-simple-conditional-statements/blob/main/README.md)
+⬅️  [Previous Topic: Conditional Statements](https://github.com/YuriODev/python-st-ignatius-02-simple-conditional-statements/blob/main/README.md)
 
 ➡️ [Next Topic: String Manipulation](https://github.com/YuriODev/python-st-ignatius-04-string-manipulation/blob/main/README.md)
 
