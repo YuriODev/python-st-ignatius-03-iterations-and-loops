@@ -237,28 +237,10 @@ The problem tests the ability to use loops and conditional statements to print a
 The exercises provided range from understanding conditional statements to implementing complex branching logic. Here's a summary of the exercises ordered by difficulty, starting with the easiest and moving to more challenging problems.
 
 ## Easy 😊
-1. **Exercise 1: Older Person** - Teaches basic comparison using conditional statements.
-2. **Exercise 2: Age Group Classification** - Implements conditional logic to classify age groups.
-3. **Exercise 4: School Grade Levels** - Uses conditionals to match school grades with their corresponding levels.
-4. **Exercise 6: Distance from Origin** - Engages with geometric concepts and coordinate systems to determine distances.
-5. **Exercise 8: Digit in Number** - Focuses on determining the presence of a digit within a number.
-6. **Exercise 9: Compare Digits** - Compares the sum of specific digits against a single digit within a number.
-7. **Exercise 11: Leap Year** - Applies rules to determine whether a year is a leap year or not.
-8. **Exercise 12: Replace Even Digits** - Replaces even digits within a number using conditional checks.
-9. **Exercise 13: Different Digits** - Tests for uniqueness among the digits of a number.
-10. **Exercise 14: Palindrome Number** - Checks whether a number is a palindrome.
 
 ## Medium 🔥
-1. **Exercise 3: Roulette Color Prediction** - Involves more complex conditions for determining roulette colors.
-2. **Exercise 5: Quadratic Equation Roots** - Solves a quadratic equation, handling different discriminant cases.
-3. **Exercise 7: Simple Calculator** - Implements a calculator that performs various arithmetic operations.
-4. **Exercise 10: Right-Angled Triangle** - Determines if a triangle is right-angled using coordinates.
-5. **Exercise 15: Next Day's Date** - Calculates the date of the following day.
-6. **Exercise 16: Previous Day's Date** - Calculates the date of the previous day.
-7. **Exercise 17: Lucky Ticket** - Uses digit manipulation to determine if a ticket number is lucky.
 
 ## Hard 🥵
-1. **Exercise 18: Greeting Decision** - Tests complex branching logic with multiple decision paths, based on a decision tree.
 
 Each exercise is designed to challenge different aspects of problem-solving, from simple arithmetic to complex logical reasoning. The estimated completion time for the exercises ranges from 5 minutes for the simplest tasks to 25 minutes for the most complex ones. This gives an average expected time of approximately 10-15 minutes per exercise, depending on the student's prior knowledge and experience.
 
