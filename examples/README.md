@@ -740,22 +740,7 @@ print(count)
 
 </details>
 
-## Problem 27
-
-Послідовність складається з натуральних чисел і завершується числом 0. Визначте, скільки елементів цієї послідовності рівні її найбільшому елементу. Вводиться послідовність цілих чисел, що закінчується числом 0 (саме число 0 в послідовність не входить, а використовується як ознака її закінчення).
-
-Вхідні дані:
-
-3
-8
-10
-2
-10
-7
-0
-Вихідні дані:
-
-2
+## Problem 27: Sequence Element Comparison
 
 **Problem:** Given a sequence of natural numbers that ends with the number `0`. Determine how many elements of this sequence are equal to its largest element.
 
@@ -787,55 +772,137 @@ print(max_count)
 
 </details>
 
-## Problem 28
+## Problem 28: Sequence Element Comparison
 
-Дано послідовність натуральних чисел, що завершується числом 0. Визначте найбільше число елементів цієї послідовності, що йдуть підряд один за одним, і дорівнюють один одному. Вводиться послідовність цілих чисел, що закінчується числом 0 (саме число 0 в послідовність не входить, а використовується як ознака її закінчення). Додаткове завдання: виведіть найбільш повторюваний елемент послідовності.
+**Problem:** Given a sequence of natural numbers that ends with the number `0`. Determine the largest number of elements in this sequence that go one after the other and are equal to each other (i.e., the longest consecutive sequence of identical elements). Also, print the element that is repeated most consecutively. If there are multiple elements with the same maximum consecutive count, the task does not specify which one to print, so we'll choose to print any one of them.
 
-Вхідні дані:
+| No. | Inputs | Outputs |
+| --- | ------ | ------- |
+| 1   | 1<br>5<br>5<br>4<br>3<br>9<br>9<br>9<br>7<br>0 | 3<br>9 |
+| 2   | 1<br>2<br>3<br>4<br>0 | 1<br>No numbers were entered before 0. |
+| 3   | 1<br>1<br>1<br>1<br>0 | 4<br>1 |
 
-1
-5
-5
-4
-3
-9
-9
-9
-7
-0
-Вихідні дані:
 
-3
+<details open>
+<summary><b>Python Solution</b></summary>
 
-## Problem 29
+```python
+max_count = 0
+max_element = None
+current_count = 1
+last_element = None
 
-Скласти програму для графічного зображення подільності чисел від 1 до n (значення n вводиться з клавіатури). У кожному рядку треба надрукувати чергове число і стільки символів +, скільки є дільників у цього числа.
+number = int(input("Enter a number (0 to end): "))
+last_element = number
 
-Вхідні дані:
+while number != 0:
+    number = int(input("Enter a number (0 to end): "))
+    
+    if number == last_element:
+        current_count += 1
+    else:
+        if current_count > max_count:
+            max_count = current_count
+            max_element = last_element
+        current_count = 1
+    
+    last_element = number
 
-5
-Вихідні дані:
+if current_count > max_count:
+    max_count = current_count
+    max_element = last_element
 
-1+
-2++
-3++
-4+++
-5++
+print(f"Longest sequence length: {max_count}")
+if max_count > 0:
+    print(f"Most repeated element: {max_element}")
+else:
+    print("No numbers were entered before 0.")
 
-## Problem 30
+```
 
-Вводиться ціле число n. Вивести число, зворотне по порядку складових його цифр.
+</details>
 
-Вхідні дані:
 
-125
-123456789
-1
-Вихідні дані:
+## Problem 29: Divisibility Graphical Representation
 
-521
-987654321
-1
+**Problem:** Write a program to graphically represent the divisibility of numbers from `1` to `n` (the value of `n` is entered from the keyboard). In each line, print the next number and as many `+` characters as there are divisors of this number.
+
+| No. | Inputs | Outputs |
+| --- | ------ | ------- |
+| 1   | 1     | 1+      |
+| 2   | 2     | 1+<br>2++ |
+| 3   | 3     | 1+<br>2++<br>3++ |
+| 4   | 4     | 1+<br>2++<br>3++<br>4+++ |
+| 5   | 5     | 1+<br>2++<br>3++<br>4+++<br>5++ |
+| 6   | 6     | 1+<br>2++<br>3++<br>4+++<br>5++<br>6++++ |
+| 7   | 7     | 1+<br>2++<br>3++<br>4+++<br>5++<br>6++++<br>7++ |
+| 8   | 8     | 1+<br>2++<br>3++<br>4+++<br>5++<br>6++++<br>7++<br>8++++ |
+| 9   | 9     | 1+<br>2++<br>3++<br>4+++<br>5++<br>6++++<br>7++<br>8++++<br>9++++ |
+| 10  | 10    | 1+<br>2++<br>3++<br>4+++<br>5++<br>6++++<br>7++<br>8++++<br>9++++<br>10++++ |
+
+<details open>
+<summary><b>Python Solution</b></summary>
+
+```python
+n = int(input("Enter the number: "))
+
+for i in range(1, n + 1):
+    divisors = 0
+    for j in range(1, i + 1):
+        if i % j == 0:
+            divisors += 1
+    print(f"{i}{'+' * divisors}")
+```
+
+</details>
+
+## Problem 30: Number Reversal
+
+**Problem:** Given a natural number `n`. Print the number that is the reverse of the order of its digits.
+
+| No. | Inputs | Outputs |
+| --- | ------ | ------- |
+| 1   | 125    | 521     |
+| 2   | 123456789 | 987654321 |
+| 3   | 1      | 1       |
+
+<details open>
+<summary><b>Python Solution</b></summary>
+
+```python
+n = int(input("Enter the number: "))
+temp_number = n
+
+reversed_number = 0
+
+# Solution 1
+while n > 0:
+    reversed_number = reversed_number * 10 + n % 10
+    n //= 10
+
+print(reversed_number)
+
+# Solution 2
+n = temp_number
+power = 0 
+while temp_number > 0:
+    temp_number //= 10
+    power += 1
+
+reversed_number = 0
+
+while n > 0:
+    current_digit = n % 10
+    number_to_add = current_digit * (10 ** (power - 1))
+    reversed_number += number_to_add
+    n //= 10
+    power -= 1
+
+print(reversed_number)
+```
+
+</details>
+
 
 ## Problem 31
 
