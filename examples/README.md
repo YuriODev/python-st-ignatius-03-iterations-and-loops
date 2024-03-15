@@ -556,6 +556,7 @@ for _ in range(n):
 print(max_score)
 print("Yes" if failed_quiz else "No")
 ```
+</details>
 
 ## Problem 21: Average Speed Calculation
 
@@ -1007,5 +1008,6 @@ if twos > 0:
 if ones > 0:
     print(f"{ones} (1)")
 ```
+</details>
 
 **Notes:** All the examples above are solved using Python. You can find the solutions in the [examples](./examples) folder. Covered with explanations and comments, these examples will help you understand the practical implementation of the concepts covered in this module. Python tests are also included to verify the correctness of the solutions.
