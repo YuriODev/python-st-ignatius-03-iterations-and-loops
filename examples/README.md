@@ -258,7 +258,7 @@ for i in range(1, 11):
 ## Problem 11: Sum of Products Calculation
 
 
-**Problem** For a given integer `n` (n > 1), calculate the value `1 × 2 + 2 × 3 + …​ + (n - 1) × n`.
+**Problem:** For a given integer `n` (n > 1), calculate the value `1 × 2 + 2 × 3 + …​ + (n - 1) × n`.
 
 | No. | Inputs | Outputs |
 | --- | ------ | ------- |
@@ -283,7 +283,7 @@ print(total)
 
 ## Problem 12: Number Entry and Exit
 
-**Problem** Write a program where the user enters integers. If an integer `n` is entered, the program should end its execution with the message `Done`. First, the user enters the number `n`, and then the rest of the numbers. 
+**Problem:** Write a program where the user enters integers. If an integer `n` is entered, the program should end its execution with the message `Done`. First, the user enters the number `n`, and then the rest of the numbers. 
 
 | No. | Inputs | Outputs |
 | --- | ------ | ------- |
@@ -291,213 +291,454 @@ print(total)
 | 2   | 3<br>1<br>2<br>3 | Done |
 | 3   | 1<br>1 | Done |
 
-## Problem 13
+<details open>
+<summary><b>Python Solution</b></summary>
 
-Дано n цілих чисел. Кожне число вводиться в окремому рядку. Обчисліть суму чисел.
+```python
+n = int(input("Enter the number: "))
 
-Вхідні дані:
+while True:
+    number = int(input("Enter the number: "))
+    if number == n:
+        print("Done")
+        break
+```
+</details>
 
-10
-0
-1
-2
-3
-4
-5
-6
-7
-8
-9
-Вихідні дані:
+## Problem 13: Sum of Integers Calculation
 
-45
+**Problem:** Given `n` integers. Each number is entered on a separate line. Calculate the sum of the numbers.
 
-## Problem 14
+| No. | Inputs | Outputs |
+| --- | ------ | ------- |
+| 1   | 10<br>0<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9 | 45 |
+| 2   | 3<br>1<br>2<br>3 | 6 |
+| 3   | 1<br>1 | 1 |
 
-Напишіть програму для побудови шаблону як у вихідних даних за введеним значенням n.
+<details open>
+<summary><b>Python Solution</b></summary>
 
-Вхідні дані:
+```python
+n = int(input("Enter the number of integers: "))
+total = 0
 
-7
-Вихідні дані:
+for _ in range(n):
+    total += int(input("Enter the number: "))
 
-1  2  3  4  5  6  7
-2  3  4  5  6  7
-3  4  5  6  7
-4  5  6  7
-5  6  7
-6  7
-7
+print(total)
+```
+</details>
 
-## Problem 15
+## Problem 14: Pattern Printing
 
-За даним цілим додатнім числом n обчисліть n! - значення факторіалу цього числа.
+**Problem:** Write a program to build a pattern as in the output data for the entered value `n`.
 
-Вхідні дані:
+| No. | Inputs | Outputs |
+| --- | ------ | ------- |
+| 1   | 7      | 1  2  3  4  5  6  7<br>2  3  4  5  6  7<br>3  4  5  6  7<br>4  5  6  7<br>5  6  7<br>6  7<br>7 |
+| 2   | 5      | 1  2  3  4  5<br>2  3  4  5<br>3  4  5<br>4  5<br>5 |
+| 3   | 3      | 1  2  3<br>2  3<br>3 |
 
-3
-4
-1
-Вихідні дані:
+<details open>
+<summary><b>Python Solution</b></summary>
 
-6
-24
-1
+```python
+n = int(input("Enter the number: "))
+for i in range(1, n + 1):
+    for j in range(i, n + 1):
+        print(j, end=" ")
+    print()
+```
+</details>
 
-## Problem 16
+## Problem 15: Factorial Calculation
 
-Визначте суму усіх елементів послідовності, яка завершується числом 0. Вводиться послідовність цілих чисел, що закінчується числом 0 (саме число 0 в послідовність не входить, а використовується як ознака її закінчення).
+**Problem:** Given a positive integer `n`, calculate the value of `n!` - the factorial of this number.
 
-Вхідні дані:
+| No. | Inputs | Outputs |
+| --- | ------ | ------- |
+| 1   | 3      | 6       |
+| 2   | 4      | 24      |
+| 3   | 1      | 1       |
 
-2
-5
-3
-0
-Вихідні дані:
+<details open>
+<summary><b>Python Solution</b></summary>
 
-10
+```python
+n = int(input("Enter the number: "))
+factorial = 1
 
-## Problem 17
+for i in range(1, n + 1):
+    factorial *= i
 
-Послідовність складається з натуральних чисел і завершується числом 0. Визначте значення найбільшого елемента послідовності. Вводиться послідовність цілих чисел, що закінчується числом 0 (саме число 0 в послідовність не входить, а використовується як ознака її закінчення).
+print(factorial)
+```
+</details>
 
-Вхідні дані:
+**Note** We assign the value `1` to the variable `factorial` because the factorial of `0` is `1`. Then, we use a `for` loop to iterate through the numbers from `1` to `n` and multiply them to the `factorial` variable. Also, we can't assign it to `0` because the multiplication of any number by `0` is `0`.
 
-5
-3
-8
-0
-Вихідні дані:
+## Problem 16: Sum of Sequence Elements Calculation
 
-8
+**Problem:** Determine the sum of all elements of the sequence that ends with the number `0`. A sequence of integers that ends with the number `0` is entered (the number `0` itself is not included in the sequence, but is used as a sign of its end).
 
-## Problem 18
+| No. | Inputs | Outputs |
+| --- | ------ | ------- |
+| 1   | 2<br>5<br>3<br>0 | 10 |
+| 2   | 1<br>2<br>3<br>4<br>5<br>0 | 15 |
+| 3   | 0 | 0 |
 
-Напишіть програму, яка виводить усі трицифрові числа, сума цифр яких дорівнює деякому значенню n, яке вводить користувач.
+<details open>
+<summary><b>Python Solution</b></summary>
 
-Вхідні дані:
+```python
+total = 0
 
-4
-Вихідні дані:
+while True:
+    number = int(input("Enter the number: "))
+    if number == 0:
+        break
+    total += number
 
-112
-121
-130
-202
-211
-220
-301
-310
-400
+print(total)
+```
+</details>
 
-## Problem 19
+## Problem 17: Largest Element Calculation
 
-Дано цілі числа a і b. Обчислити ab, не використовуючи операцію піднесення до степеня.
+**Problem:** Given a sequence of natural numbers, ending with the number `0`. Determine the value of the largest element in the sequence.
 
-Вхідні дані:
+| No. | Inputs | Outputs |
+| --- | ------ | ------- |
+| 1   | 5<br>3<br>8<br>0 | 8 |
+| 2   | 1<br>2<br>3<br>4<br>5<br>0 | 5 |
+| 3   | 17<br>12<br>3<br>0 | 17 |
 
-4
-2
-Вихідні дані:
+<details open>
+<summary><b>Python Solution</b></summary>
 
-16
+```python
+max_number = 0
 
-## Problem 20
+while True:
+    number = int(input("Enter the number: "))
+    if number == 0:
+        break
+    if number > max_number:
+        max_number = number
 
-Старшокласники брали участь у вікторині з інформатики. Необхідно було відповісти на 20 питань. Переможцем вікторини вважається учасник, який правильно відповів на найбільшу кількість запитань. На скільки питань переможець відповів правильно? Якщо є учасники вікторини, які не змогли дати правильну відповідь ні на одне із запитань, виведіть Yes, інакше виведіть No. Гарантується, що є учасники, які правильно відповіли хоча б на одне запитання. Программа отримує на вхід число учасників вікторини n (1 ≤ n ≤ 50), потім для кожного учасника вводиться кількість питань, на які отримано правильну відповідь.
+print(max_number)
+```
+</details>
 
-Вхідні дані:
 
-5
-10
-15
-7
-0
-16
-Вихідні дані:
+## Problem 18: Sum of Digits Calculation
 
-16
-Yes
+**Problem:** Write a program that outputs all three-digit numbers whose sum of digits is equal to a certain value `n` entered by the user.
 
-## Problem 21
+| No. | Inputs | Outputs |
+| --- | ------ | ------- |
+| 1   | 4      | 112 121 130 202 211 220 301 310 400 |
+| 2   | 5      | 104 113 122 131 140 203 212 221 230 302 311 320 401 410 500 |
+| 3   | 6      | 105 114 123 132 141 150 204 213 222 231 240 303 312 321 330 402 411 420 501 510 600 |
 
-Камера спостереження реєструє в автоматичному режимі швидкість проїжджаючих повз неї автомобілів, округляючи значення швидкості до цілих чисел. Необхідно визначити середню зареєстровану швидкість всіх автомобілів. Якщо швидкість хоча б одного автомобіля була більше 60 км/год, виведіть Yes, інакше виведіть No. Програма отримує на вхід число зафіксованих автомобілів n (1 ≤ n ≤ 30), потім вказуються їх швидкості. Значення швидкості не може бути менше 1 і більше 300. Програма повинна спочатку вивести середню швидкість з точністю до одного знака після десяткової крапки, потім Yes або No.
+<details open>
+<summary><b>Python Solution</b></summary>
 
-Вхідні дані:
+```python
+n = int(input("Enter the number: "))
 
-3
-50
-45
-65
-Вихідні дані:
+digits_total = 0
 
-53.3
-Yes
+for i in range(100, 1000):
+    current_number = i
+    digits_total = 0
+    
+    while current_number > 0:
+        digits_total += current_number % 10
+        current_number //= 10
 
-## Problem 22
+    if digits_total == n:
+        print(i, end=" ")
+```
 
-Дано натуральне число n. Визначити, чи є воно автоморфним числом. Примітка. Автоморфне число - число, квадрат якого рівний останнім розрядами квадрата цього числа: 5 - 25, 6 - 36, 25 - 625.
+</details>
 
-Вхідні дані:
 
-9376
-26
-Вихідні дані:
+## Problem 19: Power Calculation
 
-True
-False
+**Problem:** Given integers `a` and `b`. Calculate `a` to power of `b` without using the exponentiation operation.
 
-## Problem 23
+| No. | Inputs | Outputs |
+| --- | ------ | ------- |
+| 1   | 2<br>3  | 8       |
+| 2   | 3<br>3  | 27      |
+| 3   | 5<br>2  | 25      |
 
-Напишіть програму, яка допомагає знайти число (НСК - найменше спільне кратне) двох чисел. Програма повинна зчитувати два додатних цілих числа a і b (кожне число вводиться на окремому рядку) і виводити найменше число, яке ділиться на обидва цих числа без залишку. НСК(a, b) = |ab| / НСД(a, b), де НСД(a, b) - найбільший спільний дільник чисел a, b.
+<details open>
+<summary><b>Python Solution</b></summary>
 
-Вхідні дані:
+```python
+a = int(input("Enter the base: "))
+b = int(input("Enter the exponent: "))
 
-8
-5
-Вихідні дані:
+result = 1
 
-40
+for _ in range(b):
+    result *= a
 
-## Problem 24
+print(result)
+```
+</details>
 
-Є монотонна послідовність, в якій кожне натуральне число k зустрічається рівно k разів: 1, 2, 2, 3, 3, 3, 4, 4, 4, 4, .... За введеним натуральним числом n виведіть перші n членів цієї послідовності.
 
-Вхідні дані:
+## Problem 20: Quiz Winner Determination
 
-5
-Вихідні дані:
+**Problem:** High school students took part in a computer science quiz. They had to answer 20 questions. The winner of the quiz is the participant who correctly answered the most questions. How many questions did the winner answer correctly? If there are participants in the quiz who could not give a correct answer to any of the questions, print Yes, otherwise print No. It is guaranteed that there are participants who correctly answered at least one question. The program receives the number of quiz participants `n` (1 ≤ `n` ≤ 50) as input, then for each participant, the number of questions they answered correctly is entered.
 
-1 2 2 3 3
+| No. | Inputs | Outputs |
+| --- | ------ | ------- |
+| 1   | 5<br>10<br>15<br>7<br>0<br>16 | 16<br>Yes |
+| 2   | 3<br>0<br>0<br>0<br>0 | 0<br>Yes |
+| 3   | 4<br>20<br>20<br>20<br>20 | 20<br>No |
 
-## Problem 25
+<details open>
+<summary><b>Python Solution</b></summary>
 
-Дано натуральне число n. Визначте, яким за рахунком числом Фібоначчі воно є. Якщо n не є числом Фібоначчі, виведіть значення -1.
+```python
+n = int(input("Enter the number of participants: "))
+max_score = 0
+failed_quiz = False
 
-Вхідні дані:
+for _ in range(n):
+    score = int(input("Enter the score: "))
+    if score > max_score:
+        max_score = score
+    elif score == 0:
+        failed_quiz = True
 
-11
-8
-Вихідні дані:
+print(max_score)
+print("Yes" if failed_quiz else "No")
+```
 
--1
-6
+## Problem 21: Average Speed Calculation
 
-## Problem 26
+**Problem:** A surveillance camera automatically registers the speed of passing cars, rounding the speed values to integers. It is necessary to determine the average registered speed of all cars. If the speed of at least one car was more than 60 km/h, print Yes, otherwise print No. The program receives the number of registered cars `n` (1 ≤ `n` ≤ 30) as input, then the speeds of the cars are indicated. The speed value cannot be less than 1 and more than 300. The program should first print the average speed with an accuracy of one decimal place, then Yes or No.
 
-Послідовність складається з натуральних чисел і завершується числом 0. Визначте, скільки елементів цієї послідовності більше попереднього елемента. Вводиться послідовність цілих чисел, що закінчується числом 0 (саме число 0 в послідовність не входить, а використовується як ознака її закінчення).
+| No. | Inputs | Outputs |
+| --- | ------ | ------- |
+| 1   | 3<br>50<br>45<br>65 | 53.3<br>Yes |
+| 2   | 2<br>100<br>200 | 150.0<br>Yes |
+| 3   | 1<br>30 | 30.0<br>No |
 
-Вхідні дані:
+<details open>
+<summary><b>Python Solution</b></summary>
 
-4
-3
-6
-8
-0
-Вихідні дані:
+```python
+n = int(input("Enter the number of cars: "))
 
-2
+total_speed = 0
+over_speed = False
+
+for _ in range(n):
+    speed = int(input("Enter the speed: "))
+    total_speed += speed
+    if speed > 60:
+        over_speed = True
+
+average_speed = total_speed / n
+print(f"{average_speed:.1f}")
+print("Yes" if over_speed else "No")
+```
+
+</details>
+
+## Problem 22: Automorphic Number Determination
+
+**Problem:** Given a natural number `n`. Determine if it is an automorphic number. Note. An automorphic number is a number whose square is equal to the last digits of the square of this number: 5 - 25, 6 - 36, 25 - 625.
+
+| No. | Inputs | Outputs |
+| --- | ------ | ------- |
+| 1   | 9376   | True    |
+| 2   | 26     | False   |
+| 3   | 25     | True    |
+| 4   | 6      | True    |
+| 5   | 5      | True    |
+| 6   | 1      | True    |
+| 7   | 76     | True    |
+
+<details open>
+<summary><b>Python Solution</b></summary>
+
+```python
+n = int(input("Enter the number: "))
+temp_number = n
+
+square = n ** 2
+digit_count = 0
+
+while temp_number > 0:
+    temp_number //= 10
+    digit_count += 1
+
+power = 10 ** digit_count
+
+if square % power == n:
+    print(True)
+else:
+    print(False)
+
+```
+
+</details>
+
+## Problem 23: Least Common Multiple Calculation
+
+**Problem:** Write a program that helps to find the least common multiple (LCM) of two numbers. The program should read two positive integers `a` and `b` (each number is entered on a separate line) and print the smallest number that is divisible by both of these numbers without a remainder.
+The formula to calculate the Least Common Multiple (LCM) of two numbers `a` and `b` is given by:
+
+$$\text{LCM}(a, b) = \frac{|ab|}{\text{GCD}(a, b)},$$
+
+where $\text{GCD}(a, b)$ is the greatest common divisor of numbers `a` and `b`.
+
+| No. | Inputs | Outputs |
+| --- | ------ | ------- |
+| 1   | 4<br>6  | 12      |
+| 2   | 15<br>25 | 75      |
+| 3   | 1<br>1   | 1       |
+| 4   | 5<br>8   | 40      |
+
+<details open>
+<summary><b>Python Solution</b></summary>
+
+```python
+a = int(input("Enter the first number: "))
+b = int(input("Enter the second number: "))
+
+x = a
+y = b
+
+product = a * b
+
+# Solution 1
+while b:
+    a, b = b, a % b
+
+gcd = a
+lcm = product // gcd
+print(lcm)
+
+# Solution 2
+while y != 0:
+    temp = y
+    y = x % y
+    x = temp
+
+gcd = x
+lcm = product // gcd
+print(lcm)
+```
+
+</details>
+
+## Problem 24: Monotonous Sequence Printing
+
+**Problem:** Given a natural number `n`. Print the first `n` members of the sequence. The sequence is a monotonous sequence in which each natural number `k` occurs exactly `k` times: 1, 2, 2, 3, 3, 3, 4, 4, 4, 4, ....
+
+| No. | Inputs | Outputs |
+| --- | ------ | ------- |
+| 1   | 1     | 1       |
+| 2   | 2     | 1 2     |
+| 3   | 3     | 1 2 2   |
+| 4   | 4     | 1 2 2 3 |
+| 5   | 5     | 1 2 2 3 3 |
+| 6   | 6     | 1 2 2 3 3 3 |
+| 7   | 7     | 1 2 2 3 3 3 4 |
+
+<details open>
+<summary><b>Python Solution</b></summary>
+
+```python
+n = int(input("Enter the number: "))
+
+i = 1
+count = 0
+
+while count < n:
+    for _ in range(i):
+        if count < n:
+            print(i, end=" ")
+            count += 1
+    i += 1
+```
+
+</details>
+
+
+## Problem 25: Fibonacci Number Determination
+
+**Problem:** Given a natural number `n`. Determine which Fibonacci number it is. If `n` is not a Fibonacci number, print the value `-1`. The Fibonacci sequence is a series of numbers in which each number is the sum of the two preceding ones, usually starting with 0 and 1. The sequence goes: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, and so on.
+
+| No. | Inputs | Outputs |
+| --- | ------ | ------- |
+| 1   | 11     | -1      |
+| 2   | 8      | 6       |
+| 3   | 13     | 7       |
+| 4   | 21     | 8       |
+
+<details open>
+<summary><b>Python Solution</b></summary>
+
+```python
+n = int(input("Enter the number: "))
+
+a = 0
+b = 1
+c = 0
+count = 0
+
+while c < n:
+    c = a + b
+    a = b
+    b = c
+    count += 1
+
+if c == n:
+    print(count)
+else:
+    print(-1)
+```
+
+</details>
+
+## Problem 26: Sequence Element Comparison
+
+**Problem:** Given a sequence of natural numbers that ends with the number `0`. Determine how many elements of this sequence are greater than the previous element.
+
+| No. | Inputs | Outputs |
+| --- | ------ | ------- |
+| 1   | 4<br>3<br>6<br>8<br>0 | 2 |
+| 2   | 1<br>2<br>3<br>4<br>0 | 3 |
+| 3   | 1<br>1<br>1<br>1<br>0 | 0 |
+
+<details open>
+<summary><b>Python Solution</b></summary>
+
+```python
+count = 0
+previous = int(input("Enter the number: "))
+
+while True:
+    number = int(input("Enter the number: "))
+    if number == 0:
+        break
+    if number > previous:
+        count += 1
+    previous = number
+
+print(count)
+```
+
+</details>
 
 ## Problem 27
 
