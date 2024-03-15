@@ -939,22 +939,23 @@ print(reversed_number)
 
 </details>
 
-## Problem Number of Digits Counting
+## Problem 31: Number of Digits Counting
 
 **Problem:** In one country, banknotes with denominations of 1, 2, 4, 8, 16, 32, and 64 are used. Given a natural number `n`. What is the smallest number of such banknotes that can be used to pay the amount `n` (indicate the number of each of the banknotes used for payment)? It is assumed that there are enough banknotes of all denominations.
 
-| No. | Inputs | Outputs |
-| --- | ------ | ------- |
-| 1   | 165    | 2(64)<br>(32)<br>(4)<br>(1) |
-| 2   |        | (1) |
-| 3   |        | (2) |
-| 4   | 3     | (32)<br>(1) |
-| 5   | 4      | (4) |
-| 6   | 5      | (4)<br>(1) |
-| 7   | 65    | (64)<br>(1) |
-| 8   | 7      | (4)<br>(2)<br>(1) |
-| 9   | 225    | (64)<br>(32)<br>(4)<br>(1) |
-| 10  | 9      | (8)<br>(1) |
+| No. | Inputs | Outputs                        |
+| --- | ------ | ------------------------------ |
+| 1   | 165    | (128)<br>(32)<br>(4)<br>(1)     |
+| 2   | 1      | (1)                            |
+| 3   | 2      | (2)                            |
+| 4   | 3      | (2)<br>(1)                     |
+| 5   | 4      | (4)                            |
+| 6   | 5      | (4)<br>(1)                     |
+| 7   | 65     | (64)<br>(1)                    |
+| 8   | 7      | (4)<br>(2)<br>(1)              |
+| 9   | 225    | (128)<br>(64)<br>(32)<br>(1)   |
+| 10  | 9      | (8)<br>(1)                     |
+
 
 <details open>
 <summary><b>Python Solution</b></summary>
