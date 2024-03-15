@@ -757,6 +757,36 @@ print(count)
 
 2
 
+**Problem:** Given a sequence of natural numbers that ends with the number `0`. Determine how many elements of this sequence are equal to its largest element.
+
+| No. | Inputs | Outputs |
+| --- | ------ | ------- |
+| 1   | 3<br>8<br>10<br>2<br>10<br>7<br>0 | 2 |
+| 2   | 1<br>2<br>3<br>4<br>0 | 1 |
+| 3   | 1<br>1<br>1<br>1<br>0 | 4 |
+
+<details open>
+<summary><b>Python Solution</b></summary>
+
+```python
+max_number = 0
+max_count = 0
+
+while True:
+    number = int(input("Enter the number: "))
+    if number == 0:
+        break
+    if number > max_number:
+        max_number = number
+        max_count = 1
+    elif number == max_number:
+        max_count += 1
+
+print(max_count)
+```
+
+</details>
+
 ## Problem 28
 
 Дано послідовність натуральних чисел, що завершується числом 0. Визначте найбільше число елементів цієї послідовності, що йдуть підряд один за одним, і дорівнюють один одному. Вводиться послідовність цілих чисел, що закінчується числом 0 (саме число 0 в послідовність не входить, а використовується як ознака її закінчення). Додаткове завдання: виведіть найбільш повторюваний елемент послідовності.
