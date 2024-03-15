@@ -18,7 +18,7 @@ Here are some examples to get you started.
 <details open>
 <summary><b>Python Solution</b></summary>
 
-```python {.line-numbers}
+```python 
 n = int(input("Enter the number of times to print the message: "))
 for _ in range(n):
     print("Hello, Python!")
@@ -63,6 +63,9 @@ else:
 | 2   | 3<br>5<br>5<br>5              | 5.00 |
 | 3   | 1<br>10                        | 10.00 |
 
+<details open>
+<summary><b>Python Solution</b></summary>
+
 ```python
 
 n = int(input("Enter the number of subjects: "))
@@ -77,6 +80,8 @@ average = total / n
 
 print(f"The average grade is: {average:.2f}")
 ```
+</details>
+
 
 ## Example 4: Number of # Characters Printing
 
@@ -88,6 +93,9 @@ print(f"The average grade is: {average:.2f}")
 | 2   | 3      | 3 ###<br>2 ##<br>1 # |
 | 3   | 1      | 1 # |
 
+<details open>
+<summary><b>Python Solution</b></summary>
+
 ```python
 
 n = int(input("Enter the number: "))
@@ -95,6 +103,7 @@ n = int(input("Enter the number: "))
 for i in range(n, -1, -1):
     print(i, "#" * i)
 ```
+</details>
 
 ## Example 5: Triangle of Numbers Printing
 
@@ -106,11 +115,15 @@ for i in range(n, -1, -1):
 | 2   | 5      | 1<br>22<br>333<br>4444<br>55555 |
 | 3   | 1      | 1 |
 
+<details open>
+<summary><b>Python Solution</b></summary>
+
 ```python
 n = int(input("Enter the number: "))
 for i in range(1, n + 1):
     print(str(i) * i)
 ```
+</details>
 
 ## Example 6: Positive, Negative, and Zero Numbers Counting
 
@@ -121,6 +134,9 @@ for i in range(1, n + 1):
 | 1   | 5<br>12<br>-45<br>0<br>14<br>0 | 2 1 2 |
 | 2   | 1<br>2<br>3<br>4<br>5<br>6 | 6 0 0 |
 | 3   | -1<br>-2<br>-3<br>-4<br>-5<br>-6 | 0 6 0 |
+
+<details open>
+<summary><b>Python Solution</b></summary>
 
 ```python
 positive = 0
@@ -140,6 +156,7 @@ for _ in range(n):
 
 print(positive, negative, zeros)
 ```
+</details>
 
 ## Example 7: Two-Digit Odd Numbers Printing
 
@@ -151,6 +168,9 @@ print(positive, negative, zeros)
 | 2   | 1      | 11 21 31 41 51 61 71 81 91 |
 | 3   | 0      | 10 20 30 40 50 60 70 80 90 |
 
+<details open>
+<summary><b>Python Solution</b></summary>
+
 ```python
 n = int(input("Enter the number: "))
 
@@ -158,6 +178,7 @@ for i in range(10, 100):
     if i % 2 != 0 and i % 10 == n:
         print(i, end=" ")
 ```
+</details>
 
 ## Example 8: Number of Digits Counting
 
@@ -168,6 +189,9 @@ for i in range(10, 100):
 | 1   | 12367832 | 8       |
 | 2   | 142      | 3       |
 | 3   | 0        | 1       |
+
+<details open>
+<summary><b>Python Solution</b></summary>
 
 ```python
 
@@ -181,6 +205,7 @@ while n > 0:
 
 print(count)
 ```
+</details>
 
 ## Example 9: Printing Numbers with Conditions
 
@@ -188,9 +213,12 @@ print(count)
 
 | No. | Inputs | Outputs |
 | --- | ------ | ------- |
-| 1   | 15     | 1<br>2<br>*3*<br>4<br>*5*<br>*3*<br>7<br>8<br>*3*<br>*5*<br>11<br>*3*<br>13<br>14<br>*35* |
-| 2   | 20     | 1<br>2<br>*3*<br>4<br>*5*<br>*3*<br>7<br>8<br>*3*<br>*5*<br>11<br>*3*<br>13<br>14<br>*35*<br>16<br>17<br>*3*<br>19<br>*5* |
-| 3   | 10     | 1<br>2<br>*3*<br>4<br>*5*<br>*3*<br>7<br>8<br>*3*<br>*5* |
+| 1   | 15     | 1<br>2<br>\*3\*<br>4<br>\*5\*<br>\*3\*<br>7<br>8<br>\*3\*<br>\*5\*<br>11<br>\*3\*<br>13<br>14<br>\*35\* |
+| 2   | 20     | 1<br>2<br>\*3\*<br>4<br>\*5\*<br>\*3\*<br>7<br>8<br>\*3\*<br>\*5\*<br>11<br>\*3\*<br>13<br>14<br>\*35\*<br>16<br>17<br>\*3\*<br>19<br>\*5\* |
+| 3   | 10     | 1<br>2<br>\*3\*<br>4<br>\*5\*<br>\*3\*<br>7<br>8<br>\*3\*<br>\*5\* |
+
+<details open>
+<summary><b>Python Solution</b></summary>
 
 ```python
 n = int(input("Enter the number: "))
@@ -204,6 +232,7 @@ for i in range(1, n + 1):
     else:
         print(i)
 ```
+</details>
 
 ## Example 10:  Multiplication Table Printing
 
@@ -215,14 +244,18 @@ for i in range(1, n + 1):
 | 2   | 5      | 5 x 1 = 5<br>5 x 2 = 10<br>5 x 3 = 15<br>5 x 4 = 20<br>5 x 5 = 25<br>5 x 6 = 30<br>5 x 7 = 35<br>5 x 8 = 40<br>5 x 9 = 45<br>5 x 10 = 50 |
 | 3   | 7      | 7 x 1 = 7<br>7 x 2 = 14<br>7 x 3 = 21<br>7 x 4 = 28<br>7 x 5 = 35<br>7 x 6 = 42<br>7 x 7 = 49<br>7 x 8 = 56<br>7 x 9 = 63<br>7 x 10 = 70 |
 
+<details open>
+<summary><b>Python Solution</b></summary>
+
 ```python
 n = int(input("Enter the number: "))
 
 for i in range(1, 11):
     print(f"{n} x {i} = {n * i}")
 ```
+</details>
 
-## Problem 11
+## Problem 11: Sum of Products Calculation
 
 
 **Problem** For a given integer `n` (n > 1), calculate the value `1 × 2 + 2 × 3 + …​ + (n - 1) × n`.
@@ -233,22 +266,30 @@ for i in range(1, 11):
 | 2   | 5      | 40      |
 | 3   | 3      | 8       |
 
+<details open>
+<summary><b>Python Solution</b></summary>
+    
+```python
+n = int(input("Enter the number: "))
+total = 0
 
+for i in range(1, n):
+    total += i * (i + 1)
 
-## Problem 12
+print(total)
 
-Напишіть програму, в якій користувач вводить цілі числа. Якщо буде введено ціле число n, програма має завершити своє виконання повідомленням Done. Спочатку користувач вводить число n, а потім решту чисел.
+```
+</details>
 
-Вхідні дані:
+## Problem 12: Number Entry and Exit
 
-5
-67
-112
-14
-5
-Вихідні дані:
+**Problem** Write a program where the user enters integers. If an integer `n` is entered, the program should end its execution with the message `Done`. First, the user enters the number `n`, and then the rest of the numbers. 
 
-Done
+| No. | Inputs | Outputs |
+| --- | ------ | ------- |
+| 1   | 5<br>67<br>112<br>14<br>5 | Done |
+| 2   | 3<br>1<br>2<br>3 | Done |
+| 3   | 1<br>1 | Done |
 
 ## Problem 13
 
