@@ -975,10 +975,10 @@ while n > 0:
     if n >= 64:
         sixty_fours += 1
         n -= 64
-    elif n >= 3:
+    elif n >= 32:
         thirty_twos += 1
         n -= 32
-    elif n >= 1:
+    elif n >= 16:
         sixteens += 1
         n -= 16
     elif n >= 8:
