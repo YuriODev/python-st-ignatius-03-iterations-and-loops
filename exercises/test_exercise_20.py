@@ -24,6 +24,12 @@ class TestExercise20(unittest.TestCase):
         expected_output = "1 3 5\n"
         self.assertEqual(output, expected_output)
 
+    def check_if_usage(self):
+        with open("exercise_20.py", "r") as source_code:
+            tree = ast.parse(source_code.read())
+            for node in ast.walk(tree):
+                if isinstance(node, ast.If):
+                    self.fail("If usage found in the code.")
 
     def chek_list_usage(self):
         with open("exercise_20.py", "r") as source_code:
