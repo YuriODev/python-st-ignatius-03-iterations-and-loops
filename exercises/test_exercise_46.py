@@ -6,7 +6,7 @@ import ast
 
 class TestExercise36(unittest.TestCase):
     def run_exercise(self, input_values):
-        exercise_file_path = os.path.join(os.path.dirname(__file__), "exercise_36.py")
+        exercise_file_path = os.path.join(os.path.dirname(__file__), "exercise_46.py")
         return subprocess.check_output(['python3', exercise_file_path], input=input_values, text=True, universal_newlines=True)
 
     def test_position_of_digit(self):
