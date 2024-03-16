@@ -4,8 +4,13 @@ Here are the exercises for the Python Basics module. These exercises are designe
 
 **Covered Topics:**
 
+- Simple Input/Output in a loop
+- Break and Continue
+- Nested Loops
 - Conditional Statements
-- Branching 
+- Loops
+
+
 
 ## Exercise 1: Countdown Timer - Easy 😊 (Est. Time: 5 mins | Points: 10)
 
