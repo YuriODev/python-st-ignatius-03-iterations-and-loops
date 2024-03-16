@@ -132,9 +132,9 @@ The problem tests the ability to solve a quadratic equation and handle different
 
 | No. | Inputs | Outputs |
 | --- | ------ | ------- |
-| 1   | 5      | *<br>**<br>***<br>****<br>***** |
-| 2   | 3      | *<br>**<br>*** |
-| 3   | 7      | *<br>**<br>***<br>****<br>*****<br>******<br>******* |
+| 1   | 5      | *<br>\*\*<br>\*\*\*<br>\*\*\*\*<br>\*\*\*\*\* |
+| 2   | 3      | *<br>\*\*<br>\*\*\* |
+| 3   | 7      | *<br>\*\*<br>\*\*\*<br>\*\*\*\*<br>\*\*\*\*\*<br>\*\*\*\*\*\*<br>\*\*\*\*\*\*\* |
 
 ### Note:
 
