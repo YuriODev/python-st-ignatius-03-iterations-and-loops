@@ -156,9 +156,9 @@ The problem tests the ability to use loops and conditional statements to print a
 
 | No. | Inputs | Outputs |
 | --- | ------ | ------- |
-| 1   | 5      | ##<br># #<br>#  #<br>#   #<br>#    # |
-| 2   | 3      | ##<br># #<br>#  # |
-| 3   | 7      | ##<br># #<br>#  #<br>#   #<br>#    #<br>#     #<br>#      # |
+| 1   | 5      | ##<br>#&nbsp;#<br>#&nbsp;&nbsp;#<br>#&nbsp;&nbsp;&nbsp;#<br>#&nbsp;&nbsp;&nbsp;&nbsp;# |
+| 2   | 3      | ##<br>#&nbsp;#<br>#&nbsp;&nbsp;# |
+| 3   | 7      | ##<br>#&nbsp;#<br>#&nbsp;&nbsp;#<br>#&nbsp;&nbsp;&nbsp;#<br>#&nbsp;&nbsp;&nbsp;&nbsp;#<br>#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#<br>#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# |
 
 
 ### Note:
