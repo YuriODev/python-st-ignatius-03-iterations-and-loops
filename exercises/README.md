@@ -1269,7 +1269,7 @@ The problem tests the ability to use loops and conditional statements to calcula
 
 
 
-## Exercise 51: Odd Numbers - Hard 🥵 (Est. Time: 15-20 mins | Points: 30)
+## Exercise 52: Odd Numbers - Hard 🥵 (Est. Time: 15-20 mins | Points: 30)
 
 **Problem:** Two numbers `a` and `b` are entered. Print all odd numbers from the interval from `a` to `b` (b ≤ a). Write a program without using a branching instruction.
 
@@ -1293,7 +1293,7 @@ The problem tests the ability to use loops and conditional statements to calcula
 
 The problem tests the ability to use loops to print a sequence of numbers.
 
-## Exercise 52: Even Numbers - Hard 🥵 (Est. Time: 15-20 mins | Points: 30)
+## Exercise 53: Even Numbers - Hard 🥵 (Est. Time: 15-20 mins | Points: 30)
 
 **Problem:** Two numbers `a` and `b` are entered. Print all even numbers from the interval from `a` to `b` (a ≤ b). Write a program without using a branching instruction.
 
