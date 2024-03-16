@@ -324,30 +324,6 @@ The problem tests the ability to use loops and conditional statements to validat
 
 The problem tests the ability to use loops and conditional statements to count the number of occurrences of a specific value.
 
-## Exercise 15: Error Collection - Easy 😊 (Est. Time: 5 mins | Points: 10) 
-
-**Problem:** Write a program to determine the total number of errors collected over `n` days.
-
-### Input:
-- An integer `n` representing the number of days.
-- `n` integers representing the number of errors collected each day.
-
-### Output:
-- An integer representing the total number of errors collected over `n` days.
-
-### Examples:
-
-| No. | Inputs | Outputs |
-| --- | ------ | ------- |
-| 1   | 6<br>45<br>101<br>67<br>43<br>21<br>0 | 277 |
-| 2   | 3<br>0<br>0<br>0 | 0 |
-| 3   | 5<br>1<br>2<br>3<br>4<br>5 | 15 |
-
-### Note:
-
-The problem tests the ability to use loops and conditional statements to calculate the sum of a sequence of numbers.
-
-
 ## Exercise 16: Staircase Pattern - Medium 🔥 (Est. Time: 10-15 mins | Points: 20)
 **Problem:** Write a program to draw a staircase as shown in the output for a given value of `n`.
 
@@ -1311,7 +1287,7 @@ The problem tests the ability to use loops to print a sequence of numbers.
 The exercises provided range from understanding conditional statements to implementing complex branching logic. Here's a summary of the exercises ordered by difficulty, starting with the easiest and moving to more challenging problems.
 
 ## Easy 😊
-Total: 15
+Total: 14
 
 ## Medium 🔥
 Total: 19
