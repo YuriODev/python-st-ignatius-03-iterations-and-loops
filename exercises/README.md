@@ -256,8 +256,8 @@ The problem tests the ability to use loops and conditional statements to calcula
 
 
 
-## Exercise 12: Sum of Three-Digit Numbers - Easy 😊 (Est. Time: 5 mins | Points: 10
-)
+## Exercise 12: Sum of Three-Digit Numbers - Easy 😊 (Est. Time: 5 mins | Points: 10)
+
 **Problem:** Write a program to calculate the sum of all three-digit numbers that are divisible by `n`, where `n` is an integer entered by the user.
 
 ### Input:
@@ -275,7 +275,9 @@ The problem tests the ability to use loops and conditional statements to calcula
 | 3   | 600    | 600 |
 | 4   | 1000   | 0 |
 
+### Note:
 
+The problem tests the ability to use loops and conditional statements to calculate the sum of a sequence of numbers.
 
 
 ## Exercise 13: Password Validation - Easy 😊 (Est. Time: 5 mins | Points: 10)
