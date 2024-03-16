@@ -2,6 +2,8 @@
 import unittest
 import subprocess
 import os
+import ast
+
 
 class TestExercise8(unittest.TestCase):
     def run_exercise(self, input_value):
@@ -22,6 +24,15 @@ class TestExercise8(unittest.TestCase):
         output = self.run_exercise("20\n")
         expected_output = "2 4 6 8 10 12 14 16 18 20\n"
         self.assertEqual(output, expected_output)
+
+    def test_contains_continue(self):
+        with open("exercise_8.py", "r") as source_code:
+            tree = ast.parse(source_code.read())
+            for node in ast.walk(tree):
+                if isinstance(node, ast.Continue):
+                    break
+            else:
+                self.fail("No continue statement found in the code.")
 
 if __name__ == '__main__':
     unittest.main()
