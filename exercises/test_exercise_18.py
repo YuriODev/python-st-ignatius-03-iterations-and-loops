@@ -22,7 +22,7 @@ class TestExercise15(unittest.TestCase):
         self.assertEqual(int(output.strip()), 15)
 
     def chek_list_usage(self):
-        with open("exercise_14.py", "r") as source_code:
+        with open("exercise_18.py", "r") as source_code:
             tree = ast.parse(source_code.read())
             for node in ast.walk(tree):
                 if isinstance(node, (ast.List, ast.ListComp)):
@@ -31,7 +31,7 @@ class TestExercise15(unittest.TestCase):
                     self.fail("List usage found in the code.")
 
     def test_no_list_usage(self):
-        with open("exercise_15.py", "r") as source_code:
+        with open("exercise_18.py", "r") as source_code:
             code = source_code.read()
             self.assertNotIn("list", code)
             self.assertNotIn("[", code)
