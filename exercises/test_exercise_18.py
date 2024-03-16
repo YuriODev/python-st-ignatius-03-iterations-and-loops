@@ -2,6 +2,7 @@
 import unittest
 import subprocess
 import os
+import ast
 
 class TestExercise15(unittest.TestCase):
     def run_exercise(self, input_values):
@@ -19,6 +20,23 @@ class TestExercise15(unittest.TestCase):
     def test_varied_errors(self):
         output = self.run_exercise("5\n1\n2\n3\n4\n5\n")
         self.assertEqual(int(output.strip()), 15)
+
+    def chek_list_usage(self):
+        with open("exercise_14.py", "r") as source_code:
+            tree = ast.parse(source_code.read())
+            for node in ast.walk(tree):
+                if isinstance(node, (ast.List, ast.ListComp)):
+                    self.fail("List usage found in the code.")
+                elif isinstance(node, ast.Call) and isinstance(node.func, ast.Name) and node.func.id == 'list':
+                    self.fail("List usage found in the code.")
+
+    def test_no_list_usage(self):
+        with open("exercise_15.py", "r") as source_code:
+            code = source_code.read()
+            self.assertNotIn("list", code)
+            self.assertNotIn("[", code)
+            self.assertNotIn("]", code)
+
 
 if __name__ == '__main__':
     unittest.main()
