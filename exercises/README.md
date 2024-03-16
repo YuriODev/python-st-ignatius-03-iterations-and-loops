@@ -234,19 +234,6 @@ The problem tests the ability to use loops and conditional statements to print a
 
 ## Exercise 11: Sum of a Series - Easy 😊 (Est. Time: 5 mins | Points: 10)
 
-Напишіть програму для обчислення виразу 1/2 + 2/3 + 3/4 + …​ + n/(n + 1) із заданим n, яке вводить користувач (n > 0).
-
-Вхідні дані:
-
-5
-10
-3
-Вихідні дані:
-
-3.55
-7.98
-1.92
-
 **Problem:** Write a program to calculate the sum of the expression `1/2 + 2/3 + 3/4 + …​ + n/(n + 1)` for a given value of `n`.
 
 ### Input:
