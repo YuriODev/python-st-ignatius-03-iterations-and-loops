@@ -1117,7 +1117,7 @@ The problem tests the ability to use loops and conditional statements to count t
 
 The problem tests the ability to use loops and conditional statements to calculate the position of a digit in a number.
 
-## Exercise 47: Number of Palindromes - Hard 🥵 (Est. Time: 15-20 mins | Points: 30)
+## Exercise 47: Palindromes - Hard 🥵 (Est. Time: 15-20 mins | Points: 30)
 
 **Problem:** Write a program to determine the number of palindromes that do not exceed `n`, where `n` is an integer entered by the user.
 
@@ -1147,15 +1147,15 @@ The problem tests the ability to use loops and conditional statements to calcula
 
 ### Output:
 
-- A sequence of numbers representing the palindromes that do not exceed `n`.
+- A number representing the number of palindromes that do not exceed `n`.
 
 ### Examples:
 
 | No. | Inputs | Outputs |
 | --- | ------ | ------- |
-| 1   | 50 | 1 2 3 4 5 6 7 8 9 11 22 33 44 |
-| 2   | 100 | 1 2 3 4 5 6 7 8 9 11 22 33 44 55 66 77 88 99 |
-| 3   | 200 | 1 2 3 4 5 6 7 8 9 11 22 33 44 55 66 77 88 99 101 111 121 131 141 151 161 171 181 191 |
+| 1   | 50 | 13 |
+| 2   | 100 | 18 |
+| 3   | 200 | 27 |
 
 ### Note:
 
