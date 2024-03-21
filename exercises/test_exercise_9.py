@@ -2,6 +2,8 @@
 import unittest
 import subprocess
 import os
+import ast
+
 
 class TestExercise9(unittest.TestCase):
     def run_exercise(self, input_value):
@@ -22,6 +24,14 @@ class TestExercise9(unittest.TestCase):
         output = self.run_exercise("5\n20\n5\n")
         expected_output = "5 10 15 20\n"
         self.assertEqual(output, expected_output)
+
+    # Check if max function was used. It's not allowed and write a message to the user
+    def test_if_max_function_was_used(self):
+        exercise_file_path = os.path.join(os.path.dirname(__file__), "exercise_9.py")
+        with open(exercise_file_path, 'r') as file:
+            file_content = file.read()
+            self.assertNotIn("max(", file_content, "You should not use the max function in your solution")
+
 
 if __name__ == '__main__':
     unittest.main()
