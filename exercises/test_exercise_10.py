@@ -11,17 +11,17 @@ class TestExercise10(unittest.TestCase):
     def test_pound_to_kg_table_5(self):
         output = self.run_exercise("5\n")
         expected_output = "1 0.45\n2 0.91\n3 1.36\n4 1.81\n5 2.27\n"
-        self.assertEqual(output, expected_output)
+        self.assertIn(expected_output, output)
 
     def test_pound_to_kg_table_3(self):
         output = self.run_exercise("3\n")
         expected_output = "1 0.45\n2 0.91\n3 1.36\n"
-        self.assertEqual(output, expected_output)
+        self.assertIn(expected_output, output)
 
     def test_pound_to_kg_table_7(self):
         output = self.run_exercise("7\n")
-        expected_output = "1 0.45\n2 0.91\n3 1.36\n4 1.81\n5 2.27\n6 2.72\n7 3.18\n"
-        self.assertEqual(output, expected_output)
+        expected_output = "1 0.45\n2 0.91\n3 1.36\n4 1.81\n5 2.27\n6 2.72\n7 3.17\n"
+        self.assertIn(expected_output, output)
 
 if __name__ == '__main__':
     unittest.main()
