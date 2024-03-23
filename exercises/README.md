@@ -407,7 +407,6 @@ The problem tests the ability to use loops and conditional statements to print a
 3 	3 	3
 4 	4 	4
 5 	5 	5
-6 	6 	6
 ```
 
 #### Pattern 2
@@ -1337,7 +1336,19 @@ pip install pytest
 Then, you can run the tests for a specific exercise using the following command:
 
 ```bash
-python -m unittest exercises/test_exercise_1.py
+python -m unittest tests/test_exercise_1.py
+```
+
+And for more beautiful output, you can use:
+
+```bash
+pytest --color=yes -vv tests/test_exercise_1.py
+```
+
+or to run only failed test from a specific file:
+
+```bash
+pytest --color=yes --failed-first -x tests/test_exercise_1.py
 ```
 
 Replace `exercise_1` with the exercise you're working on (e.g., `exercise_2`, `exercise_3`, etc.) and `test_exercise_1` with the corresponding test file.
