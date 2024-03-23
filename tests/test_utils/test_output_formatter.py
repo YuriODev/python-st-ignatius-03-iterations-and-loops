@@ -1,6 +1,7 @@
 class TestOutputFormatter:
     @staticmethod
-    def get_failure_details_in_table(input_value: list, expected_output, actual_output) -> str:
+    def get_failure_details_in_table(input_value: list, expected_output,
+                                     actual_output) -> str:
 
         # Convert the input list into a string
         input_value = '\n'.join(input_value)
