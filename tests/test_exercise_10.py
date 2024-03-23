@@ -1,5 +1,5 @@
 import unittest
-from test_utils import CustomTestCase, CustomTestRunner
+from .test_utils import CustomTestCase, CustomTestRunner
 
 
 class TestExercise10(CustomTestCase):
