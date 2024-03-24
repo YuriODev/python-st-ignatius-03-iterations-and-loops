@@ -21,7 +21,7 @@ class TestExercise21(CustomTestCase):
         expected_output = "1"
         self.assertInCustom(expected=expected_output, actual=output,
                             input_value=inputs)
-        
+
     def test_factorial_2(self):
         """
         The program should calculate the factorial of 2.
@@ -32,7 +32,7 @@ class TestExercise21(CustomTestCase):
         expected_output = "3"
         self.assertInCustom(expected=expected_output, actual=output,
                             input_value=inputs)
-        
+
     def test_factorial_3(self):
         """
         The program should calculate the factorial of 3.
@@ -43,7 +43,7 @@ class TestExercise21(CustomTestCase):
         expected_output = "9"
         self.assertInCustom(expected=expected_output, actual=output,
                             input_value=inputs)
-        
+
     def test_factorial_4(self):
         """
         The program should calculate the factorial of 4.
