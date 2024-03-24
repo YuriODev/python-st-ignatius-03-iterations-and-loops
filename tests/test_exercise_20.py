@@ -1,52 +1,96 @@
-
 import unittest
-import subprocess
-import os
-import ast
-
-class TestExercise20(unittest.TestCase):
-    def run_exercise(self, input_value):
-        exercise_file_path = os.path.join(os.path.dirname(__file__), "exercise_20.py")
-        return subprocess.check_output(['python3', exercise_file_path], input=input_value, text=True, universal_newlines=True)
-
-    def test_odd_numbers_to_15(self):
-        output = self.run_exercise("15\n")
-        expected_output = "1 3 5 7 9 11 13 15\n"
-        self.assertEqual(output, expected_output)
-
-    def test_odd_numbers_to_8(self):
-        output = self.run_exercise("8\n")
-        expected_output = "1 3 5 7\n"
-        self.assertEqual(output, expected_output)
-
-    def test_odd_numbers_to_5(self):
-        output = self.run_exercise("5\n")
-        expected_output = "1 3 5\n"
-        self.assertEqual(output, expected_output)
-
-    def check_if_usage(self):
-        with open("exercise_20.py", "r") as source_code:
-            tree = ast.parse(source_code.read())
-            for node in ast.walk(tree):
-                if isinstance(node, ast.If):
-                    self.fail("If usage found in the code.")
-
-    def chek_list_usage(self):
-        with open("exercise_20.py", "r") as source_code:
-            tree = ast.parse(source_code.read())
-            for node in ast.walk(tree):
-                if isinstance(node, (ast.List, ast.ListComp)):
-                    self.fail("List usage found in the code.")
-                elif isinstance(node, ast.Call) and isinstance(node.func, ast.Name) and node.func.id == 'list':
-                    self.fail("List usage found in the code.")
-
-    def test_no_list_usage(self):
-        with open("exercise_20.py", "r") as source_code:
-            code = source_code.read()
-            self.assertNotIn("list", code)
-            self.assertNotIn("[", code)
-            self.assertNotIn("]", code)
+from .test_utils import CustomTestCase, CustomTestRunner
 
 
-if __name__ == '__main__':
-    unittest.main()
+class TestExercise20(CustomTestCase):
+
+    def test_loop_usage(self):
+        """
+        The program should use a 'for' or 'while' loop to solve the exercise.
+        """
+
+        self.assertUsesLoops()
+
+    def test_if_statement_usage(self):
+        """
+        The program should not use the branching construct to solve the exercise.
+        """
+
+        self.assertNotUsesIf()
+
+    def test_list_usage(self):
+        """
+        The program should not use lists to solve the exercise.
+        """
+
+        self.assertNotUsesList()
+
+    def test_odd_numbers_1(self):
+        """
+        The program should print all odd numbers from 1 to 15.
+        """
+
+        inputs = ["15"]
+        output = self.run_exercise(inputs)
+        expected_output = "1 3 5 7 9 11 13 15 "
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+    def test_odd_numbers_2(self):
+        """
+        The program should print all odd numbers from 1 to 8.
+        """
+
+        inputs = ["8"]
+        output = self.run_exercise(inputs)
+        expected_output = "1 3 5 7 "
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+    def test_odd_numbers_3(self):
+        """
+        The program should print all odd numbers from 1 to 5.
+        """
+
+        inputs = ["5"]
+        output = self.run_exercise(inputs)
+        expected_output = "1 3 5 "
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+    def test_odd_numbers_4(self):
+        """
+        The program should print all odd numbers from 1 to 1.
+        """
+
+        inputs = ["1"]
+        output = self.run_exercise(inputs)
+        expected_output = "1 "
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+    def test_odd_numbers_5(self):
+        """
+        The program should print all odd numbers from 1 to 10.
+        """
+
+        inputs = ["10"]
+        output = self.run_exercise(inputs)
+        expected_output = "1 3 5 7 9 "
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+    def test_odd_numbers_6(self):
+        """
+        The program should print all odd numbers from 1 to 20.
+        """
+
+        inputs = ["20"]
+        output = self.run_exercise(inputs)
+        expected_output = "1 3 5 7 9 11 13 15 17 19 "
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+
+if __name__ == "__main__":
+    unittest.main(testRunner=CustomTestRunner)
