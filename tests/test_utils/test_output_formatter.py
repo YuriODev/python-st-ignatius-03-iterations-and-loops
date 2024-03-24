@@ -65,3 +65,21 @@ class TestOutputFormatter:
             yellow_start + "+-------------------------------------------------------+" + yellow_end,
         ]
         return "\n".join(message_lines)
+
+    @staticmethod
+    def generate_continue_usage_message():
+        """
+        Generates a custom message in a table format about the misuse of the 'continue' statement.
+        """
+        yellow_start = "\x1b[38;5;208m"
+        yellow_end = "\x1b[0m"
+        message_lines = [
+            "\n",
+            yellow_start + "Failed test:" + yellow_end,
+            yellow_start + "+-------------------------------------------------------+" + yellow_end,
+            yellow_start + "|                   Continue Usage Error                |" + yellow_end,
+            yellow_start + "+-------------------------------------------------------+" + yellow_end,
+            yellow_start + "| The solution must use the 'continue' statement.       |" + yellow_end,
+            yellow_start + "+-------------------------------------------------------+" + yellow_end,
+        ]
+        return "\n".join(message_lines)
