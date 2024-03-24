@@ -1,42 +1,82 @@
-
 import unittest
-import subprocess
-import os
-import ast
-
-class TestExercise15(unittest.TestCase):
-    def run_exercise(self, input_values):
-        exercise_file_path = os.path.join(os.path.dirname(__file__), "exercise_15.py")
-        return subprocess.check_output(['python3', exercise_file_path], input=input_values, text=True, universal_newlines=True)
-
-    def test_error_collection(self):
-        output = self.run_exercise("6\n45\n101\n67\n43\n21\n0\n")
-        self.assertEqual(int(output.strip()), 277)
-
-    def test_all_zeros(self):
-        output = self.run_exercise("3\n0\n0\n0\n")
-        self.assertEqual(int(output.strip()), 0)
-
-    def test_varied_errors(self):
-        output = self.run_exercise("5\n1\n2\n3\n4\n5\n")
-        self.assertEqual(int(output.strip()), 15)
-
-    def chek_list_usage(self):
-        with open("exercise_18.py", "r") as source_code:
-            tree = ast.parse(source_code.read())
-            for node in ast.walk(tree):
-                if isinstance(node, (ast.List, ast.ListComp)):
-                    self.fail("List usage found in the code.")
-                elif isinstance(node, ast.Call) and isinstance(node.func, ast.Name) and node.func.id == 'list':
-                    self.fail("List usage found in the code.")
-
-    def test_no_list_usage(self):
-        with open("exercise_18.py", "r") as source_code:
-            code = source_code.read()
-            self.assertNotIn("list", code)
-            self.assertNotIn("[", code)
-            self.assertNotIn("]", code)
+from .test_utils import CustomTestCase, CustomTestRunner
 
 
-if __name__ == '__main__':
-    unittest.main()
+class TestExercise18(CustomTestCase):
+
+    def test_loop_usage(self):
+        """
+        The program should use a 'for' or 'while' loop to solve the exercise.
+        """
+
+        self.assertUsesLoops()
+
+    def test_total_number_of_errors_1(self):
+        """
+        The program should determine the total number of errors collected over 6 days.
+        """
+
+        inputs = ["6", "45", "101", "67", "43", "21", "0"]
+        output = self.run_exercise(inputs)
+        expected_output = "277"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+    def test_total_number_of_errors_2(self):
+        """
+        The program should determine the total number of errors collected over 3 days.
+        """
+
+        inputs = ["3", "0", "0", "0"]
+        output = self.run_exercise(inputs)
+        expected_output = "0"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+    def test_total_number_of_errors_3(self):
+        """
+        The program should determine the total number of errors collected over 5 days.
+        """
+
+        inputs = ["5", "1", "2", "3", "4", "5"]
+        output = self.run_exercise(inputs)
+        expected_output = "15"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+    def test_total_number_of_errors_4(self):
+        """
+        The program should determine the total number of errors collected over 7 days.
+        """
+
+        inputs = ["7", "1", "2", "3", "4", "5", "6", "7"]
+        output = self.run_exercise(inputs)
+        expected_output = "28"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+    def test_total_number_of_errors_5(self):
+        """
+        The program should determine the total number of errors collected over 4 days.
+        """
+
+        inputs = ["4", "1", "2", "3", "4"]
+        output = self.run_exercise(inputs)
+        expected_output = "10"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+        
+    def test_total_number_of_errors_6(self):
+        """
+        The program should determine the total number of errors collected over 2 days.
+        """
+
+        inputs = ["2", "1", "1"]
+        output = self.run_exercise(inputs)
+        expected_output = "2"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+
+if __name__ == "__main__":
+    unittest.main(testRunner=CustomTestRunner)
