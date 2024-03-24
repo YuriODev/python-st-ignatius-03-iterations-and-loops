@@ -55,14 +55,18 @@ class TestOutputFormatter:
         """
         yellow_start = "\x1b[38;5;208m"
         yellow_end = "\x1b[0m"
+        title_width = 50
+        content_width = 50
+        title_padding = (title_width - len(title)) // 2
+        content_padding = (content_width - len(content)) // 2
         message_lines = [
             "\n",
             yellow_start + "Failed test:" + yellow_end,
-            yellow_start + "+-------------------------------------------------------+" + yellow_end,
-            yellow_start + f"| {title.center(50)} |" + yellow_end,
-            yellow_start + "+-------------------------------------------------------+" + yellow_end,
-            yellow_start + f"| {content.center(50)} |" + yellow_end,
-            yellow_start + "+-------------------------------------------------------+" + yellow_end,
+            yellow_start + "+" + "-" * (title_width + 2) + "+" + yellow_end,
+            yellow_start + f"| {' ' * title_padding}{title}{' ' * title_padding} |" + yellow_end,
+            yellow_start + "+" + "-" * (title_width + 2) + "+" + yellow_end,
+            yellow_start + f"| {' ' * content_padding}{content}{' ' * content_padding} |" + yellow_end,
+            yellow_start + "+" + "-" * (content_width + 2) + "+" + yellow_end,
         ]
         return "\n".join(message_lines)
 
