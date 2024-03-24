@@ -1,38 +1,71 @@
-
 import unittest
-import subprocess
-import os
-import ast
+from .test_utils import CustomTestCase, CustomTestRunner
 
-class TestExercise24(unittest.TestCase):
-    def run_exercise(self, input_values):
-        exercise_file_path = os.path.join(os.path.dirname(__file__), "exercise_24.py")
-        return subprocess.check_output(['python3', exercise_file_path], input=input_values, text=True, universal_newlines=True)
 
-    def test_even_elements_sequence(self):
-        output = self.run_exercise("3\n6\n9\n8\n0\n")
-        self.assertEqual(int(output.strip()), 2)
+class TestExercise24(CustomTestCase):
 
-    def test_odd_elements_sequence(self):
-        output = self.run_exercise("3\n6\n9\n8\n7\n0\n")
-        self.assertEqual(int(output.strip()), 3)
+    def test_loop_usage(self):
+        """
+        The program should use a 'for' or 'while' loop to solve the exercise.
+        """
 
-    def chek_list_usage(self):
-        with open("exercise_24.py", "r") as source_code:
-            tree = ast.parse(source_code.read())
-            for node in ast.walk(tree):
-                if isinstance(node, (ast.List, ast.ListComp)):
-                    self.fail("List usage found in the code.")
-                elif isinstance(node, ast.Call) and isinstance(node.func, ast.Name) and node.func.id == 'list':
-                    self.fail("List usage found in the code.")
+        self.assertUsesLoops()
 
-    def test_no_list_usage(self):
-        with open("exercise_24.py", "r") as source_code:
-            code = source_code.read()
-            self.assertNotIn("list", code)
-            self.assertNotIn("[", code)
-            self.assertNotIn("]", code)
+    def test_3_6_9_8_0(self):
+        """
+        The program should print the number of even elements in the sequence.
+        """
+
+        inputs = ["3", "6", "9", "8", "0"]
+        output = self.run_exercise(inputs)
+        expected_output = "2"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+    def test_1_2_3_4_5_0(self):
+        """
+        The program should print the number of even elements in the sequence.
+        """
+
+        inputs = ["1", "2", "3", "4", "5", "0"]
+        output = self.run_exercise(inputs)
+        expected_output = "2"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+    def test_10_20_30_40_50_0(self):
+        """
+        The program should print the number of even elements in the sequence.
+        """
+
+        inputs = ["10", "20", "30", "40", "50", "0"]
+        output = self.run_exercise(inputs)
+        expected_output = "5"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+    def test_0(self):
+        """
+        The program should print the number of even elements in the sequence.
+        """
+
+        inputs = ["0"]
+        output = self.run_exercise(inputs)
+        expected_output = "0"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+    def test_1(self):
+        """
+        The program should print the number of even elements in the sequence.
+        """
+
+        inputs = ["1", "0"]
+        output = self.run_exercise(inputs)
+        expected_output = "0"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
 
 
 if __name__ == '__main__':
-    unittest.main()
+    unittest.main(testRunner=CustomTestRunner)
