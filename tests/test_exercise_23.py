@@ -1,43 +1,148 @@
 
+# # ## Exercise 23: Average of a Sequence - Medium 🔥 (Est. Time: 10-15 mins | Points: 20)
+
+# # **Problem:** Write a program to calculate the average of all integers in a sequence that ends with the number `0`. The number `0` is not included in the sequence, but is used as a sign of its end.
+
+# # ### Input:
+
+# # - A sequence of integers that ends with the number `0`.
+
+# # ### Output:
+
+# # - A floating-point number representing the average of all integers in the sequence.
+
+# # ### Examples:
+
+# # | No. | Inputs | Outputs |
+# # | --- | ------ | ------- |
+# # | 1   | 3<br>4<br>5<br>0 | 4.0 |
+# # | 2 | 1<br>2<br>3<br>4<br>5<br>0 | 3.0 |
+# # | 3 | 10<br>20<br>30<br>40<br>50<br>0 | 30.0 |
+
+# # ### Note:
+
+# # The problem tests the ability to use loops and conditional statements to calculate the average of a sequence of numbers.
+
+# # Your solution to Exercise 23
+
+# # Prompt the user to enter a number
+# number = int(input())
+
+# # Initialize the sum of all integers in the sequence
+# total = 0
+
+# # Initialize the count of all integers in the sequence
+# count = 0
+
+# # Loop through all integers in the sequence
+# while number != 0:
+#     total += number
+#     count += 1
+#     number = int(input())
+
+# # Calculate the average of all integers in the sequence
+# average = total / count
+
+# # Output the average of all integers in the sequence
+# print(average)
+
+
 import unittest
-import subprocess
-import os
-import ast
+from .test_utils import CustomTestCase, CustomTestRunner
 
-class TestExercise23(unittest.TestCase):
-    def run_exercise(self, input_values):
-        exercise_file_path = os.path.join(os.path.dirname(__file__), "exercise_23.py")
-        return subprocess.check_output(['python3', exercise_file_path], input=input_values, text=True, universal_newlines=True)
 
-    def test_average_sequence_ending_with_0(self):
-        output = self.run_exercise("3\n4\n5\n0\n")
-        self.assertAlmostEqual(float(output.strip()), 4.0, places=1)
+class TestExercise23(CustomTestCase):
 
-    def test_average_sequence_1_to_5_ending_with_0(self):
-        output = self.run_exercise("1\n2\n3\n4\n5\n0\n")
-        self.assertAlmostEqual(float(output.strip()), 3.0, places=1)
+    def test_loop_usage(self):
+        """
+        The program should use a 'for' or 'while' loop to solve the exercise.
+        """
 
-    def test_average_sequence_10_to_50_by_10_ending_with_0(self):
-        output = self.run_exercise("10\n20\n30\n40\n50\n0\n")
-        self.assertAlmostEqual(float(output.strip()), 30.0, places=1)
+        self.assertUsesLoops()
 
-    def chek_list_usage(self):
-        with open("exercise_23.py", "r") as source_code:
-            tree = ast.parse(source_code.read())
-            for node in ast.walk(tree):
-                if isinstance(node, (ast.List, ast.ListComp)):
-                    self.fail("List usage found in the code.")
-                elif isinstance(node, ast.Call) and isinstance(node.func, ast.Name) and node.func.id == 'list':
-                    self.fail("List usage found in the code.")
 
-    def test_no_list_usage(self):
-        with open("exercise_23.py", "r") as source_code:
-            code = source_code.read()
-            self.assertNotIn("list", code)
-            self.assertNotIn("[", code)
-            self.assertNotIn("]", code)
+    def test_3_4_5_0(self):
+        """
+        The program should print the average of all integers in the sequence [3, 4, 5].
+        """
 
-    
+        inputs = ["3", "4", "5", "0"]
+        output = self.run_exercise(inputs)
+        expected_output = "4.0\n"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
 
-if __name__ == '__main__':
-    unittest.main()
+    def test_1_2_3_4_5_0(self):
+        """
+        The program should print the average of all integers in the sequence [1, 2, 3, 4, 5].
+        """
+
+        inputs = ["1", "2", "3", "4", "5", "0"]
+        output = self.run_exercise(inputs)
+        expected_output = "3.0\n"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+    def test_10_20_30_40_50_0(self):
+        """
+        The program should print the average of all integers in the sequence [10, 20, 30, 40, 50].
+        """
+
+        inputs = ["10", "20", "30", "40", "50", "0"]
+        output = self.run_exercise(inputs)
+        expected_output = "30.0\n"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+    def test_1_2_3_4_5_6_7_8_9_10_0(self):
+
+        """
+        The program should print the average of all integers in the sequence [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].
+        """
+
+        inputs = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "0"]
+        output = self.run_exercise(inputs)
+        expected_output = "5.5\n"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+    def test_1_0(self):
+        """
+        The program should print the average of all integers in the sequence [1].
+        """
+
+        inputs = ["1", "0"]
+        output = self.run_exercise(inputs)
+        expected_output = "1.0\n"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+    def test_no_division_by_zero(self):
+        """
+        The program should not divide by zero.
+        """
+
+        inputs = ["0"]
+        try:
+            output = self.run_exercise(inputs)
+            expected_output = "0.0\n"
+            self.assertInCustom(expected=expected_output, actual=output,
+                                input_value=inputs)
+        except TypeError:
+            self.assertDivisionByZero()
+
+    def test_1_2_3_4_5_6_7_8_9_10_11_12_13_14_15_16_17_18_19_20_0(self):
+
+            """
+            The program should print the average of all integers in the sequence [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20].
+            """
+
+            inputs = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "0"]
+            output = self.run_exercise(inputs)
+            expected_output = "10.5\n"
+            self.assertInCustom(expected=expected_output, actual=output,
+                                input_value=inputs)
+
+
+if __name__ == "__main__":
+    unittest.main(testRunner=CustomTestRunner)
