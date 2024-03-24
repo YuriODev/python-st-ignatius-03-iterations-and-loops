@@ -1,24 +1,82 @@
-
 import unittest
-import subprocess
-import os
+from .test_utils import CustomTestCase, CustomTestRunner
 
-class TestExercise12(unittest.TestCase):
-    def run_exercise(self, input_value):
-        exercise_file_path = os.path.join(os.path.dirname(__file__), "exercise_12.py")
-        return subprocess.check_output(['python3', exercise_file_path], input=input_value, text=True, universal_newlines=True)
 
-    def test_sum_of_three_digit_numbers_divisible_by_125(self):
-        output = self.run_exercise("125\n")
-        self.assertEqual(int(output.strip()), 3500)
+class TestExercise12(CustomTestCase):
 
-    def test_sum_of_three_digit_numbers_divisible_by_440(self):
-        output = self.run_exercise("440\n")
-        self.assertEqual(int(output.strip()), 1320)
+    def test_loop_usage(self):
+        """
+        The program should use a 'for' or 'while' loop to solve the exercise.
+        """
 
-    def test_sum_of_three_digit_numbers_divisible_by_600(self):
-        output = self.run_exercise("600\n")
-        self.assertEqual(int(output.strip()), 600)
+        self.assertUsesLoops()
+
+    def test_divisible_by_125(self):
+        """
+        The program should calculate the sum of all three-digit numbers that are divisible by 125.
+        """
+
+        inputs = ["125"]
+        output = self.run_exercise(inputs)
+        expected_output = "3500\n"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+    def test_divisible_by_440(self):
+        """
+        The program should calculate the sum of all three-digit numbers that are divisible by 440.
+        """
+
+        inputs = ["440"]
+        output = self.run_exercise(inputs)
+        expected_output = "1320\n"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+    def test_divisible_by_600(self):
+        """
+        The program should calculate the sum of all three-digit numbers that are divisible by 600.
+        """
+
+        inputs = ["600"]
+        output = self.run_exercise(inputs)
+        expected_output = "600\n"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+    def test_divisible_by_1000(self):
+        """
+        The program should calculate the sum of all three-digit numbers that are divisible by 1000.
+        """
+
+        inputs = ["1000"]
+        output = self.run_exercise(inputs)
+        expected_output = "0\n"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+    def test_divisible_by_1(self):
+        """
+        The program should calculate the sum of all three-digit numbers that are divisible by 1.
+        """
+
+        inputs = ["1"]
+        output = self.run_exercise(inputs)
+        expected_output = "494550\n"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+    def test_divisible_by_2(self):
+        """
+        The program should calculate the sum of all three-digit numbers that are divisible by 2.
+        """
+
+        inputs = ["2"]
+        output = self.run_exercise(inputs)
+        expected_output = "247050\n"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
 
 if __name__ == '__main__':
-    unittest.main()
+    unittest.main(testRunner=CustomTestRunner())
