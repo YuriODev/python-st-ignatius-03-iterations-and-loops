@@ -516,7 +516,7 @@ The problem tests the ability to use loops and conditional statements to print a
 | --- | ------ | ------- |
 | 1   | 3 | 9 |
 | 2 | 4 | 33 |
-| 3 | 5 | 152 |
+| 3 | 5 | 153 |
 
 ### Note:
 
