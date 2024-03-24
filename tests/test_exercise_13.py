@@ -42,7 +42,7 @@ class TestExercise13(CustomTestCase):
         output = self.run_exercise(inputs)
         expected_output = "Done\n"
         self.assertInCustom(expected=expected_output, actual=output,
-                            input_value=inputs)        
+                            input_value=inputs)
 
 
 if __name__ == '__main__':
