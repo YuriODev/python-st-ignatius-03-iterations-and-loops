@@ -60,7 +60,7 @@ class CustomTestCase(unittest.TestCase):
         except AssertionError:
             loop_usage_message = TestOutputFormatter.generate_loop_usage_message()
             raise AssertionError(loop_usage_message)
-        
+
     def assertUsesContinue(self):
         """
         Asserts that the solution uses the 'continue' statement.
@@ -70,7 +70,7 @@ class CustomTestCase(unittest.TestCase):
         except AssertionError:
             continue_usage_message = TestOutputFormatter.generate_continue_usage_message()
             raise AssertionError(continue_usage_message)
-        
+
     def assertNotUsesIf(self):
         """
         Asserts that the solution does not use the 'if' statement.
@@ -80,7 +80,7 @@ class CustomTestCase(unittest.TestCase):
         except AssertionError:
             if_usage_message = TestOutputFormatter.generate_if_usage_message()
             raise AssertionError(if_usage_message)
-        
+
     def assertNotUsesList(self):
         """
         Asserts that the solution does not use lists.
@@ -90,6 +90,16 @@ class CustomTestCase(unittest.TestCase):
         except AssertionError:
             list_usage_message = TestOutputFormatter.generate_list_usage_message()
             raise AssertionError(list_usage_message)
+
+    def assertNotUseStringSlice(self):
+        """
+        Asserts that the solution does not use string slicing.
+        """
+        try:
+            self.assertFalse(self.check_for_string_slice())
+        except AssertionError:
+            string_slice_message = TestOutputFormatter.generate_string_slice_message()
+            raise AssertionError(string_slice_message)
 
     def check_for_loops(self):
         """
@@ -111,10 +121,17 @@ class CustomTestCase(unittest.TestCase):
         """
         content = self.file_content
         return bool(re.search(r'\bif\b', content))
-    
+
     def check_for_list(self):
         """
         Checks if the solution file uses lists or list constructions.
         """
         content = self.file_content
         return bool(re.search(r'\blist\b|\[|\]', content))
+
+    def check_for_string_slice(self):
+        """
+        Checks if the solution file uses string slicing.
+        """
+        content = self.file_content
+        return bool(re.search(r'\[.*:.*\]', content))
