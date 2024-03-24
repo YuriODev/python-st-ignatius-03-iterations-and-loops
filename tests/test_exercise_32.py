@@ -1,42 +1,78 @@
-
 import unittest
-import subprocess
-import os
-import ast
+from .test_utils import CustomTestCase, CustomTestRunner
 
-class TestExercise32(unittest.TestCase):
-    def run_exercise(self, input_values):
-        exercise_file_path = os.path.join(os.path.dirname(__file__), "exercise_32.py")
-        return subprocess.check_output(['python3', exercise_file_path], input=input_values, text=True, universal_newlines=True)
 
-    def test_car_speeds(self):
-        output = self.run_exercise("3\n15\n25\n140\n")
-        self.assertEqual(output.strip(), "125\n2")
+class TestExercise32(CustomTestCase):
 
-    def test_car_speeds_2(self):
-        output = self.run_exercise("5\n100\n110\n120\n130\n140\n")
-        self.assertEqual(output.strip(), "40\n5")
+    def test_loop_usage(self):
+        """
+        The program should use a 'for' or 'while' loop to solve the exercise.
+        """
 
-    def test_car_speeds_3(self):
-        output = self.run_exercise("4\n100\n90\n80\n70\n")
-        self.assertEqual(output.strip(), "30\n0")
-
-    def chek_list_usage(self):
-        with open("exercise_32.py", "r") as source_code:
-            tree = ast.parse(source_code.read())
-            for node in ast.walk(tree):
-                if isinstance(node, (ast.List, ast.ListComp)):
-                    self.fail("List usage found in the code.")
-                elif isinstance(node, ast.Call) and isinstance(node.func, ast.Name) and node.func.id == 'list':
-                    self.fail("List usage found in the code.")
+        self.assertUsesLoops()
 
     def test_no_list_usage(self):
-        with open("exercise_32.py", "r") as source_code:
-            code = source_code.read()
-            self.assertNotIn("list", code)
-            self.assertNotIn("[", code)
-            self.assertNotIn("]", code)
+        """
+        The program should not use string slicing to solve the exercise.
+        """
+
+        self.assertNotUsesList()
+
+    def test_3_15_25_140(self):
+        """
+        The program should print the difference between the maximum and minimum speeds of the cars and the number of cars whose speed did not exceed 30 km/h.
+        """
+
+        inputs = ["3", "15", "25", "140"]
+        output = self.run_exercise(inputs)
+        expected_output = "125\n2\n"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+    def test_5_10_20_30_40_50(self):
+        """
+        The program should print the difference between the maximum and minimum speeds of the cars and the number of cars whose speed did not exceed 30 km/h.
+        """
+
+        inputs = ["5", "10", "20", "30", "40", "50"]
+        output = self.run_exercise(inputs)
+        expected_output = "40\n3\n"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+    def test_7_5_10_15_20_25_30_35(self):
+        """
+        The program should print the difference between the maximum and minimum speeds of the cars and the number of cars whose speed did not exceed 30 km/h.
+        """
+
+        inputs = ["7", "5", "10", "15", "20", "25", "30", "35"]
+        output = self.run_exercise(inputs)
+        expected_output = "30\n6\n"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+    def test_1_1(self):
+        """
+        The program should print the difference between the maximum and minimum speeds of the cars and the number of cars whose speed did not exceed 30 km/h.
+        """
+
+        inputs = ["1", "1"]
+        output = self.run_exercise(inputs)
+        expected_output = "0\n1\n"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+    def test_1_300(self):
+        """
+        The program should print the difference between the maximum and minimum speeds of the cars and the number of cars whose speed did not exceed 30 km/h.
+        """
+
+        inputs = ["1", "300"]
+        output = self.run_exercise(inputs)
+        expected_output = "0\n0\n"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
 
 
 if __name__ == '__main__':
-    unittest.main()
+    unittest.main(testRunner=CustomTestRunner)
