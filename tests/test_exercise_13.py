@@ -1,32 +1,49 @@
 import unittest
-import subprocess
-import os
+from .test_utils import CustomTestCase, CustomTestRunner
 
 
-class TestExercise13(unittest.TestCase):
-    def run_exercise(self, inputs):
-        """Helper method to run the exercise script with the provided inputs and return its output."""
-        # The inputs list is joined into a single string, each separated by '\n'
-        input_value = '\n'.join(inputs) + '\n'
-        exercise_file_path = os.path.join(os.path.dirname(__file__), "exercise_13.py")
-        return subprocess.check_output(['python3', exercise_file_path], input=input_value, text=True, universal_newlines=True)
+class TestExercise13(CustomTestCase):
+
+    def test_loop_usage(self):
+        """
+        The program should use a 'for' or 'while' loop to solve the exercise.
+        """
+
+        self.assertUsesLoops()
 
     def test_password_12345(self):
+        """
+        The program should prompt the user for a password and validate it.
+        """
+
         inputs = ["12345", "111", "45", "12345"]
         output = self.run_exercise(inputs)
-        self.assertIn("Done", output)
+        expected_output = "Done\n"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
 
     def test_password_123(self):
-        inputs = ["123", "111", "45", "123"]
+        """
+        The program should prompt the user for a password and validate it.
+        """
+
+        inputs = ["123", "111", "45", "12345", "123"]
         output = self.run_exercise(inputs)
-        self.assertIn("Done", output)
+        expected_output = "Done\n"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
 
     def test_password_111(self):
+        """
+        The program should prompt the user for a password and validate it.
+        """
+
         inputs = ["111", "111"]
         output = self.run_exercise(inputs)
-        self.assertIn("Done", output)
+        expected_output = "Done\n"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)        
 
 
 if __name__ == '__main__':
-    unittest.main()
-    print("\x1b[6;30;42m Success! Your code works as intended.\x1b[0m")
+    unittest.main(testRunner=CustomTestRunner())
