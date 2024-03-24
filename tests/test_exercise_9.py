@@ -80,7 +80,7 @@ class TestExercise9(CustomTestCase):
         expected_output = "12 16 20 \n"
         self.assertInCustom(expected=expected_output, actual=output,
                             input_value=inputs)
-    
+
 
 if __name__ == '__main__':
     unittest.main(testRunner=CustomTestRunner())
