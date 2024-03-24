@@ -1,34 +1,71 @@
-
 import unittest
-import subprocess
-import os
-import ast
+from .test_utils import CustomTestCase, CustomTestRunner
 
-class TestExercise14(unittest.TestCase):
-    def run_exercise(self, input_values):
-        exercise_file_path = os.path.join(os.path.dirname(__file__), "exercise_14.py")
-        return subprocess.check_output(['python3', exercise_file_path], input=input_values, text=True, universal_newlines=True)
 
-    def test_count_of_zeros(self):
-        output = self.run_exercise("4\n0\n23\n11\n0\n")
-        self.assertEqual(int(output.strip()), 2)
+class TestExercise14(CustomTestCase):
 
-    def test_all_zeros(self):
-        output = self.run_exercise("3\n0\n0\n0\n")
-        self.assertEqual(int(output.strip()), 3)
+    def test_loop_usage(self):
+        """
+        The program should use a 'for' or 'while' loop to solve the exercise.
+        """
 
-    def test_no_zeros(self):
-        output = self.run_exercise("5\n1\n2\n3\n4\n5\n")
-        self.assertEqual(int(output.strip()), 0)
+        self.assertUsesLoops()
 
-    def test_no_list_usage(self):
-        with open("exercise_14.py", "r") as source_code:
-            tree = ast.parse(source_code.read())
-            for node in ast.walk(tree):
-                if isinstance(node, (ast.List, ast.ListComp)):
-                    self.fail("List usage found in the code.")
-                elif isinstance(node, ast.Call) and isinstance(node.func, ast.Name) and node.func.id == 'list':
-                    self.fail("List usage found in the code.")
+    def test_count_of_zeros_1(self):
+        """
+        The program should count the number of zeros in the input of 4.
+        """
+
+        inputs = ["4", "0", "23", "11", "0"]
+        output = self.run_exercise(inputs)
+        expected_output = "2"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+    def test_count_of_zeros_2(self):
+        """
+        The program should count the number of zeros in the input of 3.
+        """
+
+        inputs = ["3", "0", "0", "0"]
+        output = self.run_exercise(inputs)
+        expected_output = "3"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+    def test_count_of_zeros_3(self):
+        """
+        The program should count the number of zeros in the input of 5.
+        """
+
+        inputs = ["5", "1", "2", "3", "4", "5"]
+        output = self.run_exercise(inputs)
+        expected_output = "0"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+    def test_count_of_zeros_4(self):
+        """
+        The program should count the number of zeros in the input of 6.
+        """
+
+        inputs = ["6", "0", "0", "0", "0", "0", "0"]
+        output = self.run_exercise(inputs)
+        expected_output = "6"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+    def test_count_of_zeros_5(self):
+        """
+        The program should count the number of zeros in the input of 7.
+        """
+
+        inputs = ["7", "1", "2", "3", "4", "5", "6", "7"]
+        output = self.run_exercise(inputs)
+        expected_output = "0"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
 
 if __name__ == '__main__':
-    unittest.main()
+    unittest.main(testRunner=CustomTestRunner())
