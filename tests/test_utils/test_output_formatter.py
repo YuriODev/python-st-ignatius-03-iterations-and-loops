@@ -49,9 +49,9 @@ class TestOutputFormatter:
         return output
 
     @staticmethod
-    def generate_loop_usage_message():
+    def generate_message(title: str, content: str) -> str:
         """
-        Generates a custom message in a table format about the misuse of loops.
+        Generates a custom message in a table format with the given title and content.
         """
         yellow_start = "\x1b[38;5;208m"
         yellow_end = "\x1b[0m"
@@ -59,63 +59,54 @@ class TestOutputFormatter:
             "\n",
             yellow_start + "Failed test:" + yellow_end,
             yellow_start + "+-------------------------------------------------------+" + yellow_end,
-            yellow_start + "|                     Loop Usage Error                  |" + yellow_end,
+            yellow_start + f"| {title.center(50)} |" + yellow_end,
             yellow_start + "+-------------------------------------------------------+" + yellow_end,
-            yellow_start + "| The solution must use a 'for' or 'while' loop.        |" + yellow_end,
+            yellow_start + f"| {content.center(50)} |" + yellow_end,
             yellow_start + "+-------------------------------------------------------+" + yellow_end,
         ]
         return "\n".join(message_lines)
+
+    @staticmethod
+    def generate_loop_usage_message():
+        """
+        Generates a custom message in a table format about the misuse of loops.
+        """
+        title = "Loop Usage Error"
+        content = "The solution must use a 'for' or 'while' loop."
+        return TestOutputFormatter.generate_message(title, content)
 
     @staticmethod
     def generate_continue_usage_message():
         """
         Generates a custom message in a table format about the misuse of the 'continue' statement.
         """
-        yellow_start = "\x1b[38;5;208m"
-        yellow_end = "\x1b[0m"
-        message_lines = [
-            "\n",
-            yellow_start + "Failed test:" + yellow_end,
-            yellow_start + "+-------------------------------------------------------+" + yellow_end,
-            yellow_start + "|                   Continue Usage Error                |" + yellow_end,
-            yellow_start + "+-------------------------------------------------------+" + yellow_end,
-            yellow_start + "| The solution must use the 'continue' statement.       |" + yellow_end,
-            yellow_start + "+-------------------------------------------------------+" + yellow_end,
-        ]
-        return "\n".join(message_lines)
+        title = "Continue Usage Error"
+        content = "The solution must use the 'continue' statement."
+        return TestOutputFormatter.generate_message(title, content)
 
     @staticmethod
     def generate_if_usage_message():
         """
         Generates a custom message in a table format about the misuse of the 'if' statement.
         """
-        yellow_start = "\x1b[38;5;208m"
-        yellow_end = "\x1b[0m"
-        message_lines = [
-            "\n",
-            yellow_start + "Failed test:" + yellow_end,
-            yellow_start + "+-------------------------------------------------------+" + yellow_end,
-            yellow_start + "|                     If Usage Error                   |" + yellow_end,
-            yellow_start + "+-------------------------------------------------------+" + yellow_end,
-            yellow_start + "| The solution must not use the 'if' statement.        |" + yellow_end,
-            yellow_start + "+-------------------------------------------------------+" + yellow_end,
-        ]
-        return "\n".join(message_lines)
+        title = "If Usage Error"
+        content = "The solution must not use the 'if' statement."
+        return TestOutputFormatter.generate_message(title, content)
 
     @staticmethod
     def generate_list_usage_message():
         """
         Generates a custom message in a table format about the misuse of lists.
         """
-        yellow_start = "\x1b[38;5;208m"
-        yellow_end = "\x1b[0m"
-        message_lines = [
-            "\n",
-            yellow_start + "Failed test:" + yellow_end,
-            yellow_start + "+-------------------------------------------------------+" + yellow_end,
-            yellow_start + "|                   List Usage Error                   |" + yellow_end,
-            yellow_start + "+-------------------------------------------------------+" + yellow_end,
-            yellow_start + "| The solution must not use lists.                     |" + yellow_end,
-            yellow_start + "+-------------------------------------------------------+" + yellow_end,
-        ]
-        return "\n".join(message_lines)
+        title = "List Usage Error"
+        content = "The solution must not use lists."
+        return TestOutputFormatter.generate_message(title, content)
+
+    @staticmethod
+    def generate_string_slice_message():
+        """
+        Generates a custom message in a table format about the misuse of string slicing.
+        """
+        title = "String Slice Usage Error"
+        content = "The solution must not use string slicing."
+        return TestOutputFormatter.generate_message(title, content)
