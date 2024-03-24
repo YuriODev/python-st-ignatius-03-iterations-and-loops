@@ -1,46 +1,90 @@
 
 import unittest
-import subprocess
-import os
-import ast
+from tests.test_utils import CustomTestCase, CustomTestRunner
 
 
-class TestExercise33(unittest.TestCase):
-    def run_exercise(self, input_value):
-        exercise_file_path = os.path.join(os.path.dirname(__file__), "exercise_33.py")
-        return subprocess.check_output(['python3', exercise_file_path], input=input_value, text=True, universal_newlines=True)
+class TestExercise33(CustomTestCase):
+    
+    def test_loop_usage(self):
+        """
+        The program should use a 'for' or 'while' loop to solve the exercise.
+        """
 
-    def test_two_dimensional_table(self):
-        output = self.run_exercise("5\n")
-        expected_output = "0\t1\t1\t1\t1\n-1\t0\t1\t1\t1\n-1\t-1\t0\t1\t1\n-1\t-1\t-1\t0\t1\n-1\t-1\t-1\t-1\t0\n"
-        self.assertEqual(output, expected_output)
-
-    def test_two_dimensional_table_3(self):
-        output = self.run_exercise("3\n")
-        expected_output = "0\t1\t1\n-1\t0\t1\n-1\t-1\t0\n"
-        self.assertEqual(output, expected_output)
-
-    def test_two_dimensional_table_1(self):
-        output = self.run_exercise("1\n")
-        expected_output = "0\n"
-        self.assertEqual(output, expected_output)
-
-    def chek_list_usage(self):
-        with open("exercise_33.py", "r") as source_code:
-            tree = ast.parse(source_code.read())
-            for node in ast.walk(tree):
-                if isinstance(node, (ast.List, ast.ListComp)):
-                    self.fail("List usage found in the code.")
-                elif isinstance(node, ast.Call) and isinstance(node.func, ast.Name) and node.func.id == 'list':
-                    self.fail("List usage found in the code.")
+        self.assertUsesLoops()
 
     def test_no_list_usage(self):
-        with open("exercise_33.py", "r") as source_code:
-            code = source_code.read()
-            self.assertNotIn("list", code)
-            self.assertNotIn("[", code)
-            self.assertNotIn("]", code)
+        """
+        The program should not use string slicing to solve the exercise.
+        """
+
+        self.assertNotUsesList()
+
+    def test_0(self):
+        """
+        The program should print a two-dimensional table with the values of the exercise.
+        """
+
+        inputs = ["0"]
+        output = self.run_exercise(inputs)
+        expected_output = ""
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+    
+    def test_1(self):
+        """
+        The program should print a two-dimensional table with the values of the exercise.
+        """
+
+        inputs = ["1"]
+        output = self.run_exercise(inputs)
+        expected_output = "0"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+    def test_2(self):
+        """
+        The program should print a two-dimensional table with the values of the exercise.
+        """
+
+        inputs = ["2"]
+        output = self.run_exercise(inputs)
+        expected_output = "0\t1\t\n-1\t0\t\n"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+    def test_3(self):
+        """
+        The program should print a two-dimensional table with the values of the exercise.
+        """
+
+        inputs = ["3"]
+        output = self.run_exercise(inputs)
+        expected_output = "0\t1\t1\t\n-1\t0\t1\t\n-1\t-1\t0\t\n"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+    def test_4(self):
+        """
+        The program should print a two-dimensional table with the values of the exercise.
+        """
+
+        inputs = ["4"]
+        output = self.run_exercise(inputs)
+        expected_output = "0\t1\t1\t1\t\n-1\t0\t1\t1\t\n-1\t-1\t0\t1\t\n-1\t-1\t-1\t0\t\n"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+    def test_5(self):
+        """
+        The program should print a two-dimensional table with the values of the exercise.
+        """
+
+        inputs = ["5"]
+        output = self.run_exercise(inputs)
+        expected_output = "0\t1\t1\t1\t1\t\n-1\t0\t1\t1\t1\t\n-1\t-1\t0\t1\t1\t\n-1\t-1\t-1\t0\t1\t\n-1\t-1\t-1\t-1\t0\t\n"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
 
 
 if __name__ == '__main__':
-    unittest.main()
+    unittest.main(testRunner=CustomTestRunner)
