@@ -26,6 +26,16 @@ class CustomTestCase(unittest.TestCase):
         current_dir = os.path.dirname(__file__)
         project_root = os.path.join(current_dir, "../../exercises")
         return os.path.normpath(os.path.join(project_root, exercise_file_name))
+    
+    @property
+    def file_content(self):
+        """
+        Returns the content of the exercise file.
+        """
+        exercise_file_path = self.exercise_file_path
+        with open(exercise_file_path, 'r') as file:
+            content = file.read()
+        return content
 
     def run_exercise(self, inputs):
         """Helper method to run the exercise script with the provided inputs and return its output."""
@@ -85,34 +95,26 @@ class CustomTestCase(unittest.TestCase):
         """
         Checks if the solution file uses 'for' or 'while' loops.
         """
-        exercise_file_path = self.get_exercise_path(self.exercise_file_name)
-        with open(exercise_file_path, 'r') as file:
-            content = file.read()
+        content = self.file_content
         return bool(re.search(r'\b(for|while)\b', content))
 
     def check_for_continue(self):
         """
         Checks if the solution file uses the 'continue' statement.
         """
-        exercise_file_path = self.get_exercise_path(self.exercise_file_name)
-        with open(exercise_file_path, 'r') as file:
-            content = file.read()
+        content = self.file_content
         return bool(re.search(r'\bcontinue\b', content))
 
     def check_for_if(self):
         """
         Checks if the solution file uses the 'if' statement.
         """
-        exercise_file_path = self.get_exercise_path(self.exercise_file_name)
-        with open(exercise_file_path, 'r') as file:
-            content = file.read()
+        content = self.file_content
         return bool(re.search(r'\bif\b', content))
     
     def check_for_list(self):
         """
-        Checks if the solution file uses lists or lists constructions
+        Checks if the solution file uses lists or list constructions.
         """
-        exercise_file_path = self.get_exercise_path(self.exercise_file_name)
-        with open(exercise_file_path, 'r') as file:
-            content = file.read()
+        content = self.file_content
         return bool(re.search(r'\blist\b|\[|\]', content))
