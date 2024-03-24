@@ -110,3 +110,12 @@ class TestOutputFormatter:
         title = "String Slice Usage Error"
         content = "The solution must not use string slicing."
         return TestOutputFormatter.generate_message(title, content)
+
+    @staticmethod
+    def generate_division_by_zero_message():
+        """
+        Generates a custom message in a table format about division by zero.
+        """
+        title = "Division by Zero Error"
+        content = "The solution must not divide by zero."
+        return TestOutputFormatter.generate_message(title, content)
