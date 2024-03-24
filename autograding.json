@@ -2,319 +2,319 @@
   "tests": [
     {
       "name": "Exercise 1: Countdown Timer",
-      "run": "pytest exercises/test_exercise_1.py",
+      "run": "pytest --color=yes --failed-first -x tests/test_exercise_1.py",
       "timeout": 5,
       "points": 10
     },
     {
       "name": "Exercise 2: M Times N",
-      "run": "pytest exercises/test_exercise_2.py",
+      "run": "pytest --color=yes --failed-first -x tests/test_exercise_2.py",
       "timeout": 5,
       "points": 10
     },
     {
       "name": "Exercise 3: Sequence of Integers",
-      "run": "pytest exercises/test_exercise_3.py",
+      "run": "pytest --color=yes --failed-first -x tests/test_exercise_3.py",
       "timeout": 5,
       "points": 10
     },
     {
       "name": "Exercise 4: Number of # Characters",
-      "run": "pytest exercises/test_exercise_4.py",
+      "run": "pytest --color=yes --failed-first -x tests/test_exercise_4.py",
       "timeout": 5,
       "points": 10
     },
     {
       "name": "Exercise 5: Sum of Integers",
-      "run": "pytest exercises/test_exercise_5.py",
+      "run": "pytest --color=yes --failed-first -x tests/test_exercise_5.py",
       "timeout": 5,
       "points": 10
     },
     {
       "name": "Exercise 6: Star Pattern",
-      "run": "pytest exercises/test_exercise_6.py",
+      "run": "pytest --color=yes --failed-first -x tests/test_exercise_6.py",
       "timeout": 5,
       "points": 10
     },
     {
       "name": "Exercise 7: Hash Pattern",
-      "run": "pytest exercises/test_exercise_7.py",
+      "run": "pytest --color=yes --failed-first -x tests/test_exercise_7.py",
       "timeout": 5,
       "points": 10
     },
     {
       "name": "Exercise 8: Even Numbers",
-      "run": "pytest exercises/test_exercise_8.py",
+      "run": "pytest --color=yes --failed-first -x tests/test_exercise_8.py",
       "timeout": 5,
       "points": 10
     },
     {
       "name": "Exercise 9: Multiples of a Number",
-      "run": "pytest exercises/test_exercise_9.py",
+      "run": "pytest --color=yes --failed-first -x tests/test_exercise_9.py",
       "timeout": 5,
       "points": 10
     },
     {
       "name": "Exercise 10: Pound to Kilogram Table",
-      "run": "pytest exercises/test_exercise_10.py",
+      "run": "pytest --color=yes --failed-first -x tests/test_exercise_10.py",
       "timeout": 5,
       "points": 10
     },
     {
       "name": "Exercise 11: Sum of a Series",
-      "run": "pytest exercises/test_exercise_11.py",
+      "run": "pytest --color=yes --failed-first -x tests/test_exercise_11.py",
       "timeout": 5,
       "points": 10
     },
     {
       "name": "Exercise 12: Sum of Three-Digit Numbers",
-      "run": "pytest exercises/test_exercise_12.py",
+      "run": "pytest --color=yes --failed-first -x tests/test_exercise_12.py",
       "timeout": 5,
       "points": 10
     },
     {
       "name": "Exercise 13: Password Validation",
-      "run": "pytest exercises/test_exercise_13.py",
+      "run": "pytest --color=yes --failed-first -x tests/test_exercise_13.py",
       "timeout": 5,
       "points": 10
     },
     {
       "name": "Exercise 14: Count of Zeros",
-      "run": "pytest exercises/test_exercise_14.py",
+      "run": "pytest --color=yes --failed-first -x tests/test_exercise_14.py",
       "timeout": 5,
       "points": 10
     },
     {
       "name": "Exercise 15: Error Collection",
-      "run": "pytest exercises/test_exercise_15.py",
+      "run": "pytest --color=yes --failed-first -x tests/test_exercise_15.py",
       "timeout": 5,
       "points": 10
     },
     {
       "name": "Exercise 16: Staircase Pattern",
-      "run": "pytest exercises/test_exercise_16.py",
+      "run": "pytest --color=yes --failed-first -x tests/test_exercise_16.py",
       "timeout": 5,
       "points": 20
     },
     {
       "name": "Exercise 17: Number Pattern",
-      "run": "pytest exercises/test_exercise_17.py",
+      "run": "pytest --color=yes --failed-first -x tests/test_exercise_17.py",
       "timeout": 5,
       "points": 20
     },
     {
       "name": "Exercise 18: Number Pattern",
-      "run": "pytest exercises/test_exercise_18.py",
+      "run": "pytest --color=yes --failed-first -x tests/test_exercise_18.py",
       "timeout": 5,
       "points": 20
     },
     {
       "name": "Exercise 19: Sum of Squares",
-      "run": "pytest exercises/test_exercise_19.py",
+      "run": "pytest --color=yes --failed-first -x tests/test_exercise_19.py",
       "timeout": 5,
       "points": 20
     },
     {
       "name": "Exercise 20: Odd Numbers",
-      "run": "pytest exercises/test_exercise_20.py",
+      "run": "pytest --color=yes --failed-first -x tests/test_exercise_20.py",
       "timeout": 5,
       "points": 20
     },
     {
       "name": "Exercise 21: Sum of Factorials",
-      "run": "pytest exercises/test_exercise_21.py",
+      "run": "pytest --color=yes --failed-first -x tests/test_exercise_21.py",
       "timeout": 5,
       "points": 20
     },
     {
       "name": "Exercise 22: Number Pattern",
-      "run": "pytest exercises/test_exercise_22.py",
+      "run": "pytest --color=yes --failed-first -x tests/test_exercise_22.py",
       "timeout": 5,
       "points": 20
     },
     {
       "name": "Exercise 23: Average of a Sequence",
-      "run": "pytest exercises/test_exercise_23.py",
+      "run": "pytest --color=yes --failed-first -x tests/test_exercise_23.py",
       "timeout": 5,
       "points": 20
     },
     {
       "name": "Exercise 24: Even Numbers",
-      "run": "pytest exercises/test_exercise_24.py",
+      "run": "pytest --color=yes --failed-first -x tests/test_exercise_24.py",
       "timeout": 5,
       "points": 20
     },
     {
       "name": "Exercise 25: Car Distance",
-      "run": "pytest exercises/test_exercise_25.py",
+      "run": "pytest --color=yes --failed-first -x tests/test_exercise_25.py",
       "timeout": 5,
       "points": 20
     },
     {
       "name": "Exercise 26: Sum of Digits",
-      "run": "pytest exercises/test_exercise_26.py",
+      "run": "pytest --color=yes --failed-first -x tests/test_exercise_26.py",
       "timeout": 5,
       "points": 20
     },
     {
       "name": "Exercise 27: Sum of a Series",
-      "run": "pytest exercises/test_exercise_27.py",
+      "run": "pytest --color=yes --failed-first -x tests/test_exercise_27.py",
       "timeout": 5,
       "points": 20
     },
     {
       "name": "Exercise 28: Product of Two Numbers",
-      "run": "pytest exercises/test_exercise_28.py",
+      "run": "pytest --color=yes --failed-first -x tests/test_exercise_28.py",
       "timeout": 5,
       "points": 20
     },
     {
       "name": "Exercise 29: Sum of Squares",
-      "run": "pytest exercises/test_exercise_29.py",
+      "run": "pytest --color=yes --failed-first -x tests/test_exercise_29.py",
       "timeout": 5,
       "points": 20
     },
     {
       "name": "Exercise 30: Amoeba Division",
-      "run": "pytest exercises/test_exercise_30.py",
+      "run": "pytest --color=yes --failed-first -x tests/test_exercise_30.py",
       "timeout": 5,
       "points": 20
     },
     {
       "name": "Exercise 31: Lowest Temperature",
-      "run": "pytest exercises/test_exercise_31.py",
+      "run": "pytest --color=yes --failed-first -x tests/test_exercise_31.py",
       "timeout": 5,
       "points": 20
     },
     {
       "name": "Exercise 32: Car Speeds",
-      "run": "pytest exercises/test_exercise_32.py",
+      "run": "pytest --color=yes --failed-first -x tests/test_exercise_32.py",
       "timeout": 5,
       "points": 20
     },
     {
       "name": "Exercise 33: Two-Dimensional Table",
-      "run": "pytest exercises/test_exercise_33.py",
+      "run": "pytest --color=yes --failed-first -x tests/test_exercise_33.py",
       "timeout": 5,
       "points": 20
     },
     {
       "name": "Exercise 34: Number Pattern",
-      "run": "pytest exercises/test_exercise_34.py",
+      "run": "pytest --color=yes --failed-first -x tests/test_exercise_34.py",
       "timeout": 5,
       "points": 20
     },
     {
       "name": "Exercise 35: Odd Numbers",
-      "run": "pytest exercises/test_exercise_35.py",
+      "run": "pytest --color=yes --failed-first -x tests/test_exercise_35.py",
       "timeout": 5,
       "points": 30
     },
     {
       "name": "Exercise 36: Greatest Common Divisor",
-      "run": "pytest exercises/test_exercise_36.py",
+      "run": "pytest --color=yes --failed-first -x tests/test_exercise_36.py",
       "timeout": 5,
       "points": 30
     },
     {
       "name": "Exercise 37: Division Without Division",
-      "run": "pytest exercises/test_exercise_37.py",
+      "run": "pytest --color=yes --failed-first -x tests/test_exercise_37.py",
       "timeout": 5,
       "points": 30
     },
     {
       "name": "Exercise 38: Even Difference",
-      "run": "pytest exercises/test_exercise_38.py",
+      "run": "pytest --color=yes --failed-first -x tests/test_exercise_38.py",
       "timeout": 5,
       "points": 30
     },
     {
       "name": "Exercise 39: Sum of Digits",
-      "run": "pytest exercises/test_exercise_39.py",
+      "run": "pytest --color=yes --failed-first -x tests/test_exercise_39.py",
       "timeout": 5,
       "points": 30
     },
     {
       "name": "Exercise 40: Fibonacci Sequence",
-      "run": "pytest exercises/test_exercise_40.py",
+      "run": "pytest --color=yes --failed-first -x tests/test_exercise_40.py",
       "timeout": 5,
       "points": 30
     },
     {
       "name": "Exercise 41: Fibonacci Sequence Number",
-      "run": "pytest exercises/test_exercise_41.py",
+      "run": "pytest --color=yes --failed-first -x tests/test_exercise_41.py",
       "timeout": 5,
       "points": 30
     },
     {
       "name": "Exercise 42: Greater Than Next Element",
-      "run": "pytest exercises/test_exercise_42.py",
+      "run": "pytest --color=yes --failed-first -x tests/test_exercise_42.py",
       "timeout": 5,
       "points": 30
     },
     {
       "name": "Exercise 43: Second Largest Element",
-      "run": "pytest exercises/test_exercise_43.py",
+      "run": "pytest --color=yes --failed-first -x tests/test_exercise_43.py",
       "timeout": 5,
       "points": 30
     },
     {
       "name": "Exercise 44: Index of Largest Element",
-      "run": "pytest exercises/test_exercise_44.py",
+      "run": "pytest --color=yes --failed-first -x tests/test_exercise_44.py",
       "timeout": 5,
       "points": 30
     },
     {
       "name": "Exercise 45: Sign Changes",
-      "run": "pytest exercises/test_exercise_45.py",
+      "run": "pytest --color=yes --failed-first -x tests/test_exercise_45.py",
       "timeout": 5,
       "points": 30
     },
     {
       "name": "Exercise 46: Position of a Digit",
-      "run": "pytest exercises/test_exercise_46.py",
+      "run": "pytest --color=yes --failed-first -x tests/test_exercise_46.py",
       "timeout": 5,
       "points": 30
     },
     {
       "name": "Exercise 47: Number of Palindromes",
-      "run": "pytest exercises/test_exercise_47.py",
+      "run": "pytest --color=yes --failed-first -x tests/test_exercise_47.py",
       "timeout": 5,
       "points": 30
     },
     {
       "name": "Exercise 48: Number of Palindromes",
-      "run": "pytest exercises/test_exercise_48.py",
+      "run": "pytest --color=yes --failed-first -x tests/test_exercise_48.py",
       "timeout": 5,
       "points": 30
     },
     {
       "name": "Exercise 49: Palindromes in an Interval",
-      "run": "pytest exercises/test_exercise_49.py",
+      "run": "pytest --color=yes --failed-first -x tests/test_exercise_49.py",
       "timeout": 5,
       "points": 30
     },
     {
       "name": "Exercise 50: Number of Palindromes",
-      "run": "pytest exercises/test_exercise_50.py",
+      "run": "pytest --color=yes --failed-first -x tests/test_exercise_50.py",
       "timeout": 5,
       "points": 30
     },
     {
       "name": "Exercise 51: Three Identical Digits",
-      "run": "pytest exercises/test_exercise_51.py",
+      "run": "pytest --color=yes --failed-first -x tests/test_exercise_51.py",
       "timeout": 5,
       "points": 30
     },
     {
       "name": "Exercise 52: Odd Numbers",
-      "run": "pytest exercises/test_exercise_52.py",
+      "run": "pytest --color=yes --failed-first -x tests/test_exercise_52.py",
       "timeout": 5,
       "points": 30
     },
     {
       "name": "Exercise 53: Even Numbers",
-      "run": "pytest exercises/test_exercise_53.py",
+      "run": "pytest --color=yes --failed-first -x tests/test_exercise_53.py",
       "timeout": 5,
       "points": 30
     }
