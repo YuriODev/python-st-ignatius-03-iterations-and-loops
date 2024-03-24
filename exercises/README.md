@@ -301,7 +301,7 @@ The problem tests the ability to use loops and conditional statements to calcula
 | No. | Inputs | Outputs |
 | --- | ------ | ------- |
 | 1   | 12345  | 111<br>Error<br>45<br>Error<br>12345<br>Done |
-| 2   | 123    | 111<br>Error<br>45<br>Error<br>12345<br>Error |
+| 2   | 123    | 111<br>Error<br>45<br>Error<br>12345<br>Error<br>123<br>Done |
 | 3   | 111    | 111<br>Done |
 
 ### Note:
