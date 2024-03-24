@@ -50,6 +50,16 @@ class CustomTestCase(unittest.TestCase):
         except AssertionError:
             loop_usage_message = TestOutputFormatter.generate_loop_usage_message()
             raise AssertionError(loop_usage_message)
+        
+    def assertUsesContinue(self):
+        """
+        Asserts that the solution uses the 'continue' statement.
+        """
+        try:
+            self.assertTrue(self.check_for_continue())
+        except AssertionError:
+            continue_usage_message = TestOutputFormatter.generate_continue_usage_message()
+            raise AssertionError(continue_usage_message)
 
     def check_for_loops(self):
         """
@@ -59,3 +69,12 @@ class CustomTestCase(unittest.TestCase):
         with open(exercise_file_path, 'r') as file:
             content = file.read()
         return bool(re.search(r'\b(for|while)\b', content))
+
+    def check_for_continue(self):
+        """
+        Checks if the solution file uses the 'continue' statement.
+        """
+        exercise_file_path = self.get_exercise_path(self.exercise_file_name)
+        with open(exercise_file_path, 'r') as file:
+            content = file.read()
+        return bool(re.search(r'\bcontinue\b', content))
