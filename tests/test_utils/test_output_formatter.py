@@ -47,3 +47,21 @@ class TestOutputFormatter:
         output += divider + "\n"
 
         return output
+
+    @staticmethod
+    def generate_loop_usage_message():
+        """
+        Generates a custom message in a table format about the misuse of loops.
+        """
+        yellow_start = "\x1b[38;5;208m"
+        yellow_end = "\x1b[0m"
+        message_lines = [
+            "\n",
+            yellow_start + "Failed test:" + yellow_end,
+            yellow_start + "+-------------------------------------------------------+" + yellow_end,
+            yellow_start + "|                     Loop Usage Error                  |" + yellow_end,
+            yellow_start + "+-------------------------------------------------------+" + yellow_end,
+            yellow_start + "| The solution must use a 'for' or 'while' loop.        |" + yellow_end,
+            yellow_start + "+-------------------------------------------------------+" + yellow_end,
+        ]
+        return "\n".join(message_lines)
