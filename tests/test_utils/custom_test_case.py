@@ -60,6 +60,26 @@ class CustomTestCase(unittest.TestCase):
         except AssertionError:
             continue_usage_message = TestOutputFormatter.generate_continue_usage_message()
             raise AssertionError(continue_usage_message)
+        
+    def assertNotUsesIf(self):
+        """
+        Asserts that the solution does not use the 'if' statement.
+        """
+        try:
+            self.assertFalse(self.check_for_if())
+        except AssertionError:
+            if_usage_message = TestOutputFormatter.generate_if_usage_message()
+            raise AssertionError(if_usage_message)
+        
+    def assertNotUsesList(self):
+        """
+        Asserts that the solution does not use lists.
+        """
+        try:
+            self.assertFalse(self.check_for_list())
+        except AssertionError:
+            list_usage_message = TestOutputFormatter.generate_list_usage_message()
+            raise AssertionError(list_usage_message)
 
     def check_for_loops(self):
         """
@@ -78,3 +98,21 @@ class CustomTestCase(unittest.TestCase):
         with open(exercise_file_path, 'r') as file:
             content = file.read()
         return bool(re.search(r'\bcontinue\b', content))
+
+    def check_for_if(self):
+        """
+        Checks if the solution file uses the 'if' statement.
+        """
+        exercise_file_path = self.get_exercise_path(self.exercise_file_name)
+        with open(exercise_file_path, 'r') as file:
+            content = file.read()
+        return bool(re.search(r'\bif\b', content))
+    
+    def check_for_list(self):
+        """
+        Checks if the solution file uses lists or lists constructions
+        """
+        exercise_file_path = self.get_exercise_path(self.exercise_file_name)
+        with open(exercise_file_path, 'r') as file:
+            content = file.read()
+        return bool(re.search(r'\blist\b|\[|\]', content))
