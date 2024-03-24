@@ -426,7 +426,7 @@ The problem tests the ability to use loops and conditional statements to print a
 
 ## Exercise 18: Number Pattern - Medium 🔥 (Est. Time: 10-15 mins | Points: 20)
 
-**Problem:** Write a program to determine the total number of zeros collected over `n` days.
+**Problem:** Write a program to determine the total number of erors collected over `n` days.
 
 ### Input:
 - An integer `n` representing the number of days.
