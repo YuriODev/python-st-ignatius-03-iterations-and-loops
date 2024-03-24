@@ -1,39 +1,99 @@
-
 import unittest
-import subprocess
-import os
-import ast
+from .test_utils import CustomTestCase, CustomTestRunner
 
 
-class TestExercise8(unittest.TestCase):
-    def run_exercise(self, input_value):
-        exercise_file_path = os.path.join(os.path.dirname(__file__), "exercise_8.py")
-        return subprocess.check_output(['python3', exercise_file_path], input=input_value, text=True, universal_newlines=True)
+class TestExercise8(CustomTestCase):
+
+    def test_loop_usage(self):
+        """
+        The program should use a 'for' or 'while' loop to solve the exercise.
+        """
+
+        self.assertUsesLoops()
+
+    def test_continue_usage(self):
+        """
+        The program should use the 'continue' statement to skip odd numbers.
+        """
+
+        self.assertUsesContinue()
+
+    def test_even_numbers_1(self):
+        """
+        The program should print even numbers up to 1.
+        """
+
+        inputs = ["1"]
+        output = self.run_exercise(inputs)
+        expected_output = ""
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+    def test_even_numbers_2(self):
+        """
+        The program should print even numbers up to 2.
+        """
+
+        inputs = ["2"]
+        output = self.run_exercise(inputs)
+        expected_output = "2\n"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+    def test_even_numbers_3(self):
+        """
+        The program should print even numbers up to 3.
+        """
+
+        inputs = ["3"]
+        output = self.run_exercise(inputs)
+        expected_output = "2\n"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+    def test_even_numbers_4(self):
+        """
+        The program should print even numbers up to 4.
+        """
+
+        inputs = ["4"]
+        output = self.run_exercise(inputs)
+        expected_output = "2 4\n"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+    def test_even_numbers_5(self):
+        """
+        The program should print even numbers up to 5.
+        """
+
+        inputs = ["5"]
+        output = self.run_exercise(inputs)
+        expected_output = "2 4\n"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+    def test_even_numbers_6(self):
+        """
+        The program should print even numbers up to 6.
+        """
+
+        inputs = ["6"]
+        output = self.run_exercise(inputs)
+        expected_output = "2 4 6\n"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
 
     def test_even_numbers_10(self):
-        output = self.run_exercise("10\n")
+        """
+        The program should print even numbers up to 10.
+        """
+        inputs = ["10"]
+        output = self.run_exercise(inputs)
         expected_output = "2 4 6 8 10\n"
-        self.assertEqual(output, expected_output)
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
 
-    def test_even_numbers_7(self):
-        output = self.run_exercise("7\n")
-        expected_output = "2 4 6\n"
-        self.assertEqual(output, expected_output)
-
-    def test_even_numbers_20(self):
-        output = self.run_exercise("20\n")
-        expected_output = "2 4 6 8 10 12 14 16 18 20\n"
-        self.assertEqual(output, expected_output)
-
-    def test_contains_continue(self):
-        exercise_file_path = os.path.join(os.path.dirname(__file__), "exercise_8.py")
-        with open(exercise_file_path, "r") as source_code:
-            tree = ast.parse(source_code.read())
-            for node in ast.walk(tree):
-                if isinstance(node, ast.Continue):
-                    break
-            else:
-                self.fail("No continue statement found in the code.")
 
 if __name__ == '__main__':
-    unittest.main()
+    unittest.main(testRunner=CustomTestRunner())
