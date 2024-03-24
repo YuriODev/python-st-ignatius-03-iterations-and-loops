@@ -40,7 +40,12 @@ class CustomTestCase(unittest.TestCase):
     def run_exercise(self, inputs):
         """Helper method to run the exercise script with the provided inputs and return its output."""
         input_value = '\n'.join(inputs) + '\n'
-        return subprocess.check_output(['python3', self.exercise_file_path], input=input_value, text=True, universal_newlines=True)
+        exercise_file_path = self.get_exercise_path(self.exercise_file_name)
+        try:
+            return subprocess.check_output(['python3', exercise_file_path], input=input_value, text=True, universal_newlines=True)
+        except subprocess.CalledProcessError as e:
+            # Return error output if the script crashes
+            return e.stderr
 
     def assertInCustom(self, expected, actual, input_value, msg=None):
         try:
@@ -100,6 +105,14 @@ class CustomTestCase(unittest.TestCase):
         except AssertionError:
             string_slice_message = TestOutputFormatter.generate_string_slice_message()
             raise AssertionError(string_slice_message)
+
+    def assertDivisionByZero(self):
+        """
+        Asserts that the solution does not divide by zero.
+        """
+
+        division_by_zero_message = TestOutputFormatter.generate_division_by_zero_message()
+        raise AssertionError(division_by_zero_message)
 
     def check_for_loops(self):
         """
