@@ -490,7 +490,7 @@ The problem tests the ability to use loops and conditional statements to print a
 
 | No. | Inputs | Outputs |
 | --- | ------ | ------- |
-| 1   | 15 | 51 3 5 7 9 11 13 15 |
+| 1   | 15 | 1 3 5 7 9 11 13 15 |
 | 2 | 8 | 1 3 5 7 |
 | 3 | 5 | 1 3 5 |
 
