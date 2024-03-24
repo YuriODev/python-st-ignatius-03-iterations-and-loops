@@ -40,12 +40,7 @@ class CustomTestCase(unittest.TestCase):
     def run_exercise(self, inputs):
         """Helper method to run the exercise script with the provided inputs and return its output."""
         input_value = '\n'.join(inputs) + '\n'
-        exercise_file_path = self.get_exercise_path(self.exercise_file_name)
-        try:
-            return subprocess.check_output(['python3', exercise_file_path], input=input_value, text=True, universal_newlines=True)
-        except subprocess.CalledProcessError as e:
-            # Return error output if the script crashes
-            return e.stderr
+        return subprocess.check_output(['python3', self.exercise_file_path], input=input_value, text=True, universal_newlines=True)
 
     def assertInCustom(self, expected, actual, input_value, msg=None):
         try:
