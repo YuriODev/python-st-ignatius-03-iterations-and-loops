@@ -1,27 +1,71 @@
-
 import unittest
-import subprocess
-import os
+from .test_utils import CustomTestCase, CustomTestRunner
 
-class TestExercise17(unittest.TestCase):
-    def run_exercise(self, input_value):
-        exercise_file_path = os.path.join(os.path.dirname(__file__), "exercise_17.py")
-        return subprocess.check_output(['python3', exercise_file_path], input=input_value, text=True, universal_newlines=True)
 
-    def test_number_pattern_6_3(self):
-        output = self.run_exercise("6\n3\n")
-        expected_output = "0\t0\t0\n1\t1\t1\n2\t2\t2\n3\t3\t3\n4\t4\t4\n5\t5\t5\n6\t6\t6\n"
-        self.assertEqual(output, expected_output)
+class TestExercise17(CustomTestCase):
 
-    def test_number_pattern_3_3(self):
-        output = self.run_exercise("3\n3\n")
-        expected_output = "0\t0\t0\n1\t1\t1\n2\t2\t2\n"
-        self.assertEqual(output, expected_output)
+    def test_loop_usage(self):
+        """
+        The program should use a 'for' or 'while' loop to solve the exercise.
+        """
 
-    def test_number_pattern_3_7(self):
-        output = self.run_exercise("3\n7\n")
-        expected_output = "0\t0\t0\t0\t0\t0\t0\t0\n1\t1\t1\t1\t1\t1\t1\t1\n2\t2\t2\t2\t2\t2\t2\t2\n"
-        self.assertEqual(output, expected_output)
+        self.assertUsesLoops()
+
+    def test_number_pattern_1(self):
+        """
+        The program should print a number pattern according to the input of 6 and 3.
+        """
+
+        inputs = ["6", "3"]
+        output = self.run_exercise(inputs)
+        expected_output = "0\t0\t0\t\n1\t1\t1\t\n2\t2\t2\t\n3\t3\t3\t\n4\t4\t4\t\n5\t5\t5\t\n"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+    def test_number_pattern_2(self):
+        """
+        The program should print a number pattern according to the input of 3 and 3.
+        """
+
+        inputs = ["3", "3"]
+        output = self.run_exercise(inputs)
+        expected_output = "0\t0\t0\t\n1\t1\t1\t\n2\t2\t2\t\n"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+    def test_number_pattern_3(self):
+        """
+        The program should print a number pattern according to the input of 3 and 7.
+        """
+
+        inputs = ["3", "7"]
+        output = self.run_exercise(inputs)
+        expected_output = "0\t0\t0\t0\t0\t0\t0\t\n1\t1\t1\t1\t1\t1\t1\t\n2\t2\t2\t2\t2\t2\t2\t\n"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+    def test_number_pattern_4(self):
+        """
+        The program should print a number pattern according to the input of 4 and 4.
+        """
+
+        inputs = ["4", "4"]
+        output = self.run_exercise(inputs)
+        expected_output = "0\t0\t0\t0\t\n1\t1\t1\t1\t\n2\t2\t2\t2\t\n3\t3\t3\t3\t\n"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+    def test_number_pattern_5(self):
+        """
+        The program should print a number pattern according to the input of 5 and 5.
+        """
+
+        inputs = ["5", "5"]
+        output = self.run_exercise(inputs)
+        expected_output = "0\t0\t0\t0\t0\t\n1\t1\t1\t1\t1\t\n2\t2\t2\t2\t2\t\n3\t3\t3\t3\t3\t\n4\t4\t4\t4\t4\t\n"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
 
 if __name__ == '__main__':
-    unittest.main()
+    unittest.main(testRunner=CustomTestRunner())
