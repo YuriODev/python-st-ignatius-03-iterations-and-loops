@@ -4,7 +4,7 @@ from tests.test_utils import CustomTestCase, CustomTestRunner
 
 
 class TestExercise33(CustomTestCase):
-    
+
     def test_loop_usage(self):
         """
         The program should use a 'for' or 'while' loop to solve the exercise.
@@ -21,7 +21,7 @@ class TestExercise33(CustomTestCase):
 
     def test_0(self):
         """
-        The program should print a two-dimensional table with the values of the exercise.
+        The program should print nothing.
         """
 
         inputs = ["0"]
@@ -29,10 +29,10 @@ class TestExercise33(CustomTestCase):
         expected_output = ""
         self.assertInCustom(expected=expected_output, actual=output,
                             input_value=inputs)
-    
+
     def test_1(self):
         """
-        The program should print a two-dimensional table with the values of the exercise.
+        The program should print a 0.
         """
 
         inputs = ["1"]
