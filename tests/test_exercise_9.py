@@ -1,38 +1,87 @@
-
 import unittest
-import subprocess
-import os
-import ast
+from .test_utils import CustomTestCase, CustomTestRunner
 
 
-class TestExercise9(unittest.TestCase):
-    def run_exercise(self, input_value):
-        exercise_file_path = os.path.join(os.path.dirname(__file__), "exercise_9.py")
-        return subprocess.check_output(['python3', exercise_file_path], input=input_value, text=True, universal_newlines=True)
+class TestExercise9(CustomTestCase):
+
+    def test_loop_usage(self):
+        """
+        The program should use a 'for' or 'while' loop to solve the exercise.
+        """
+
+        self.assertUsesLoops()
 
     def test_multiples_of_2_between_1_and_10(self):
-        output = self.run_exercise("1\n10\n2\n")
-        expected_output = "2 4 6 8 10\n"
-        self.assertIn(expected_output, output)
+        """
+        The program should print multiples of 2 between 1 and 10.
+        """
+        inputs = ["1", "10", "2"]
+        output = self.run_exercise(inputs)
+        expected_output = "2 4 6 8 10 \n"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
 
-    def test_multiples_of_3_between_3_and_15(self):
-        output = self.run_exercise("3\n15\n3\n")
-        expected_output = "3 6 9 12 15\n"
-        self.assertIn(expected_output, output)
+    def test_multiples_of_3_between_1_and_10(self):
+        """
+        The program should print multiples of 3 between 1 and 10.
+        """
+        inputs = ["1", "10", "3"]
+        output = self.run_exercise(inputs)
+        expected_output = "3 6 9 \n"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
 
-    # def test_multiples_of_5_between_5_and_20(self):
-    #     output = self.run_exercise("5\n20\n5\n")
-    #     expected_output = "5 10 15 20\n"
-    #     self.assertIn(expected_output, output)
+    def test_multiples_of_4_between_1_and_10(self):
+        """
+        The program should print multiples of 4 between 1 and 10.
+        """
+        inputs = ["1", "10", "4"]
+        output = self.run_exercise(inputs)
+        expected_output = "4 8 \n"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
 
-    # Check if max function was used. It's not allowed and write a message to the user
-    def test_if_max_function_was_used(self):
-        exercise_file_path = os.path.join(os.path.dirname(__file__), "exercise_9.py")
-        with open(exercise_file_path, 'r') as file:
-            file_content = file.read()
-            self.assertNotIn("max(", file_content, "You should not use the max function in your solution")
+    def test_multiples_of_5_between_1_and_10(self):
+        """
+        The program should print multiples of 5 between 1 and 10.
+        """
+        inputs = ["1", "10", "5"]
+        output = self.run_exercise(inputs)
+        expected_output = "5 10 \n"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+    def test_multiples_of_6_between_1_and_10(self):
+        """
+        The program should print multiples of 6 between 1 and 10.
+        """
+        inputs = ["1", "10", "6"]
+        output = self.run_exercise(inputs)
+        expected_output = "6 \n"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+    def test_multiples_of_3_between_10_and_20(self):
+        """
+        The program should print multiples of 3 between 10 and 20.
+        """
+        inputs = ["10", "20", "3"]
+        output = self.run_exercise(inputs)
+        expected_output = "12 15 18 \n"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+    def test_multiples_of_4_between_10_and_20(self):
+        """
+        The program should print multiples of 4 between 10 and 20.
+        """
+        inputs = ["10", "20", "4"]
+        output = self.run_exercise(inputs)
+        expected_output = "12 16 20 \n"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+    
 
 
 if __name__ == '__main__':
-    unittest.main()
-    print("\x1b[6;30;42m Success! Your code works as intended.\x1b[0m")
+    unittest.main(testRunner=CustomTestRunner())
