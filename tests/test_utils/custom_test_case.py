@@ -119,6 +119,19 @@ class CustomTestCase(unittest.TestCase):
             message = TestOutputFormatter.generate_message("Product Symbol Usage Error", "The solution must not use the '*' symbol to calculate the product.")
             raise AssertionError(message)
 
+    def assertAlmostEqualCustom(self, expected, actual, input_value, places=None, msg=None):
+        """
+        Asserts that two floating-point numbers are equal up to a certain number of decimal places.
+        """
+        try:
+            # Remove non digit elements from the output
+            actual = ''.join(list(filter(str.isdigit, actual)))
+            self.assertAlmostEqual(float(expected), float(actual), places)
+        except AssertionError:
+            custom_message = TestOutputFormatter.get_failure_details_in_table(input_value, expected.split('\n'), actual.split('\n'))
+            if msg:
+                custom_message += f"\nAdditional message: {msg}"
+
     def check_for_loops(self):
         """
         Checks if the solution file uses 'for' or 'while' loops.
