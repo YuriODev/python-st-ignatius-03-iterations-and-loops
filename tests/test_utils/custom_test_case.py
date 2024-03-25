@@ -109,6 +109,16 @@ class CustomTestCase(unittest.TestCase):
         division_by_zero_message = TestOutputFormatter.generate_division_by_zero_message()
         raise AssertionError(division_by_zero_message)
 
+    def assertNoProductSymbolUsage(self):
+        """
+        Asserts that the solution does not use the '*' symbol to calculate the product.
+        """
+        try:
+            self.assertFalse(self.check_for_product_symbol())
+        except AssertionError:
+            message = TestOutputFormatter.generate_message("Product Symbol Usage Error", "The solution must not use the '*' symbol to calculate the product.")
+            raise AssertionError(message)
+
     def check_for_loops(self):
         """
         Checks if the solution file uses 'for' or 'while' loops.
@@ -143,3 +153,10 @@ class CustomTestCase(unittest.TestCase):
         """
         content = self.file_content
         return bool(re.search(r'\[.*:.*\]', content))
+
+    def check_for_product_symbol(self):
+        """
+        Checks if the solution file uses the '*' symbol to calculate the product.
+        """
+        content = self.file_content
+        return bool(re.search(r'\*', content))
