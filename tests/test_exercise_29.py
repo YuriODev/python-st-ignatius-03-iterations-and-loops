@@ -1,37 +1,61 @@
-
 import unittest
-import subprocess
-import os
-import ast
+from .test_utils import CustomTestCase, CustomTestRunner
 
-class TestExercise29(unittest.TestCase):
-    def run_exercise(self, input_values):
-        exercise_file_path = os.path.join(os.path.dirname(__file__), "exercise_29.py")
-        return subprocess.check_output(['python3', exercise_file_path], input=input_values, text=True, universal_newlines=True)
 
-    def test_sum_of_squares_until_zero(self):
-        output = self.run_exercise("1\n2\n3\n4\n-4\n-3\n-2\n-1\n")
-        self.assertEqual(int(output.strip()), 30)
+class TestExercise29(CustomTestCase):
 
-    def test_sum_of_squares_until_zero_2(self):
-        output = self.run_exercise("3\n4\n5\n-5\n-4\n-3\n")
-        self.assertEqual(int(output.strip()), 50)
+    def test_loop_usage(self):
+        """
+        The program should use a 'for' or 'while' loop to solve the exercise.
+        """
 
-    def chek_list_usage(self):
-        with open("exercise_29.py", "r") as source_code:
-            tree = ast.parse(source_code.read())
-            for node in ast.walk(tree):
-                if isinstance(node, (ast.List, ast.ListComp)):
-                    self.fail("List usage found in the code.")
-                elif isinstance(node, ast.Call) and isinstance(node.func, ast.Name) and node.func.id == 'list':
-                    self.fail("List usage found in the code.")
+        self.assertUsesLoops()
 
-    def test_no_list_usage(self):
-        with open("exercise_29.py", "r") as source_code:
-            code = source_code.read()
-            self.assertNotIn("list", code)
-            self.assertNotIn("[", code)
-            self.assertNotIn("]", code)
+    def test_sum_of_squares(self):
+        """
+        The program should read numbers (one per line) until the sum of the entered numbers equals 0, and immediately after that, output the sum of the squares of all the entered numbers.
+        """
 
+        inputs = ["1", "2", "3", "4", "-4", "-3", "-2", "-1"]
+        output = self.run_exercise(inputs)
+        expected_output = "60\n"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+    def test_sum_of_squares_2(self):
+        """
+        The program should read numbers (one per line) until the sum of the entered numbers equals 0, and immediately after that, output the sum of the squares of all the entered numbers.
+        """
+
+        inputs = ["1", "2", "3", "4", "-10"]
+        output = self.run_exercise(inputs)
+        expected_output = "130\n"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+    def test_sum_of_squares_3(self):
+        """
+        The program should read numbers (one per line) until the sum of the entered numbers equals 0, and immediately after that, output the sum of the squares of all the entered numbers.
+        """
+
+        inputs = ["1", "2", "3", "4", "-1", "-2", "-3", "-4"]
+        output = self.run_exercise(inputs)
+        expected_output = "60\n"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+    def test_sum_of_squares_4(self):
+        """
+        The program should read numbers (one per line) until the sum of the entered numbers equals 0, and immediately after that, output the sum of the squares of all the entered numbers.
+        """
+
+        inputs = ["1", "-15", "14"]
+        output = self.run_exercise(inputs)
+        expected_output = "422\n"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+
+    
 if __name__ == '__main__':
-    unittest.main()
+    unittest.main(testRunner=CustomTestRunner())
