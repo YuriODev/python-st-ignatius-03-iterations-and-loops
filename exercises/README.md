@@ -607,9 +607,11 @@ The problem tests the ability to use loops and conditional statements to count t
 
 | No. | Inputs | Outputs |
 | --- | ------ | ------- |
-| 1   | 10<br>200 | 211.14 km, 33 days |
-| 2 | 20<br>300 | 231.0 km, 34 days |
-| 3 | 30<br>400 | 253.0 km, 35 days |
+| 1   | 10<br>100 | 114.36 km, 8 days |
+| 2 | 20<br>50 | 66.20 km, 3 days |
+| 3 | 5<br>25 | 30.53 km, 5 days |
+| 4 | 1<br>10 | 11.44 km, 8 days |
+| 5 | 50<br>100 | 155.13 km, 3 days |
 
 ### Note:
 
