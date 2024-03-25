@@ -717,11 +717,11 @@ The problem tests the ability to use loops and conditional statements to calcula
 
 ## Exercise 30: Amoeba Division - Medium 🔥 (Est. Time: 10-15 mins | Points: 20)
 
-**Problem:** A single-celled amoeba divides into 2 cells every 3 hours. Determine how many cells there will be after t hours if there was initially one amoeba.
+**Problem:** A single-celled amoeba divides into `2` cells every `3` hours. Determine how many cells there will be after `t` hours if there was initially one amoeba.
 
 ### Input:
 
-- An integer representing the number of hours.
+- An integer representing the number of hours `t`.
 
 ### Output:
 
@@ -737,11 +737,12 @@ The problem tests the ability to use loops and conditional statements to calcula
 
 ## Exercise 31: Lowest Temperature - Medium 🔥 (Est. Time: 10-15 mins | Points: 20)
 
-**Problem:** Write a program to determine the lowest temperature over a period of time and whether the temperature has dropped below -15 degrees.
+**Problem:** Write a program to determine the lowest temperature over a period of time and whether the temperature has dropped below -18 degrees.
 
 ### Input:
 
 - An integer representing the number of days.
+- `n` integers representing the temperatures for each day.
 
 ### Output:
 
