@@ -55,8 +55,8 @@ class TestOutputFormatter:
         """
         yellow_start = "\x1b[38;5;208m"
         yellow_end = "\x1b[0m"
-        title_width = 50
-        content_width = 50
+        title_width = 70
+        content_width = 70
         title_padding = (title_width - len(title)) // 2
         content_padding = (content_width - len(content)) // 2
         message_lines = [
@@ -122,4 +122,13 @@ class TestOutputFormatter:
         """
         title = "Division by Zero Error"
         content = "The solution must not divide by zero."
+        return TestOutputFormatter.generate_message(title, content)
+
+    @staticmethod
+    def generate_product_symbol_usage_message():
+        """
+        Generates a custom message in a table format about the misuse of the '*' symbol.
+        """
+        title = "Product Symbol Usage Error"
+        content = "The solution must not use the '*' symbol to calculate the product."
         return TestOutputFormatter.generate_message(title, content)
