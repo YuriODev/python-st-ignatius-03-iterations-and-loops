@@ -707,9 +707,9 @@ The problem tests the ability to use loops and conditional statements to calcula
 
 | No. | Inputs | Outputs |
 | --- | ------ | ------- |
-| 1   | 1<br>2<br>3<br>4<br>-4<br>-3<br>-2<br>-1 | 30 |
-| 2 | 1<br>2<br>3<br>4<br>-10<br>10<br>-10<br>10 | 200 |
-| 3 | 1<br>2<br>3<br>4<br>-1<br>-2<br>-3<br>-4 | 30 |
+| 1   | 1<br>2<br>3<br>4<br>-4<br>-3<br>-2<br>-1 | 60 |
+| 2 | 1<br>2<br>3<br>4<br>-10 | 130 |
+| 3 | 1<br>2<br>3<br>4<br>-1<br>-2<br>-3<br>-4 | 60 |
 
 ### Note:
 
