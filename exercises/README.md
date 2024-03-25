@@ -653,9 +653,11 @@ The problem tests the ability to use loops and conditional statements to print a
 
 ### Examples:
 
+<!-- Pi = 4/1 - 4/3 + 4/5 - 4/7 + ... -->
+
 | No. | Inputs | Outputs |
 | --- | ------ | ------- |
-| 1   | 10 | 3.0418396189294032 |
+| 1   | 10 | 
 | 2 | 5 | 3.3396825396825403 |
 | 3 | 15 | 3.017071817071818 |
 | 4 | 120 | 3.1332594798865546 |
