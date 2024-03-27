@@ -1,6 +1,5 @@
-
 import unittest
-from tests.test_utils import CustomTestCase, CustomTestRunner
+from .test_utils import CustomTestCase, CustomTestRunner
 
 
 class TestExercise33(CustomTestCase):
