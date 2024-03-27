@@ -1,52 +1,89 @@
-
 import unittest
-import subprocess
-import os
-import ast
+from .test_utils import CustomTestCase, CustomTestRunner
 
-class TestExercise34(unittest.TestCase):
-    def run_exercise(self, input_value):
-        exercise_file_path = os.path.join(os.path.dirname(__file__), "exercise_34.py")
-        return subprocess.check_output(['python3', exercise_file_path], input=input_value, text=True, universal_newlines=True)
 
-    def test_number_pattern_5(self):
-        output = self.run_exercise("5\n")
-        expected_output = "1\n12\n123\n1234\n12345\n"
-        self.assertEqual(output, expected_output)
+class TestExercise34(CustomTestCase):
 
-    def test_number_pattern_3(self):
-        output = self.run_exercise("3\n")
-        expected_output = "1\n12\n123\n"
-        self.assertEqual(output, expected_output)
+    def test_loop_usage(self):
+        """
+        The program should use a 'for' or 'while' loop to solve the exercise.
+        """
 
-    def test_number_pattern_7(self):
-        output = self.run_exercise("7\n")
-        expected_output = "1\n12\n123\n1234\n12345\n123456\n1234567\n"
-        self.assertEqual(output, expected_output)
-
-    def chek_list_usage(self):
-        with open("exercise_34.py", "r") as source_code:
-            tree = ast.parse(source_code.read())
-            for node in ast.walk(tree):
-                if isinstance(node, (ast.List, ast.ListComp)):
-                    self.fail("List usage found in the code.")
-                elif isinstance(node, ast.Call) and isinstance(node.func, ast.Name) and node.func.id == 'list':
-                    self.fail("List usage found in the code.")
+        self.assertUsesLoops()
 
     def test_no_list_usage(self):
-        with open("exercise_34.py", "r") as source_code:
-            code = source_code.read()
-            self.assertNotIn("list", code)
-            self.assertNotIn("[", code)
-            self.assertNotIn("]", code)
+        """
+        The program should not use string slicing to solve the exercise.
+        """
 
-    def check_string_index_usage(self):
-        with open("exercise_34.py", "r") as source_code:
-            tree = ast.parse(source_code.read())
-            for node in ast.walk(tree):
-                if isinstance(node, ast.Subscript) and isinstance(node.value, ast.Name) and node.value.id == 'number':
-                    self.fail("String index usage found in the code.")
+        self.assertNotUsesList()
+
+    def test_0(self):
+        """
+        The program should print nothing.
+        """
+
+        inputs = ["0"]
+        output = self.run_exercise(inputs)
+        expected_output = ""
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+    def test_1(self):
+        """
+        The program should print numbers from 1 to 5.
+        """
+
+        inputs = ["5"]
+        output = self.run_exercise(inputs)
+        expected_output = "1\n12\n123\n1234\n12345\n"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+    def test_2(self):
+        """
+        The program should print numbers from 1 to 3.
+        """
+
+        inputs = ["3"]
+        output = self.run_exercise(inputs)
+        expected_output = "1\n12\n123\n"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+    def test_3(self):
+        """
+        The program should print numbers from 1 to 7.
+        """
+
+        inputs = ["7"]
+        output = self.run_exercise(inputs)
+        expected_output = "1\n12\n123\n1234\n12345\n123456\n1234567\n"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+    def test_4(self):
+        """
+        The program should print numbers from 1 to 10.
+        """
+
+        inputs = ["10"]
+        output = self.run_exercise(inputs)
+        expected_output = "1\n12\n123\n1234\n12345\n123456\n1234567\n12345678\n123456789\n12345678910\n"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+    def test_5(self):
+        """
+        The program should print numbers from 1 to 15.
+        """
+
+        inputs = ["15"]
+        output = self.run_exercise(inputs)
+        expected_output = "1\n12\n123\n1234\n12345\n123456\n1234567\n12345678\n123456789\n12345678910\n1234567891011\n123456789101112\n12345678910111213\n1234567891011121314\n123456789101112131415\n"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
 
 
 if __name__ == '__main__':
-    unittest.main()
+    unittest.main(testRunner=CustomTestRunner)
