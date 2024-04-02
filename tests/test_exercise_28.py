@@ -3,7 +3,7 @@ from .test_utils import CustomTestCase, CustomTestRunner
 
 
 class TestExercise28(CustomTestCase):
-    
+
     def test_loop_usage(self):
         """
         The program should use a 'for' or 'while' loop to solve the exercise.
