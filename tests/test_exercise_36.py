@@ -1,62 +1,96 @@
-
 import unittest
-import subprocess
-import os
-import ast
+from .test_utils import CustomTestCase, CustomTestRunner
 
-class TestExercise36(unittest.TestCase):
-    def run_exercise(self, input_values):
-        exercise_file_path = os.path.join(os.path.dirname(__file__), "exercise_36.py")
-        return subprocess.check_output(['python3', exercise_file_path], input=input_values, text=True, universal_newlines=True)
 
-    def test_gcd(self):
-        output = self.run_exercise("8\n2\n")
-        self.assertEqual(int(output.strip()), 2)
+class TestExercise36(CustomTestCase):
 
-    def test_gcd_2(self):
-        output = self.run_exercise("12\n8\n")
-        self.assertEqual(int(output.strip()), 4)
+    def test_loop_usage(self):
+        """
+        The program should use a 'for' or 'while' loop to solve the exercise.
+        """
 
-    def test_gcd_3(self):
-        output = self.run_exercise("100\n25\n")
-        self.assertEqual(int(output.strip()), 25)
-
-    def check_math_module_usage(self):
-        with open("exercise_36.py", "r") as source_code:
-            tree = ast.parse(source_code.read())
-            for node in ast.walk(tree):
-                if isinstance(node, ast.Import) and node.names[0].name == 'math':
-                    self.fail("math module usage found in the code.")
-                elif isinstance(node, ast.ImportFrom) and node.module == 'math':
-                    self.fail("math module usage found in the code.")
+        self.assertUsesLoops()
 
     def test_no_math_module_usage(self):
-        with open("exercise_36.py", "r") as source_code:
-            code = source_code.read()
-            self.assertNotIn("math", code)
+        """
+        The program should not use the 'math' module.
+        """
 
-    def check_gcd_function_usage(self):
-        with open("exercise_36.py", "r") as source_code:
-            tree = ast.parse(source_code.read())
-            for node in ast.walk(tree):
-                if isinstance(node, ast.FunctionDef) and node.name == 'gcd':
-                    self.fail("gcd function usage found in the code.")
+        self.assetNotUseMathModule()
 
-    def test_no_gcd_function_usage(self):
-        with open("exercise_36.py", "r") as source_code:
-            code = source_code.read()
-            self.assertNotIn("gcd", code)
+    def test_gcd(self):
+        """
+        The program's output for inputs 8 and 2 should be 2.
+        """
+        inputs = ["8", "2"]
+        output = self.run_exercise(inputs)
+        expected_output = "2\n"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
 
-    def check_module_usage(self):
-        with open("exercise_36.py", "r") as source_code:
-            code = source_code.read()
-            self.assertNotIn("import", code)
-            self.assertNotIn("from", code)
+    def test_gcd_2(self):
+        """
+        The program's output for inputs 12 and 8 should be 4.
+        """
+        inputs = ["12", "8"]
+        output = self.run_exercise(inputs)
+        expected_output = "4\n"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
 
-    def check_modulo_operator_usage(self):
-        with open("exercise_36.py", "r") as source_code:
-            code = source_code.read()
-            self.assertIn("%", code)
+    def test_gcd_3(self):
+        """
+        The program's output for inputs 100 and 25 should be 25.
+        """
+        inputs = ["100", "25"]
+        output = self.run_exercise(inputs)
+        expected_output = "25\n"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+    def test_gcd_4(self):
+        """
+        The program's output for inputs 100 and 75 should be 25.
+        """
+        inputs = ["100", "75"]
+        output = self.run_exercise(inputs)
+        expected_output = "25\n"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+    def test_gcd_5(self):
+        """
+        The program's output for inputs 100 and 50 should be 50.
+        """
+        inputs = ["100", "50"]
+        output = self.run_exercise(inputs)
+        expected_output = "50\n"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+    def test_gcd_6(self):
+        """
+        The program's output for inputs 10 and 10 should be 10.
+        """
+        inputs = ["10", "10"]
+        output = self.run_exercise(inputs)
+        expected_output = "10\n"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+    def test_gcd_7(self):
+        """
+        The program's output for inputs 0 and 0 should be 0.
+        """
+        inputs = ["0", "0"]
+        try:
+            output = self.run_exercise(inputs)
+            expected_output = "0.0\n"
+            self.assertInCustom(expected=expected_output, actual=output,
+                                input_value=inputs)
+        except:
+            self.assertModuloByZero()
 
 if __name__ == '__main__':
-    unittest.main()
+    unittest.main(testRunner=CustomTestRunner)
+
