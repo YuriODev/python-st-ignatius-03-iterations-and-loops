@@ -123,6 +123,24 @@ class TestOutputFormatter:
         title = "Division by Zero Error"
         content = "The solution must not divide by zero."
         return TestOutputFormatter.generate_message(title, content)
+    
+    @staticmethod
+    def generate_math_module_usage_message():
+        """
+        Generates a custom message in a table format about the misuse of the 'math' module.
+        """
+        title = "Math Module Usage Error"
+        content = "The solution must not use the 'math' module."
+        return TestOutputFormatter.generate_message(title, content)
+    
+    @staticmethod
+    def generate_modulo_division_by_zero_message():
+        """
+        Generates a custom message in a table format about the misuse of the modulo operator with zero.
+        """
+        title = "Modulo by Zero Error"
+        content = "The solution must not use the modulo operator with zero."
+        return TestOutputFormatter.generate_message(title, content)
 
     @staticmethod
     def generate_product_symbol_usage_message():
