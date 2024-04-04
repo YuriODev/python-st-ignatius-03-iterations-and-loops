@@ -136,7 +136,17 @@ class CustomTestCase(unittest.TestCase):
         try:
             self.assertFalse(self.check_for_product_symbol())
         except AssertionError:
-            message = TestOutputFormatter.generate_message("Product Symbol Usage Error", "The solution must not use the '*' symbol to calculate the product.")
+            message = TestOutputFormatter.generate_product_symbol_usage_message()
+            raise AssertionError(message)
+        
+    def assertNoDivisionSymbolUsage(self):
+        """
+        Asserts that the solution does not use the '/' symbol to calculate the division.
+        """
+        try:
+            self.assertFalse(self.check_for_division_symbol())
+        except AssertionError:
+            message = TestOutputFormatter.generate_division_operator_usage_message()
             raise AssertionError(message)
 
     def assertAlmostEqualCustom(self, expected, actual, input_value, places=None, msg=None):
@@ -193,6 +203,13 @@ class CustomTestCase(unittest.TestCase):
         """
         content = self.file_content
         return bool(re.search(r'\*', content))
+    
+    def check_for_division_symbol(self):
+        """
+        Checks if the solution file uses the '/' symbol to calculate the division.
+        """
+        content = self.file_content
+        return bool(re.search(r'/', content))
 
     def check_for_math_module(self):
         """
