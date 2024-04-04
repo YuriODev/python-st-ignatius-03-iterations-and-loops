@@ -100,6 +100,16 @@ class CustomTestCase(unittest.TestCase):
         except AssertionError:
             string_slice_message = TestOutputFormatter.generate_string_slice_message()
             raise AssertionError(string_slice_message)
+        
+    def assetNotUseMathModule(self):
+        """
+        Asserts that the solution does not use the 'math' module.
+        """
+        try:
+            self.assertFalse(self.check_for_math_module())
+        except AssertionError:
+            message = TestOutputFormatter.generate_math_module_usage_message()
+            raise AssertionError(message)
 
     def assertDivisionByZero(self):
         """
@@ -108,6 +118,16 @@ class CustomTestCase(unittest.TestCase):
 
         division_by_zero_message = TestOutputFormatter.generate_division_by_zero_message()
         raise AssertionError(division_by_zero_message)
+    
+    def assertModuloByZero(self):
+        """
+        Asserts that the solution does not use the modulo operator with zero.
+        """
+        try:
+            self.assertNotIn("% 0", self.file_content)
+        except AssertionError:
+            message = TestOutputFormatter.generate_modulo_division_by_zero_message( )
+            raise AssertionError(message)
 
     def assertNoProductSymbolUsage(self):
         """
@@ -173,3 +193,10 @@ class CustomTestCase(unittest.TestCase):
         """
         content = self.file_content
         return bool(re.search(r'\*', content))
+
+    def check_for_math_module(self):
+        """
+        Checks if the solution file uses the 'math' module.
+        """
+        content = self.file_content
+        return bool(re.search(r'import math', content)) or bool(re.search(r'import', content))
