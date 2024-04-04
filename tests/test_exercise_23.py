@@ -125,7 +125,7 @@ class TestExercise23(CustomTestCase):
         inputs = ["0"]
         try:
             output = self.run_exercise(inputs)
-            expected_output = "0.0\n"
+            expected_output = "0\n"
             self.assertInCustom(expected=expected_output, actual=output,
                                 input_value=inputs)
         except:
