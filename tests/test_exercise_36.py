@@ -91,6 +91,6 @@ class TestExercise36(CustomTestCase):
         except:
             self.assertModuloByZero()
 
+
 if __name__ == '__main__':
     unittest.main(testRunner=CustomTestRunner)
-
