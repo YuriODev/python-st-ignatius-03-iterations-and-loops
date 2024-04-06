@@ -1,24 +1,15 @@
-# Read the input
+# Prompt the user to enter a number
 n = int(input())
 
-# Extract the digits
-d1 = n // 1000
-d2 = (n % 1000) // 100
-d3 = (n % 100) // 10
-d4 = n % 10
+# Iterate from 1 to n (inclusive)
+for i in range(1, n+1):
+    # Print the current number followed by a space
+    print(i, end=" ")
 
-# # SOLUTION 1
+    # Iterate from 0 to i-1 (inclusive)
+    for j in range(i):
+        # Print a '#' character for each iteration
+        print("#", end="")
 
-# # Calculate the result
-# result = (d1 == d4) * (d2 == d3)
-
-# # Print the result
-# print(result)
-
-# SOLUTION 2
-
-# Calculate the difference
-difference = abs((d1 - d4) + (d2 - d3))
-
-# Print the result
-print(max(1 - difference, 0))
+    # Print a new line after each iteration of the inner loop
+    print()

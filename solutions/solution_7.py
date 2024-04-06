@@ -1,14 +1,8 @@
-# # Read the input
+# Prompt the user to enter a number
 n = int(input())
 
-# Extract the digits
-d1 = n // 1000
-d2 = (n % 1000) // 100
-d3 = (n % 100) // 10
-d4 = n % 10
-
-# Calculate the sum of the digits
-sum_of_digits = d1 + d2 + d3 + d4
-
-# Print the sum of the digits
-print(sum_of_digits)
+# Iterate from 1 to n (inclusive)
+for i in range(1, n+1):
+    # Print a line of characters
+    # The line consists of a "#" followed by (i-1) spaces and another "#"
+    print("#" + " " * (i-1) + "#")

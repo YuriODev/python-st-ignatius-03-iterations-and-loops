@@ -1,9 +1,10 @@
-# Read the input number without printing a prompt
-number = int(input("Enter a five-digit number: "))
+# Prompt the user to enter a number
+number = int(input())
 
-# Calculate the sums and print the result
-first_part = (number // 10000) + ((number // 100) % 10) + (number % 10)
-print(first_part)
-second_part = ((number // 1000) % 10) + ((number // 10) % 10)
+# Iterate over a range of numbers from number-1 down to 1 (excluding 0)
+for i in range(number, 0, -1):
+    # Print each number in the range
+    print(i)
 
-print(str(first_part) + str(second_part))
+# Print "Start!" after the loop completes
+print("Start!")

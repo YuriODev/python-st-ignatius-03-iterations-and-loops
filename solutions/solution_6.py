@@ -1,9 +1,7 @@
-# Read the input
-a = int(input())
-b = int(input())
+# Prompt the user to enter a number
+n = int(input())
 
-# Check if a is divisible by b
-divisible = "YES" * (a % b == 0) or "NO"
-
-# Print the result
-print(divisible)
+# Iterate from 1 to n (inclusive)
+for i in range(1, n+1):
+    # Print '*' repeated i times
+    print("*" * i)

@@ -1,10 +1,10 @@
-# Read the input
+# Prompt the user to enter a number
 n = int(input())
 
-# Calculate the hours, minutes, and seconds
-hours = (n // 3600) % 24
-minutes = (n // 60) % 60
-seconds = n % 60
+# Iterate over a range of numbers from 20 to n+1
+for i in range(20, n+1):
 
-# Print the time in h:mm:ss format
-print(f"{hours}:{minutes:02d}:{seconds:02d}")
+    # Check if the number is divisible by 2
+    print(i, end=" ")
+
+print()

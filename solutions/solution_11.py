@@ -1,20 +1,13 @@
-# Read the input
-s = int(input())
+# Prompting the user to enter the upper limit of the range
+n = int(input("Enter the upper limit of the range: "))
 
-# Calculate the number of bills for each denomination
-bills_500 = s // 500
-s %= 500
+# Initializing the sum of the series
+sum_of_series = 0
 
-bills_100 = s // 100
-s %= 100
+# Looping through the range of 1 to n
+for i in range(1, n + 1):
+    # Calculating the sum of the series
+    sum_of_series += i / (i + 1)
 
-bills_10 = s // 10
-s %= 10
-
-bills_5 = s // 5
-s %= 5
-
-bills_1 = s
-
-# Print the number of bills for each denomination in one line
-print(f"{bills_500} (500), {bills_100} (100), {bills_10} (10), {bills_5} (5), {bills_1} (1)")
+# Printing the sum of the series
+print(f"{sum_of_series:.2f}")

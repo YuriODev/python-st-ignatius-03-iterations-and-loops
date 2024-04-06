@@ -1,14 +1,17 @@
-# Read the input
-a = int(input())
-b = int(input())
-c = int(input())
+# Prompt the user to enter a number
+n = int(input())
 
-# Calculate the minimum, middle, and maximum values
-min_value = a * (a <= b and a <= c) + b * (b < a or b < c) + c * (c < a and c < b)
-max_value = a * (a >= b and a >= c) + b * (b > a or b > c) + c * (c > a and c > b)
-mid_value = a + b + c - min_value - max_value
+# Iterate over the range from 2 to n (inclusive) with a step of 2
+for i in range(2, n+1):
+    # Check if i is even
+    if i % 2 == 1:
+        # If so, continue to the next iteration
+        continue
 
-# Print the sorted numbers
-print(min_value)
-print(mid_value)
-print(max_value)
+    # Check if i is equal to n - 1 or n
+    if i == n - 1 or i == n:
+        # If so, print i
+        print(i)
+    else:
+        # Otherwise, print i followed by a space (end=" ")
+        print(i, end=" ")

@@ -1,8 +1,10 @@
-# Read the input
-a = float(input())
+# Prompt the user to enter the number of pounds.
+pounds = int(input())
 
-# Calculate the angle
-angle = (a % 30) * 12
+# Initialize the kilograms variable.
+kilograms = 0
 
-# Print the angle
-print(angle)
+# Loop through the range of pounds and print the equivalent kilograms.
+for i in range(1, pounds + 1):
+    kilograms += 0.453
+    print(f"{i} {kilograms:.2f}")
