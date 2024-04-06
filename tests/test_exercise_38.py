@@ -1,61 +1,160 @@
-
 import unittest
-import subprocess
-import os
-import ast
+from .test_utils import CustomTestCase, CustomTestRunner
 
-class TestExercise38(unittest.TestCase):
-    def run_exercise(self, input_value):
-        exercise_file_path = os.path.join(os.path.dirname(__file__), "exercise_38.py")
-        return subprocess.check_output(['python3', exercise_file_path], input=input_value, text=True, universal_newlines=True)
 
-    def test_even_difference_true(self):
-        output = self.run_exercise("2134389\n")
-        self.assertIn("True", output)
+class TestExercise38(CustomTestCase):
 
-    def test_even_difference_false(self):
-        output = self.run_exercise("1234\n")
-        self.assertIn("False", output)
-
-    def test_even_difference_true_2(self):
-        output = self.run_exercise("111111\n")
-        self.assertIn("True", output)
-
-    def test_even_difference_false_2(self):
-        output = self.run_exercise("123456789\n")
-        self.assertIn("True", output)
-
-    def check_list_usage(self):
-        with open("exercise_38.py", "r") as source_code:
-            tree = ast.parse(source_code.read())
-            for node in ast.walk(tree):
-                if isinstance(node, (ast.List, ast.ListComp)):
-                    self.fail("List usage found in the code.")
-                elif isinstance(node, ast.Call) and isinstance(node.func, ast.Name) and node.func.id == 'list':
-                    self.fail("List usage found in the code.")
+    def test_loop_usage(self):
+        """
+        The program should use a 'for' or 'while' loop to solve the exercise.
+        """
 
     def test_no_list_usage(self):
-        with open("exercise_38.py", "r") as source_code:
-            code = source_code.read()
-            self.assertNotIn("list", code)
-            self.assertNotIn("[", code)
-            self.assertNotIn("]", code)
+        """
+        The program should not use string slicing to solve the exercise.
+        """
 
-    def check_str_in_usage(self):
-        with open("exercise_38.py", "r") as source_code:
-            code = source_code.read()
-            self.assertNotIn("in", code)
+        self.assertNotUsesList()
 
-    def test_no_str_in_usage(self):
-        with open("exercise_38.py", "r") as source_code:
-            code = source_code.read()
-            self.assertNotIn("in", code)
+    def test_not_string_conversion(self):
+        """
+        The program should not convert the input to a string.
+        """
 
-    def check_str_function_usage(self):
-        with open("exercise_38.py", "r") as source_code:
-            code = source_code.read()
-            self.assertNotIn("str", code)
+        self.assertNotUseStringSlice()
+
+    def test_even_difference_true(self):
+        """
+        The program should determine if the difference between the sum of the
+        even digits and the sum of the odd digits of a number is equal to 0.
+        """
+
+        inputs = ["2134389"]
+        output = self.run_exercise(inputs)
+        expected_output = "True\n"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+    def test_even_difference_true_4(self):
+        """
+        The program should determine if the difference between the sum of the
+        even digits and the sum of the odd digits of a number is equal to 0.
+        """
+
+        inputs = ["123456789"]
+        output = self.run_exercise(inputs)
+        expected_output = "True\n"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+    def test_even_difference_true_2(self):
+        """
+        The program should determine if the difference between the sum of the
+        even digits and the sum of the odd digits of a number is equal to 0.
+        """
+
+        inputs = ["2468"]
+        output = self.run_exercise(inputs)
+        expected_output = "True\n"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+    def test_even_difference_false_5(self):
+        """
+        The program should determine if the difference between the sum of the
+        even digits and the sum of the odd digits of a number is equal to 0.
+        """
+
+        inputs = ["13579"]
+        output = self.run_exercise(inputs)
+        expected_output = "True\n"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+    def test_even_difference_true_3(self):
+        """
+        The program should determine if the difference between the sum of the
+        even digits and the sum of the odd digits of a number is equal to 0.
+        """
+
+        inputs = ["246137"]
+        output = self.run_exercise(inputs)
+        expected_output = "True\n"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+    def test_even_difference_true_6(self):
+        """
+        The program should determine if the difference between the sum of the
+        even digits and the sum of the odd digits of a number is equal to 0.
+        """
+
+        inputs = ["1352467"]
+        output = self.run_exercise(inputs)
+        expected_output = "True\n"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+    def test_even_difference_false(self):
+        """
+        The program should determine if the difference between the sum of the
+        even digits and the sum of the odd digits of a number is equal to 0.
+        """
+
+        inputs = ["1234"]
+        output = self.run_exercise(inputs)
+        expected_output = "False\n"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+    def test_even_difference_false_2(self):
+        """
+        The program should determine if the difference between the sum of the
+        even digits and the sum of the odd digits of a number is equal to 0.
+        """
+
+        inputs = ["1358"]
+        output = self.run_exercise(inputs)
+        expected_output = "False\n"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+    def test_even_difference_false_3(self):
+        """
+        The program should determine if the difference between the sum of the
+        even digits and the sum of the odd digits of a number is equal to 0.
+        """
+
+        inputs = ["241"]
+        output = self.run_exercise(inputs)
+        expected_output = "False\n"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+    def test_even_difference_false_4(self):
+        """
+        The program should determine if the difference between the sum of the
+        even digits and the sum of the odd digits of a number is equal to 0.
+        """
+
+        inputs = ["10"]
+        output = self.run_exercise(inputs)
+        expected_output = "False\n"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+    def test_even_difference_false_6(self):
+        """
+        The program should determine if the difference between the sum of the
+        even digits and the sum of the odd digits of a number is equal to 0.
+        """
+
+        inputs = ["0"]
+        output = self.run_exercise(inputs)
+        expected_output = "False\n"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
 
 
 if __name__ == '__main__':
-    unittest.main()
+    unittest.main(testRunner=CustomTestRunner)
