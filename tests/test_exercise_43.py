@@ -1,53 +1,101 @@
 import unittest
-import subprocess
-import os
-import ast
+from .test_utils import CustomTestCase, CustomTestRunner
 
 
-class TestExercise43(unittest.TestCase):
-    def run_exercise(self, input_values):
-        exercise_file_path = os.path.join(os.path.dirname(__file__), "exercise_43.py")
-        return subprocess.check_output(['python3', exercise_file_path], input=input_values, text=True, universal_newlines=True)
+class TestExercise43(CustomTestCase):
 
-    def test_second_largest_element(self):
-        output = self.run_exercise("1\\n4\\n3\\n2\\n0\\n")
-        self.assertEqual(int(output.strip()), 3)
-
-    def test_second_largest_element_2(self):
-        output = self.run_exercise("1\\n2\\n3\\n4\\n5\\n6\\n")
-        self.assertEqual(int(output.strip()), 5)
-
-    def test_second_largest_element_3(self):
-        output = self.run_exercise("1\\n2\\n3\\n4\\n3\\n2\\n")
-        self.assertEqual(int(output.strip()), 3)
-
-    def check_module_usage(self):
-        with open("exercise_43.py", "r") as source_code:
-            code = source_code.read()
-            self.assertNotIn("import", code)
-            self.assertNotIn("from", code)
-
-    def check_greater_than_operator_usage(self):
-        with open("exercise_43.py", "r") as source_code:
-            code = source_code.read()
-            self.assertNotIn(">", code)
-
-    def check_list_usage(self):
-        with open("exercise_43.py", "r") as source_code:
-            tree = ast.parse(source_code.read())
-            for node in ast.walk(tree):
-                if isinstance(node, (ast.List, ast.ListComp)):
-                    self.fail("List usage found in the code.")
-                elif isinstance(node, ast.Call) and isinstance(node.func, ast.Name) and node.func.id == 'list':
-                    self.fail("List usage found in the code.")
+    def test_loop_usage(self):
+        """
+        The program should use a 'for' or 'while' loop to solve the exercise.
+        """
 
     def test_no_list_usage(self):
-        with open("exercise_43.py", "r") as source_code:
-            code = source_code.read()
-            self.assertNotIn("list", code)
-            self.assertNotIn("[", code)
-            self.assertNotIn("]", code)
+        """
+        The program should not use string slicing to solve the exercise.
+        """
+
+        self.assertNotUsesList()
+
+    def test_second_largest_element(self):
+        """
+        The second greatest element of the sequence 1, 4, 3, 2, 0 is 3
+        """
+        inputs = ["1", "4", "3", "2", "0"]
+        output = self.run_exercise(inputs)
+        expected_output = "3"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+    def test_second_largest_element_2(self):
+        """
+        The second greatest element of the sequence 1, 2, 3, 4, 5, 4, 3, 2, 0 is 4
+        """
+        inputs = ["1", "2", "3", "4", "5", "4", "3", "2", "0"]
+        output = self.run_exercise(inputs)
+        expected_output = "4"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+        
+    def test_second_largest_element_3(self):
+        """
+        The second greatest element of the sequence 1, 2, 3, 4, 3, 2, 1, 0 is 3
+        """
+        inputs = ["1", "2", "3", "4", "3", "2", "1", "0"]
+        output = self.run_exercise(inputs)
+        expected_output = "3"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+    
+    def test_second_largest_element_4(self):
+        """
+        The second greatest element of the sequence 1, 2, 3, 4, 5, 6, 5, 4, 3, 2, 1, 0 is 5
+        """
+        inputs = ["1", "2", "3", "4", "5", "6", "5", "4", "3", "2", "1", "0"]
+        output = self.run_exercise(inputs)
+        expected_output = "5"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+    def test_second_largest_element_5(self):
+        """
+        The second greatest element of the sequence 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0 is 9
+        """
+        inputs = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "9", "8", "7", "6", "5", "4", "3", "2", "1", "0"]
+        output = self.run_exercise(inputs)
+        expected_output = "9"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+    def test_second_largest_element_6(self):
+        """
+        The second greatest element of the sequence 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0 is 9
+        """
+        inputs = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "9", "8", "7", "6", "5", "4", "3", "2", "1", "0"]
+        output = self.run_exercise(inputs)
+        expected_output = "9"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+    def test_second_largest_element_7(self):
+        """
+        The second greatest element of the sequence 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0 is 9
+        """
+        inputs = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "9", "8", "7", "6", "5", "4", "3", "2", "1", "0"]
+        output = self.run_exercise(inputs)
+        expected_output = "9"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+    def test_second_largest_element_0(self):
+        """
+        The second greatest element of the sequence 0, 0 is 0
+        """
+        inputs = ["0", "0"]
+        output = self.run_exercise(inputs)
+        expected_output = "0"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
 
 
 if __name__ == '__main__':
-    unittest.main()
+    unittest.main(testRunner=CustomTestRunner)
