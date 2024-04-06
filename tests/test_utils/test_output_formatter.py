@@ -177,3 +177,12 @@ class TestOutputFormatter:
         title = "Integer Division Operator Usage Error"
         content = "The solution must not use integer division."
         return TestOutputFormatter.generate_message(title, content)
+
+    @staticmethod
+    def generate_sum_function_usage_message():
+        """
+        Generates a custom message in a table format about the misuse of the 'sum' function.
+        """
+        title = "Sum Function Usage Error"
+        content = "The solution must not use the 'sum' function."
+        return TestOutputFormatter.generate_message(title, content)
