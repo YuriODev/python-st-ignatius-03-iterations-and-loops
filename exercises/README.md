@@ -659,7 +659,7 @@ The problem tests the ability to use loops and conditional statements to print a
 
 | No. | Inputs | Outputs |
 | --- | ------ | ------- |
-| 1   | 10 | 
+| 1   | 10 | 3.0418396189294032 |
 | 2 | 5 | 3.3396825396825403 |
 | 3 | 15 | 3.017071817071818 |
 | 4 | 120 | 3.1332594798865546 |
