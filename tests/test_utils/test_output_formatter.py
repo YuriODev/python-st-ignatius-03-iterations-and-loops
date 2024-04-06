@@ -159,3 +159,21 @@ class TestOutputFormatter:
         title = "Division Operator Usage Error"
         content = "The solution must not use the division operator."
         return TestOutputFormatter.generate_message(title, content)
+
+    @staticmethod
+    def generate_modulo_operator_usage_message():
+        """
+        Generates a custom message in a table format about the misuse of the modulo operator.
+        """
+        title = "Modulo Operator Usage Error"
+        content = "The solution must not use the modulo operator."
+        return TestOutputFormatter.generate_message(title, content)
+    
+    @staticmethod
+    def generate_integer_division_operator_usage_message():
+        """
+        Generates a custom message in a table format about the misuse of the integer division operator.
+        """
+        title = "Integer Division Operator Usage Error"
+        content = "The solution must not use integer division."
+        return TestOutputFormatter.generate_message(title, content)
