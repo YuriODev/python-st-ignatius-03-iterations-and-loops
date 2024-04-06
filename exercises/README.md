@@ -905,6 +905,8 @@ The problem tests the ability to use loops and conditional statements to calcula
 
 ### Note:
 
+The problem tests the ability to use loops and conditional statements to calculate the results of the integer division and the remainder of the division of two numbers.
+
 ## Exercise 38: Even Difference - Hard 🥵 (Est. Time: 15-20 mins | Points: 30)
 
 **Problem:** Write a program to determine whether the difference between the maximum and minimum digits of a natural number `n` is even.
