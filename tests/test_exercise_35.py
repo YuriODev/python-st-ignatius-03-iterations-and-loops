@@ -18,6 +18,13 @@ class TestExercise35(CustomTestCase):
 
         self.assertNotUsesList()
 
+    def test_not_string_conversion(self):
+        """
+        The program should not convert the input to a string.
+        """
+
+        self.assertNotUseStringSlice()
+
     def test_odd_numbers_descending(self):
         """
         The program should print nothing.
