@@ -148,6 +148,26 @@ class CustomTestCase(unittest.TestCase):
         except AssertionError:
             message = TestOutputFormatter.generate_division_operator_usage_message()
             raise AssertionError(message)
+        
+    def assertNoIntegerDivision(self):
+        """
+        Asserts that the solution does not use integer division.
+        """
+        try:
+            self.assertFalse(self.check_for_integer_division())
+        except AssertionError:
+            message = TestOutputFormatter.generate_integer_division_operator_usage_message()
+            raise AssertionError(message)
+
+    def assertNoModulos(self):
+        """
+        Asserts that the solution does not use the modulo operator.
+        """
+        try:
+            self.assertFalse(self.check_for_modulos())
+        except AssertionError:
+            message = TestOutputFormatter.generate_modulo_operator_usage_message()
+            raise AssertionError(message)
 
     def assertAlmostEqualCustom(self, expected, actual, input_value, places=None, msg=None):
         """
@@ -210,6 +230,20 @@ class CustomTestCase(unittest.TestCase):
         """
         content = self.file_content
         return bool(re.search(r'/', content))
+    
+    def check_for_integer_division(self):
+        """
+        Checks if the solution file uses integer division.
+        """
+        content = self.file_content
+        return bool(re.search(r'//', content))
+    
+    def check_for_modulos(self):
+        """
+        Checks if the solution file uses the modulo operator.
+        """
+        content = self.file_content
+        return bool(re.search(r'%', content))
 
     def check_for_math_module(self):
         """
