@@ -191,7 +191,24 @@ class CustomTestCase(unittest.TestCase):
         except AssertionError:
             message = TestOutputFormatter.generate_sum_function_usage_message()
             raise AssertionError(message)
-    
+
+    def assertNotUseRangeFunction(self):
+        """
+        Asserts that the solution does not use the 'range' function.
+        """
+        try:
+            self.assertFalse(self.check_for_range_function_usage())
+        except AssertionError:
+            message = TestOutputFormatter.generate_range_function_usage_message()
+            raise AssertionError(message)
+        
+    def check_for_range_function_usage(self):
+        """
+        Checks if the solution file uses the 'range' function.
+        """
+        content = self.file_content
+        return bool(re.search(r'range\(', content))
+
     def check_for_sum_function_usage(self):
         """
         Checks if the solution file uses the 'sum' function.
@@ -240,14 +257,14 @@ class CustomTestCase(unittest.TestCase):
         """
         content = self.file_content
         return bool(re.search(r'\*', content))
-    
+
     def check_for_division_symbol(self):
         """
         Checks if the solution file uses the '/' symbol to calculate the division.
         """
         content = self.file_content
         return bool(re.search(r'/', content))
-    
+
     def check_for_integer_division(self):
         """
         Checks if the solution file uses integer division.
