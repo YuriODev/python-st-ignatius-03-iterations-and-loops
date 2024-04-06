@@ -26,7 +26,7 @@ class CustomTestCase(unittest.TestCase):
         current_dir = os.path.dirname(__file__)
         project_root = os.path.join(current_dir, "../../exercises")
         return os.path.normpath(os.path.join(project_root, exercise_file_name))
-    
+
     @property
     def file_content(self):
         """
@@ -100,7 +100,7 @@ class CustomTestCase(unittest.TestCase):
         except AssertionError:
             string_slice_message = TestOutputFormatter.generate_string_slice_message()
             raise AssertionError(string_slice_message)
-        
+
     def assetNotUseMathModule(self):
         """
         Asserts that the solution does not use the 'math' module.
@@ -118,7 +118,7 @@ class CustomTestCase(unittest.TestCase):
 
         division_by_zero_message = TestOutputFormatter.generate_division_by_zero_message()
         raise AssertionError(division_by_zero_message)
-    
+
     def assertModuloByZero(self):
         """
         Asserts that the solution does not use the modulo operator with zero.
@@ -148,7 +148,7 @@ class CustomTestCase(unittest.TestCase):
         except AssertionError:
             message = TestOutputFormatter.generate_division_operator_usage_message()
             raise AssertionError(message)
-        
+
     def assertNoIntegerDivision(self):
         """
         Asserts that the solution does not use integer division.
@@ -237,7 +237,7 @@ class CustomTestCase(unittest.TestCase):
         """
         content = self.file_content
         return bool(re.search(r'//', content))
-    
+
     def check_for_modulos(self):
         """
         Checks if the solution file uses the modulo operator.
