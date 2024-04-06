@@ -1,62 +1,117 @@
-
 import unittest
-import subprocess
-import os
-import ast
+from .test_utils import CustomTestCase, CustomTestRunner
 
-class TestExercise39(unittest.TestCase):
-    def run_exercise(self, input_value):
-        exercise_file_path = os.path.join(os.path.dirname(__file__), "exercise_39.py")
-        return subprocess.check_output(['python3', exercise_file_path], input=input_value, text=True, universal_newlines=True)
 
-    def test_sum_of_digits_negative(self):
-        output = self.run_exercise("-123\n")
-        self.assertEqual(int(output.strip()), 6)
+class TestExercise39(CustomTestCase):
 
-    def test_sum_of_digits_positive(self):
-        output = self.run_exercise("123\n")
-        self.assertEqual(int(output.strip()), 6)
-
-    def test_sum_of_digits_zero(self):
-        output = self.run_exercise("0\n")
-        self.assertEqual(int(output.strip()), 0)
-
-    def test_sum_of_digits_single_digit(self):
-        output = self.run_exercise("5\n")
-        self.assertEqual(int(output.strip()), 5)
-
-    def test_sum_of_digits_single_digit_negative(self):
-        output = self.run_exercise("-5\n")
-        self.assertEqual(int(output.strip()), 5)
-
-    def chek_list_usage(self):
-        with open("exercise_39.py", "r") as source_code:
-            tree = ast.parse(source_code.read())
-            for node in ast.walk(tree):
-                if isinstance(node, (ast.List, ast.ListComp)):
-                    self.fail("List usage found in the code.")
-                elif isinstance(node, ast.Call) and isinstance(node.func, ast.Name) and node.func.id == 'list':
-                    self.fail("List usage found in the code.")
+    def test_loop_usage(self):
+        """
+        The program should use a 'for' or 'while' loop to solve the exercise.
+        """
 
     def test_no_list_usage(self):
-        with open("exercise_39.py", "r") as source_code:
-            code = source_code.read()
-            self.assertNotIn("list", code)
-            self.assertNotIn("[", code)
-            self.assertNotIn("]", code)
+        """
+        The program should not use string slicing to solve the exercise.
+        """
 
-    def check_sum_function_usage(self):
-        with open("exercise_39.py", "r") as source_code:
-            tree = ast.parse(source_code.read())
-            for node in ast.walk(tree):
-                if isinstance(node, ast.FunctionDef):
-                    self.fail("sum function usage found in the code.")
+        self.assertNotUsesList()
+
+    def test_not_string_conversion(self):
+        """
+        The program should not convert the input to a string.
+        """
+
+        self.assertNotUseStringSlice()
 
     def test_no_sum_function_usage(self):
-        with open("exercise_39.py", "r") as source_code:
-            code = source_code.read()
-            self.assertNotIn("sum(", code)
+        """
+        The program should not use the 'sum' function to solve the exercise.
+        """
+
+        self.assertNotUseSumFunction()
+
+    def test_sum_of_digits_positive(self):
+        """
+        The program should determine if the difference between the sum of the
+        even digits and the sum of the odd digits of a number is equal to 0.
+        """
+
+        inputs = ["123"]
+        output = self.run_exercise(inputs)
+        expected_output = "6\n"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+    def test_sum_of_digits_negative(self):
+        """
+        Sum of the digits in the number -123 is 6.
+        """
+        inputs = ["-123"]
+        output = self.run_exercise(inputs)
+        expected_output = "6\n"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+    def test_sum_of_digits_zero(self):
+        """
+        Sum of the digits in the number 0 is 0.
+        """
+        inputs = ["0"]
+        output = self.run_exercise(inputs)
+        expected_output = "0\n"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+    def test_sum_of_digits_single_digit(self):
+        """
+        Sum of the digits in the number 5 is 5.
+        """
+        inputs = ["5"]
+        output = self.run_exercise(inputs)
+        expected_output = "5\n"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+    def test_sum_of_digits_single_digit_negative(self):
+        """
+        Sum of the digits in the number -5 is 5.
+        """
+        inputs = ["-5"]
+        output = self.run_exercise(inputs)
+        expected_output = "5\n"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+    def test_sum_of_digits_large_number(self):
+        """
+        Sum of the digits in the number 123456789 is 45.
+        """
+        inputs = ["123456789"]
+        output = self.run_exercise(inputs)
+        expected_output = "45\n"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+    def test_sum_of_digits_large_number_negative(self):
+        """
+        Sum of the digits in the number -123456789 is 45.
+        """
+        inputs = ["-123456789"]
+        output = self.run_exercise(inputs)
+        expected_output = "45\n"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+    def test_sum_of_digits_large_number_zero(self):
+        """
+        Sum of the digits in the number 1234567890 is 45.
+        """
+        inputs = ["1234567890"]
+        output = self.run_exercise(inputs)
+        expected_output = "45\n"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
 
 
 if __name__ == '__main__':
-    unittest.main()
+    unittest.main(testRunner=CustomTestRunner)
