@@ -79,4 +79,4 @@ class TestExercise52(CustomTestCase):
 
 
 if __name__ == '__main__':
-    unittest.main()
+    unittest.main(testRunner=CustomTestRunner)
