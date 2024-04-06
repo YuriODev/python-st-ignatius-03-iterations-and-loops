@@ -1166,7 +1166,7 @@ The problem tests the ability to use loops and conditional statements to calcula
 | --- | ------ | ------- |
 | 1   | 50 | 13 |
 | 2   | 100 | 18 |
-| 3   | 200 | 27 |
+| 3   | 200 | 28 |
 
 ### Note:
 
