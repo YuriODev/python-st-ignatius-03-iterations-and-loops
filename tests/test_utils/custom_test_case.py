@@ -182,6 +182,23 @@ class CustomTestCase(unittest.TestCase):
             if msg:
                 custom_message += f"\nAdditional message: {msg}"
 
+    def assertNotUseSumFunction(self):
+        """
+        Asserts that the solution does not use the 'sum' function.
+        """
+        try:
+            self.assertFalse(self.check_for_sum_function_usage())
+        except AssertionError:
+            message = TestOutputFormatter.generate_sum_function_usage_message()
+            raise AssertionError(message)
+    
+    def check_for_sum_function_usage(self):
+        """
+        Checks if the solution file uses the 'sum' function.
+        """
+        content = self.file_content
+        return bool(re.search(r'sum\(', content))
+
     def check_for_loops(self):
         """
         Checks if the solution file uses 'for' or 'while' loops.
