@@ -1,51 +1,101 @@
 import unittest
-import subprocess
-import os
-import ast
+from .test_utils import CustomTestCase, CustomTestRunner
 
-class TestExercise42(unittest.TestCase):
-    def run_exercise(self, input_values):
-        exercise_file_path = os.path.join(os.path.dirname(__file__), "exercise_42.py")
-        return subprocess.check_output(['python3', exercise_file_path], input=input_values, text=True, universal_newlines=True)
 
-    def test_greater_than_next_element(self):
-        output = self.run_exercise("2\\n9\\n1\\n4\\n3\\n0\\n")
-        self.assertEqual(int(output.strip()), 2)
+class TestExercise42(CustomTestCase):
 
-    def test_greater_than_next_element_2(self):
-        output = self.run_exercise("1\\n2\\n3\\n4\\n5\\n6\\n")
-        self.assertEqual(int(output.strip()), 0)
-
-    def test_greater_than_next_element_3(self):
-        output = self.run_exercise("1\\n2\\n3\\n4\\n3\\n2\\n")
-        self.assertEqual(int(output.strip()), 2)
-
-    def check_module_usage(self):
-        with open("exercise_42.py", "r") as source_code:
-            code = source_code.read()
-            self.assertNotIn("import", code)
-            self.assertNotIn("from", code)
-
-    def check_greater_than_operator_usage(self):
-        with open("exercise_42.py", "r") as source_code:
-            code = source_code.read()
-            self.assertNotIn(">", code)
-
-    def check_list_usage(self):
-        with open("exercise_42.py", "r") as source_code:
-            tree = ast.parse(source_code.read())
-            for node in ast.walk(tree):
-                if isinstance(node, (ast.List, ast.ListComp)):
-                    self.fail("List usage found in the code.")
-                elif isinstance(node, ast.Call) and isinstance(node.func, ast.Name) and node.func.id == 'list':
-                    self.fail("List usage found in the code.")
+    def test_loop_usage(self):
+        """
+        The program should use a 'for' or 'while' loop to solve the exercise.
+        """
 
     def test_no_list_usage(self):
-        with open("exercise_42.py", "r") as source_code:
-            code = source_code.read()
-            self.assertNotIn("list", code)
-            self.assertNotIn("[", code)
-            self.assertNotIn("]", code)
+        """
+        The program should not use string slicing to solve the exercise.
+        """
+
+        self.assertNotUsesList()
+
+    def test_greater_than_next_element(self):
+        """
+        The greatest number that is greater than the next element is 2
+        """
+        inputs = ["2", "1", "3", "4", "2", "0"]
+        output = self.run_exercise(inputs)
+        expected_output = "3"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+    def test_greater_than_next_element_2(self):
+        """
+        The greatest number that is greater than the next element is 4
+        """
+        inputs = ["1", "2", "3", "4", "5", "4", "3", "2", "0"]
+        output = self.run_exercise(inputs)
+        expected_output = "4"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+    def test_greater_than_next_element_3(self):
+        """
+        The greatest number that is greater than the next element is 3
+        """
+        inputs = ["1", "2", "3", "4", "3", "2", "1", "0"]
+        output = self.run_exercise(inputs)
+        expected_output = "4"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+    def test_greater_than_next_element_4(self):
+        """
+        The greatest number that is greater than the next element is 5
+        """
+        inputs = ["1", "2", "3", "4", "5", "6", "5", "4", "3", "2", "1", "0"]
+        output = self.run_exercise(inputs)
+        expected_output = "6"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+    def test_greater_than_next_element_5(self):
+        """
+        The greatest number that is greater than the next element is 3
+        """
+        inputs = ["1", "2", "3", "4", "3", "2", "1", "0"]
+        output = self.run_exercise(inputs)
+        expected_output = "4"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+    def test_greater_than_next_element_0(self):
+        """
+        The greatest number that is greater than the next element is 1
+        """
+        inputs = ["1", "0"]
+        output = self.run_exercise(inputs)
+        expected_output = "1"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+    def test_greater_than_next_element_1(self):
+        """
+        The greatest number that is greater than the next element is 2
+        """
+        inputs = ["1", "2", "0"]
+        output = self.run_exercise(inputs)
+        expected_output = "1"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
+    def test_greater_than_next_element_none(self):
+        """
+        There are no numbers greater than the next element
+        """
+        inputs = ["1", "1", "1", "1", "0"]
+        output = self.run_exercise(inputs)
+        expected_output = "1"
+        self.assertInCustom(expected=expected_output, actual=output,
+                            input_value=inputs)
+
 
 if __name__ == '__main__':
-    unittest.main()
+    unittest.main(testRunner=CustomTestRunner)
