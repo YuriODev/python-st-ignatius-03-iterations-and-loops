@@ -186,3 +186,12 @@ class TestOutputFormatter:
         title = "Sum Function Usage Error"
         content = "The solution must not use the 'sum' function."
         return TestOutputFormatter.generate_message(title, content)
+
+    @staticmethod
+    def generate_range_function_usage_message():
+        """
+        Generates a custom message in a table format about the misuse of the 'range' function.
+        """
+        title = "Range Function Usage Error"
+        content = "The solution must not use the 'range' function."
+        return TestOutputFormatter.generate_message(title, content)
