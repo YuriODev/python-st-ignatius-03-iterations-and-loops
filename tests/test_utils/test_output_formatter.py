@@ -111,8 +111,8 @@ class TestOutputFormatter:
         """
         Generates a custom message in a table format about the misuse of string slicing.
         """
-        title = "String Slice Usage Error"
-        content = "The solution must not use string slicing."
+        title = "String Usage Error"
+        content = "The solution must not use string slicing on converting to str."
         return TestOutputFormatter.generate_message(title, content)
 
     @staticmethod
