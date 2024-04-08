@@ -246,10 +246,10 @@ class CustomTestCase(unittest.TestCase):
 
     def check_for_string_slice(self):
         """
-        Checks if the solution file uses string slicing.
+        Checks if the solution file uses string slicing or str function
         """
         content = self.file_content
-        return bool(re.search(r'\[.*:.*\]', content))
+        return bool(re.search(r'\[.*:.*\]', content)) or bool(re.search(r'str\(', content))
 
     def check_for_product_symbol(self):
         """
