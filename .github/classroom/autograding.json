@@ -85,12 +85,6 @@
         "points": 10
       },
       {
-        "name": "Exercise 15: Error Collection",
-        "run": "pytest --color=yes --failed-first -x tests/test_exercise_15.py",
-        "timeout": 5,
-        "points": 10
-      },
-      {
         "name": "Exercise 16: Staircase Pattern",
         "run": "pytest --color=yes --failed-first -x tests/test_exercise_16.py",
         "timeout": 5,
