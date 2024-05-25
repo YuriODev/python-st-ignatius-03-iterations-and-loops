@@ -95,3 +95,13 @@ To deepen your understanding of iterations and loops in Python, consider the fol
 We encourage you to explore beyond the exercises provided, delve into additional problems, and experiment with code. Our department is committed to fostering a supportive learning environment and is excited to see your progress.
 
 Happy Coding! 💻
+
+## License
+
+This project is licensed under a custom license. Please note the following important restrictions:
+
+- The Software shall not be used for educational purposes in any formal educational institutions such as schools, colleges, or universities without the explicit permission of the copyright holder.
+- The Software is provided for personal, non-commercial use only.
+- Forking the repository is allowed for personal use and non-commercial purposes only. Any forks or derivatives of this repository must include this license and maintain the same restrictions.
+
+For full details, please refer to the [LICENSE](./LICENSE) file.
