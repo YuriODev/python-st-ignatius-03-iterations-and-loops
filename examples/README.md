@@ -292,7 +292,7 @@ for i in range(1, 11):
 ```
 </details>
 
-## Problem 11: Sum of Products Calculation
+## Example 11: Sum of Products Calculation
 
 
 **Problem:** For a given integer `n` (n > 1), calculate the value `1 × 2 + 2 × 3 + …​ + (n - 1) × n`.
@@ -318,7 +318,7 @@ print(total)
 ```
 </details>
 
-## Problem 12: Number Entry and Exit
+## Example 12: Number Entry and Exit
 
 **Problem:** Write a program where the user enters integers. If an integer `n` is entered, the program should end its execution with the message `Done`. First, the user enters the number `n`, and then the rest of the numbers. 
 
@@ -342,7 +342,7 @@ while True:
 ```
 </details>
 
-## Problem 13: Sum of Integers Calculation
+## Example 13: Sum of Integers Calculation
 
 **Problem:** Given `n` integers. Each number is entered on a separate line. Calculate the sum of the numbers.
 
@@ -366,7 +366,7 @@ print(total)
 ```
 </details>
 
-## Problem 14: Pattern Printing
+## Example 14: Pattern Printing
 
 **Problem:** Write a program to build a pattern as in the output data for the entered value `n`.
 
@@ -388,7 +388,7 @@ for i in range(1, n + 1):
 ```
 </details>
 
-## Problem 15: Factorial Calculation
+## Example 15: Factorial Calculation
 
 **Problem:** Given a positive integer `n`, calculate the value of `n!` - the factorial of this number.
 
@@ -414,7 +414,7 @@ print(factorial)
 
 **Note** We assign the value `1` to the variable `factorial` because the factorial of `0` is `1`. Then, we use a `for` loop to iterate through the numbers from `1` to `n` and multiply them to the `factorial` variable. Also, we can't assign it to `0` because the multiplication of any number by `0` is `0`.
 
-## Problem 16: Sum of Sequence Elements Calculation
+## Example 16: Sum of Sequence Elements Calculation
 
 **Problem:** Determine the sum of all elements of the sequence that ends with the number `0`. A sequence of integers that ends with the number `0` is entered (the number `0` itself is not included in the sequence, but is used as a sign of its end).
 
@@ -440,7 +440,7 @@ print(total)
 ```
 </details>
 
-## Problem 17: Largest Element Calculation
+## Example 17: Largest Element Calculation
 
 **Problem:** Given a sequence of natural numbers, ending with the number `0`. Determine the value of the largest element in the sequence.
 
@@ -468,7 +468,7 @@ print(max_number)
 </details>
 
 
-## Problem 18: Sum of Digits Calculation
+## Example 18: Sum of Digits Calculation
 
 **Problem:** Write a program that outputs all three-digit numbers whose sum of digits is equal to a certain value `n` entered by the user.
 
@@ -501,7 +501,7 @@ for i in range(100, 1000):
 </details>
 
 
-## Problem 19: Power Calculation
+## Example 19: Power Calculation
 
 **Problem:** Given integers `a` and `b`. Calculate `a` to power of `b` without using the exponentiation operation.
 
@@ -528,7 +528,7 @@ print(result)
 </details>
 
 
-## Problem 20: Quiz Winner Determination
+## Example 20: Quiz Winner Determination
 
 **Problem:** High school students took part in a computer science quiz. They had to answer 20 questions. The winner of the quiz is the participant who correctly answered the most questions. How many questions did the winner answer correctly? If there are participants in the quiz who could not give a correct answer to any of the questions, print Yes, otherwise print No. It is guaranteed that there are participants who correctly answered at least one question. The program receives the number of quiz participants `n` (1 ≤ `n` ≤ 50) as input, then for each participant, the number of questions they answered correctly is entered.
 
@@ -558,7 +558,7 @@ print("Yes" if failed_quiz else "No")
 ```
 </details>
 
-## Problem 21: Average Speed Calculation
+## Example 21: Average Speed Calculation
 
 **Problem:** A surveillance camera automatically registers the speed of passing cars, rounding the speed values to integers. It is necessary to determine the average registered speed of all cars. If the speed of at least one car was more than 60 km/h, print Yes, otherwise print No. The program receives the number of registered cars `n` (1 ≤ `n` ≤ 30) as input, then the speeds of the cars are indicated. The speed value cannot be less than 1 and more than 300. The program should first print the average speed with an accuracy of one decimal place, then Yes or No.
 
@@ -590,7 +590,7 @@ print("Yes" if over_speed else "No")
 
 </details>
 
-## Problem 22: Automorphic Number Determination
+## Example 22: Automorphic Number Determination
 
 **Problem:** Given a natural number `n`. Determine if it is an automorphic number. Note. An automorphic number is a number whose square is equal to the last digits of the square of this number: 5 - 25, 6 - 36, 25 - 625.
 
@@ -629,7 +629,7 @@ else:
 
 </details>
 
-## Problem 23: Least Common Multiple Calculation
+## Example 23: Least Common Multiple Calculation
 
 **Problem:** Write a program that helps to find the least common multiple (LCM) of two numbers. The program should read two positive integers `a` and `b` (each number is entered on a separate line) and print the smallest number that is divisible by both of these numbers without a remainder.
 The formula to calculate the Least Common Multiple (LCM) of two numbers `a` and `b` is given by:
@@ -678,7 +678,7 @@ print(lcm)
 
 </details>
 
-## Problem 24: Monotonous Sequence Printing
+## Example 24: Monotonous Sequence Printing
 
 **Problem:** Given a natural number `n`. Print the first `n` members of the sequence. The sequence is a monotonous sequence in which each natural number `k` occurs exactly `k` times: 1, 2, 2, 3, 3, 3, 4, 4, 4, 4, ....
 
@@ -712,7 +712,7 @@ while count < n:
 </details>
 
 
-## Problem 25: Fibonacci Number Determination
+## Example 25: Fibonacci Number Determination
 
 **Problem:** Given a natural number `n`. Determine which Fibonacci number it is. If `n` is not a Fibonacci number, print the value `-1`. The Fibonacci sequence is a series of numbers in which each number is the sum of the two preceding ones, usually starting with 0 and 1. The sequence goes: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, and so on.
 
@@ -748,7 +748,7 @@ else:
 
 </details>
 
-## Problem 26: Sequence Element Comparison
+## Example 26: Sequence Element Comparison
 
 **Problem:** Given a sequence of natural numbers that ends with the number `0`. Determine how many elements of this sequence are greater than the previous element.
 
@@ -808,7 +808,7 @@ print(max_count)
 
 </details>
 
-## Problem 28: Sequence Element Comparison
+## Example 28: Sequence Element Comparison
 
 **Problem:** Given a sequence of natural numbers that ends with the number `0`. Determine the largest number of elements in this sequence that go one after the other and are equal to each other (i.e., the longest consecutive sequence of identical elements). Also, print the element that is repeated most consecutively. If there are multiple elements with the same maximum consecutive count, the task does not specify which one to print, so we'll choose to print any one of them.
 
@@ -859,7 +859,7 @@ else:
 </details>
 
 
-## Problem 29: Divisibility Graphical Representation
+## Example 29: Divisibility Graphical Representation
 
 **Problem:** Write a program to graphically represent the divisibility of numbers from `1` to `n` (the value of `n` is entered from the keyboard). In each line, print the next number and as many `+` characters as there are divisors of this number.
 
@@ -892,7 +892,7 @@ for i in range(1, n + 1):
 
 </details>
 
-## Problem 30: Number Reversal
+## Example 30: Number Reversal
 
 **Problem:** Given a natural number `n`. Print the number that is the reverse of the order of its digits.
 
@@ -939,7 +939,7 @@ print(reversed_number)
 
 </details>
 
-## Problem 31: Number of Digits Counting
+## Example 31: Number of Digits Counting
 
 **Problem:** In one country, banknotes with denominations of 1, 2, 4, 8, 16, 32, and 64 are used. Given a natural number `n`. What is the smallest number of such banknotes that can be used to pay the amount `n` (indicate the number of each of the banknotes used for payment)? It is assumed that there are enough banknotes of all denominations.
 
