@@ -1,5 +1,11 @@
 # 📘 Iterations and Loops in Python
 
+![GitHub contributors](https://img.shields.io/github/contributors/YurioDev/python-yuriodev-01-simple-data-types?style=for-the-badge)
+![Forks](https://img.shields.io/github/forks/YurioDev/python-yuriodev-01-simple-data-types?style=for-the-badge)
+![Stars](https://img.shields.io/github/stars/YurioDev/python-yuriodev-01-simple-data-types?style=for-the-badge)
+![Issues](https://img.shields.io/github/issues/YurioDev/python-yuriodev-01-simple-data-types?style=for-the-badge)
+![License](https://img.shields.io/github/license/YurioDev/python-yuriodev-01-simple-data-types?style=for-the-badge)
+
 Welcome to the third module of the **YuriODev Comprehensive Python Course**, focusing on **Iterations and Loops**. This module explores the power of repetition in programming, allowing you to execute a block of code multiple times efficiently.
 
 ## 🌟 Course Navigation 🧭
@@ -106,11 +112,33 @@ To deepen your understanding of loops and iterations in Python, check out these 
 
 
 
-## 📜 License
+## 📢 License
 
-This project is licensed under a custom license. Please note the following important restrictions:
+This project is licensed under a custom license:
 
-- The software is for **non-commercial use only** and may not be used in formal educational institutions without explicit permission.
-- Forks and derivatives are allowed for **personal** and **non-commercial** use only. Any forks or derivatives must include this license and the same restrictions.
+- **Non-Commercial Use**: The software may not be used for commercial purposes.
+- **Educational Use**: The software may not be used in formal educational institutions without explicit permission.
+- **Forks and Derivatives**: Permitted for personal and non-commercial purposes, provided this license is included in any derived works.
 
-For full details, please refer to the [LICENSE](./LICENSE) file.
+For more details, refer to the [LICENSE](./LICENSE) file.
+
+---
+
+## 📢 Providing Feedback
+
+### 📞 Contact Me
+
+[![Contact Me](https://img.shields.io/badge/Contact-Me-blue?style=for-the-badge)](mailto:contact@yuriodev.co.uk)
+
+Your feedback helps us improve. If you have suggestions or comments, please raise an issue in this repository.
+
+
+## 💖 Support the Developer
+
+If you find this project helpful and would like to support its development, consider contributing through one of the following options:
+
+[![Buy Me A Coffee](https://img.shields.io/badge/-Buy%20Me%20a%20Coffee-orange?style=for-the-badge&logo=buy-me-a-coffee)](https://www.buymeacoffee.com/yuriodev)
+[![PayPal](https://img.shields.io/badge/Donate-PayPal-blue?style=for-the-badge&logo=paypal)](https://paypal.me/yuriodev)
+[![Patreon](https://img.shields.io/badge/Support-Patreon-red?style=for-the-badge&logo=patreon)](https://www.patreon.com/YuriODev)
+
+Every contribution, no matter how small, helps and is greatly appreciated! 🙏
