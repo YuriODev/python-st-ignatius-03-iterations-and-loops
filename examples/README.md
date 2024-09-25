@@ -5,39 +5,39 @@ Here are some examples to get you started.
 <details open>
 <summary><b>Covered topics</b></summary>
 
-| Topic Covered                                           | Code with explanations                           |
-| ------------------------------------------------------- | ------------------------------------------------- |
-| - Hello, Python! Printing                     | [Detailed code](./example_1.py)      |
-|  Number Range Printing                        | [Detailed code](./example_2.py)      |
-|  Average Grade Calculation                    | [Detailed code](./example_3.py)      |
-|  Number of # Characters Printing              | [Detailed code](./example_4.py)      |
-|  Triangle of Numbers Printing                 | [Detailed code](./example_5.py)      |
-|  Positive, Negative, and Zero Numbers Counting | [Detailed code](./example_6.py)      |
-|  Two-Digit Odd Numbers Printing                | [Detailed code](./example_7.py)      |
-|  Number of Digits Counting                     | [Detailed code](./example_8.py)      |
-|  Printing Numbers with Conditions             | [Detailed code](./example_9.py)      |
-| Multiplication Table Printing                | [Detailed code](./example_10.py)    |
-| Sum of Products Calculation                  | [Detailed code](./example_11.py)    |
-| Number Entry and Exit                        | [Detailed code](./example_12.py)    |
-| Sum of Integers Calculation                  | [Detailed code](./example_13.py)    |
-| Pattern Printing                             | [Detailed code](./example_14.py)    |
-| Factorial Calculation                        | [Detailed code](./example_15.py)    |
-| Sum of Sequence Elements Calculation         | [Detailed code](./example_16.py)    |
-| Sum of Digits Calculation                    | [Detailed code](./example_17.py)    |
-| Power Calculation                            | [Detailed code](./example_18.py)    |
-| Power Calculation                            | [Detailed code](./example_19.py)    |
-| Quiz Winner Determination                    | [Detailed code](./example_20.py)    |
-| Average Speed Calculation                    | [Detailed code](./example_21.py)    |
-| Automorphic Number Determination             | [Detailed code](./example_22.py)    |
-| Least Common Multiple Calculation            | [Detailed code](./example_23.py)    |
-| Monotonous Sequence Printing                 | [Detailed code](./example_24.py)    |
-| Fibonacci Number Determination               | [Detailed code](./example_25.py)    |
-| Sequence Element Comparison                  | [Detailed code](./example_26.py)    |
-| Sequence Element Comparison                  | [Detailed code](./example_27.py)    |
-| Fibonacci Number Determination               | [Detailed code](./example_28.py)    |
-| Sequence Element Comparison                  | [Detailed code](./example_29.py)    |
-| Sequence Element Comparison                  | [Detailed code](./example_30.py)    |
-| Sequence Element Comparison                  | [Detailed code](./example_31.py)    |
+| Topic Covered                                           | Code with explanations                           | Problem Description                           | Video Explanation (is coming soon)                           |
+| ------------------------------------------------------- | ------------------------------------------------- | --------------------------------------------- | ------------------------------------------------------------ |
+| - Hello, Python! Printing                     | [Detailed code](./example_1.py)      | [Problem description](#example-1-hello-python-printing) | [Video explanation](#) |
+|  Number Range Printing                        | [Detailed code](./example_2.py)      | [Problem description](#example-2-number-range-printing) | [Video explanation](#) |
+|  Average Grade Calculation                    | [Detailed code](./example_3.py)      | [Problem description](#example-3-average-grade-calculation) | [Video explanation](#) |
+|  Number of # Characters Printing              | [Detailed code](./example_4.py)      | [Problem description](#example-4-number-of-characters-printing) | [Video explanation](#) |
+|  Triangle of Numbers Printing                 | [Detailed code](./example_5.py)      | [Problem description](#example-5-triangle-of-numbers-printing) | [Video explanation](#) |
+|  Positive, Negative, and Zero Numbers Counting | [Detailed code](./example_6.py)      | [Problem description](#example-6-positive-negative-and-zero-numbers-counting) | [Video explanation](#) |
+|  Two-Digit Odd Numbers Printing                | [Detailed code](./example_7.py)      | [Problem description](#example-7-two-digit-odd-numbers-printing) | [Video explanation](#) |
+|  Number of Digits Counting                     | [Detailed code](./example_8.py)      | [Problem description](#example-8-number-of-digits-counting) | [Video explanation](#) |
+|  Printing Numbers with Conditions             | [Detailed code](./example_9.py)      | [Problem description](#example-9-printing-numbers-with-conditions) | [Video explanation](#) |  
+| Multiplication Table Printing                | [Detailed code](./example_10.py)    | [Problem description](#example-10-multiplication-table-printing) | [Video explanation](#) |
+| Sum of Products Calculation                  | [Detailed code](./example_11.py)    | [Problem description](#example-11-sum-of-products-calculation) | [Video explanation](#) |
+| Number Entry and Exit                        | [Detailed code](./example_12.py)    | [Problem description](#example-12-number-entry-and-exit) | [Video explanation](#) |
+| Sum of Integers Calculation                  | [Detailed code](./example_13.py)    | [Problem description](#example-13-sum-of-integers-calculation) | [Video explanation](#) |
+| Pattern Printing                             | [Detailed code](./example_14.py)    | [Problem description](#example-14-pattern-printing) | [Video explanation](#) |
+| Factorial Calculation                        | [Detailed code](./example_15.py)    | [Problem description](#example-15-factorial-calculation) | [Video explanation](#) |
+| Sum of Sequence Elements Calculation         | [Detailed code](./example_16.py)    | [Problem description](#example-16-sum-of-sequence-elements-calculation) | [Video explanation](#) |
+| Sum of Digits Calculation                    | [Detailed code](./example_17.py)    | [Problem description](#example-17-sum-of-digits-calculation) | [Video explanation](#) |
+| Power Calculation                            | [Detailed code](./example_18.py)    | [Problem description](#example-18-power-calculation) | [Video explanation](#) |
+| Power Calculation                            | [Detailed code](./example_19.py)    | [Problem description](#example-19-power-calculation) | [Video explanation](#) |
+| Quiz Winner Determination                    | [Detailed code](./example_20.py)    | [Problem description](#example-20-quiz-winner-determination) | [Video explanation](#) |
+| Average Speed Calculation                    | [Detailed code](./example_21.py)    | [Problem description](#example-21-average-speed-calculation) | [Video explanation](#) |
+| Automorphic Number Determination             | [Detailed code](./example_22.py)    | [Problem description](#example-22-automorphic-number-determination) | [Video explanation](#) |
+| Least Common Multiple Calculation            | [Detailed code](./example_23.py)    | [Problem description](#example-23-least-common-multiple-calculation) | [Video explanation](#) |
+| Monotonous Sequence Printing                 | [Detailed code](./example_24.py)    | [Problem description](#example-24-monotonous-sequence-printing) | [Video explanation](#) |
+| Fibonacci Number Determination               | [Detailed code](./example_25.py)    | [Problem description](#example-25-fibonacci-number-determination) | [Video explanation](#) |
+| Sequence Element Comparison                  | [Detailed code](./example_26.py)    | [Problem description](#example-26-sequence-element-comparison) | [Video explanation](#) |
+| Sequence Element Comparison                  | [Detailed code](./example_27.py)    | [Problem description](#example-27-sequence-element-comparison) | [Video explanation](#) |
+| Fibonacci Number Determination               | [Detailed code](./example_28.py)    | [Problem description](#example-28-fibonacci-number-determination) | [Video explanation](#) |
+| Sequence Element Comparison                  | [Detailed code](./example_29.py)    | [Problem description](#example-29-sequence-element-comparison) | [Video explanation](#) |
+| Sequence Element Comparison                  | [Detailed code](./example_30.py)    | [Problem description](#example-30-sequence-element-comparison) | [Video explanation](#) |
+| Sequence Element Comparison                  | [Detailed code](./example_31.py)    | [Problem description](#example-31-sequence-element-comparison) | [Video explanation](#) |
 
 </details>
 
